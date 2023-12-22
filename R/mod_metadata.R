@@ -1,4 +1,4 @@
-#' metadata UI Function
+#' Metadata UI Function
 #'
 #' @description A shiny Module.
 #'
@@ -10,88 +10,67 @@ mod_metadata_ui <- function(id){
   tagList(
     fluidRow(
       column(12,
-             bs4Dash::box(title = "Description of the Dataset",
-                 status = "white",
-                 solidHeader = TRUE,
-                 collapsible = TRUE,
-                 elevation = 3,
-                 width = 12,
-                 collapsed = F,
-                 DT::dataTableOutput(ns("meta"))),
-             bs4Dash::box(title = "Data Schema",
-                 status = "white",
-                 solidHeader = TRUE,
-                 collapsible = TRUE,
-                 elevation = 3,
-                 width = 12,
-                 collapsed = T,
-                 DT::dataTableOutput(ns("schema")))
+             # Box containing a data table for describing the dataset
+             bs4Dash::box(
+               title = "Description of the Dataset",
+               status = "white",
+               solidHeader = TRUE,
+               collapsible = TRUE,
+               elevation = 3,
+               width = 12,
+               collapsed = F,
+               DT::dataTableOutput(ns("meta"))
+             ),
+             # Box containing a data table for the data schema
+             bs4Dash::box(
+               title = "Data Schema",
+               status = "white",
+               solidHeader = TRUE,
+               collapsible = TRUE,
+               elevation = 3,
+               width = 12,
+               collapsed = F,
+               DT::dataTableOutput(ns("schema"))
+             )
       )
     )
   )
 }
 
-#' metadata Server Functions
+#' Metadata Server Functions
 #'
 #' @noRd
 mod_metadata_server <- function(id, exampleData){
+  # Define the server logic for the metadata module
   moduleServer( id, function(input, output, session){
     ns <- session$ns
 
+    # Reactive expression to load metadata based on the selected exampleData
     metaData <- reactive({
-
       req(exampleData)
 
-      # filename <- list.files("data", pattern = paste0(exampleData(),"Meta"))
-      #
-      # if (length(filename) == 0) {
-      #
-      #   # Handle the case when no matching file is found
-      #   print("File not found")
-      #   return(NULL)  # Or handle the error as needed
-      #
-      #   loaded_data <- load(file.path("data", filename))
-      # }
-      #
-      # # Assuming there's only one matching file, load the data
-      # loaded_data <- load(file.path("data", filename))
-      #
-      # # Extract the loaded data from the environment
-      # loaded_data <- get(loaded_data)
-
-      # Load package lazy data depending on user input
-      if (exampleData() %in% "Fattyacid") {
-        return(DataExplorer::FattyacidMeta)
-      }
-      if (exampleData() %in% "Milk") {
-        return(DataExplorer::MilkMeta)
-      }
-      if (exampleData() %in% "Feed") {
-        return(DataExplorer::FeedMeta)
-      }
+      # # Load package lazy data depending on user input using get_data function
+      get_data(exampleData(),TRUE)
     })
 
-
-
-    #Render a data table for metadata
+    # Render a data table for metadata
     output$meta <- DT::renderDataTable({
       DT::datatable(metaData()[1:7,],
-                rownames = FALSE,
-                colnames = c("Keys", "Values"),
-                options = list(dom = "tp",
-                               autoWidth = FALSE,
-                               scrollX = TRUE))
+                    rownames = FALSE,
+                    colnames = c("Keys", "Values"),
+                    options = list(dom = "tp",
+                                   autoWidth = FALSE,
+                                   scrollX = TRUE))
     })
-
 
     # Render a data table for data schema
     output$schema <- DT::renderDataTable({
       DT::datatable(metaData()[8:13,],
-                rownames = FALSE,
-                colnames = c("Keys", "Values"),
-                options = list(dom = "tp",
-                               autoWidth = FALSE,
-                               scrollX = TRUE))
+                    rownames = FALSE,
+                    colnames = c("Keys", "Values"),
+                    options = list(dom = "tp",
+                                   autoWidth = FALSE,
+                                   scrollX = TRUE))
     })
 
   })

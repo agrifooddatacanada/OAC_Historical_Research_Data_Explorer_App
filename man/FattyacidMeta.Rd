@@ -3,7 +3,7 @@
 \docType{data}
 \name{FattyacidMeta}
 \alias{FattyacidMeta}
-\title{Example datasets}
+\title{Metadata for the Fattyacid data}
 \format{
 An object of class \code{data.frame} with 13 rows and 2 columns.
 }
@@ -11,7 +11,19 @@ An object of class \code{data.frame} with 13 rows and 2 columns.
 FattyacidMeta
 }
 \description{
-The dataset is derived from the borealis database
-and is used to show how the DataExplorer App works
+The "FattyacidMeta" dataset contains metadata and schema information
+related to the "Fattyacid" data. It provides details about the structure and context
+of the Fattyacid dataset.
+
+For more comprehensive information about the "Fattyacid" dataset and the study,
+refer to the borealis database
+[here](https://borealisdata.ca/dataset.xhtml?persistentId=doi:10.5683/SP3/WVC09T).
 }
-\keyword{datasets}
+\keyword{Fish}
+\keyword{Milk}
+\keyword{Monensin,}
+\keyword{Omega-3}
+\keyword{acids}
+\keyword{composition,}
+\keyword{fatty}
+\keyword{oil,}

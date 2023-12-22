@@ -5,89 +5,75 @@
 #' @param id,input,output,session Internal parameters for {shiny}.
 #'
 #' @noRd
-mod_data_ui <- function(id){
-  ns <- NS(id)
-  tagList(
 
+mod_data_ui <- function(id){
+  # Create a namespace for Shiny inputs and outputs
+  ns <- NS(id)
+
+  # Define the UI structure using bs4Dash elements
+  tagList(
     fluidRow(
+      # Create a column that spans the entire width (12 columns)
       bs4Dash::column(12,
-                      bs4Dash::box(title = "Raw Data",
-                                   status = "white",
-                                   solidHeader = TRUE,
-                                   collapsible = TRUE,
-                                   elevation = 3,
-                                   width = 12,
-                                   collapsed = F,
-                                   DT::dataTableOutput(ns("rawtable"))),
-                      bs4Dash::box(title = "Summary statistics",
-                                   status = "white",
-                                   solidHeader = TRUE,
-                                   collapsible = TRUE,
-                                   elevation = 3,
-                                   width = 12,
-                                   collapsed = T,
-                                   verbatimTextOutput(ns("summary")))
+                      # Box containing a data table with the id "rawtable"
+                      bs4Dash::box(
+                        title = "Raw Data",
+                        status = "white",
+                        solidHeader = TRUE,
+                        collapsible = TRUE,
+                        elevation = 3,
+                        width = 12,
+                        collapsed = F,
+                        DT::dataTableOutput(ns("rawtable"))
+                      ),
+                      # Box containing summary statistics with the id "summary"
+                      bs4Dash::box(
+                        title = "Summary statistics",
+                        status = "white",
+                        solidHeader = TRUE,
+                        collapsible = TRUE,
+                        elevation = 3,
+                        width = 12,
+                        collapsed = F,
+                        verbatimTextOutput(ns("summary"))
+                      )
       )
     )
   )
 }
 
-#' data Server Functions
+#' Data Server Functions
 #'
 #' @noRd
 mod_data_server <- function(id, exampleData){
+  # Define the server logic for the data module
   moduleServer( id, function(input, output, session){
     ns <- session$ns
-    # Render and output raw data and summary
 
-    ## Input and read data
-
+    # Reactive expression to read and process the selected exampleData
     data <- reactive({
       req(exampleData())
-    #   path <- file.path("data", paste0(exampleData(), ".rda"))
-    #
-    #   # Load the .rda
-    #   if (file.exists(path)) {
-    #     df <- load(path)
-    #     df <- get(df)
-    #
-    #     #Optionally, you can modify the data here (e.g., converting columns to factors)
-    #     df <- df %>%
-    #       dplyr::mutate(across(1:5, as.factor))
-    #
-    #     return(df)
-    #   } else {
-    #     # Handle the case where the file doesn't exist
-    #     return(NULL)
-    #   }
-    # })
 
-    # Load package lazy data depending on user input
-    if (exampleData() %in% "Fattyacid") {
-      return(DataExplorer::Fattyacid)
-    }
-    if (exampleData() %in% "Milk") {
-      return(DataExplorer::Milk)
-    }
-    if (exampleData() %in% "Feed") {
-      return(DataExplorer::Feed)
-    }
+      # # Load package lazy data depending on user input using get_data function
+      get_data(exampleData())
+
+    })
+
+    # Render the raw data table
+    output$rawtable <- DT::renderDataTable({
+      DT::datatable(data(),
+                    rownames = FALSE,
+                    options = list(dom = "tp",
+                                   autoWidth = FALSE,
+                                   scrollX = TRUE))
+    })
+
+    # Render and output summary statistics
+    output$summary <- renderPrint({
+      skim(data())
+    })
+
   })
-  output$rawtable <- DT::renderDataTable({
-    DT::datatable(data(),
-                  rownames = FALSE,
-                  options = list(dom = "tp",
-                                 autoWidth = FALSE,
-                                 scrollX = TRUE))
-  })
-
-
-  #output summary statistics
-  output$summary <- renderPrint({
-    skim(data())
-  })
-
-})
 }
 
 ## To be copied in the UI

@@ -39,6 +39,7 @@ usethis::use_package("ggplot2")
 ## 2.3  Add helper functions ----
 ## Creates fct_* and utils_*
 golem::add_fct("helpers", with_test = TRUE)
+golem::add_fct("readData")  # add readData function
 golem::add_utils("helpers", with_test = TRUE)
 
 ## 2.4  Add external resources

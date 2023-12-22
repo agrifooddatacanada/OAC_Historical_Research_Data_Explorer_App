@@ -1,4 +1,4 @@
-#' plot UI Function
+#' Plot UI Function
 #'
 #' @description A shiny Module.
 #'
@@ -10,94 +10,74 @@
 mod_plot_ui <- function(id){
   ns <- NS(id)
   tagList(
-    # The plot tab with option to select X and Y variable.
-    #The X and Y will be updated after loading the data
+    # The plot tab with options to select plot type, X and Y variables
     fluidRow(
       bs4Dash::column(3,
-                      bs4Dash::box(title = "Select Plot Type",
-                                   status = "white",
-                                   solidHeader = TRUE,
-                                   collapsible = F,
-                                   elevation = 3,
-                                   width = 12,
-                                   awesomeRadio(
-                                     inputId = ns("button"),
-                                     label = "Plot type",
-                                     choices = c("Boxplot","Scatter plot"),
-                                     selected = "Boxplot",
-                                     inline = TRUE
-                                   )),
-
-                      bs4Dash::box(title = "Select Variables",
-                                   status = "white",
-                                   solidHeader = TRUE,
-                                   collapsible = F,
-                                   elevation = 3,
-                                   width = 12,
-                                   selectInput(ns("Xvar"),
-                                               "X",
-                                               choices = ""),
-                                   selectInput(ns("Yvar"),
-                                               "Y",
-                                               choices =""))),
+                      # Box for selecting the plot type (Boxplot or Scatter plot)
+                      bs4Dash::box(
+                        title = "Select Plot Type",
+                        status = "white",
+                        solidHeader = TRUE,
+                        collapsible = FALSE,
+                        elevation = 3,
+                        width = 12,
+                        awesomeRadio(
+                          inputId = ns("button"),
+                          label = "Plot type",
+                          choices = c("Boxplot", "Scatter plot"),
+                          selected = "Boxplot",
+                          inline = TRUE
+                        )
+                      ),
+                      # Box for selecting X and Y variables
+                      bs4Dash::box(
+                        title = "Select Variables",
+                        status = "white",
+                        solidHeader = TRUE,
+                        collapsible = FALSE,
+                        elevation = 3,
+                        width = 12,
+                        selectInput(ns("Xvar"),
+                                    "X",
+                                    choices = ""),
+                        selectInput(ns("Yvar"),
+                                    "Y",
+                                    choices ="")
+                      )
+      ),
       bs4Dash::column(9,
-                      bs4Dash::box(title = "Plot Area",
-                                   status = "white",
-                                   solidHeader = TRUE,
-                                   collapsible = F,
-                                   elevation = 3,
-                                   width = 12,
-                                   plotOutput(ns("plot"))
+                      # Box for displaying the plot area
+                      bs4Dash::box(
+                        title = "Plot Area",
+                        status = "white",
+                        solidHeader = TRUE,
+                        collapsible = FALSE,
+                        elevation = 3,
+                        width = 12,
+                        plotOutput(ns("plot"))
                       )
       )
     )
   )
 }
 
-#' plot Server Functions
+#' Plot Server Functions
 #'
 #' @noRd
 mod_plot_server <- function(id, exampleData){
+  # Define the server logic for the plot module
   moduleServer( id, function(input, output, session){
     ns <- session$ns
 
+    # Reactive expression to load data based on the selected example data
     data_plot <- reactive({
-
       req(exampleData())
 
-      #   path <- file.path("data", paste0(exampleData(), ".rda"))
-      #
-      #   # Load the .rda
-      #   if (file.exists(path)) {
-      #
-      #     df <- load(path)
-      #     df <- get(df)
-      #
-      #     #Optionally, you can modify the data here (e.g., converting columns to factors)
-      #     df <- df %>%
-      #       dplyr::mutate(across(1:5, as.factor))
-      #     return(df)
-      #
-      #   } else {
-      #     # Handle the case where the file doesn't exist
-      #     return(NULL)
-      #   }
-      # })
-
-      # Load package lazy data depending on user input
-      if (exampleData() %in% "Fattyacid") {
-        return(DataExplorer::Fattyacid)
-      }
-      if (exampleData() %in% "Milk") {
-        return(DataExplorer::Milk)
-      }
-      if (exampleData() %in% "Feed") {
-        return(DataExplorer::Feed)
-      }
+      # Load package lazy data depending on user input using get_data function
+      get_data(exampleData())
     })
 
-
-    # update selectInput for Xvar based on selected data
+    # Update selectInput for Xvar based on selected data
     observe({
       req(data_plot())
       updateSelectInput(session,
@@ -106,7 +86,7 @@ mod_plot_server <- function(id, exampleData){
                         choices = colnames(data_plot()))
     })
 
-    # update selectInput for Yvar based on selected data
+    # Update selectInput for Yvar based on selected data
     observe({
       req(data_plot())
       Ychoices <- subset(colnames(data_plot()), !(colnames(data_plot()) %in% input$Xvar))
@@ -133,7 +113,6 @@ mod_plot_server <- function(id, exampleData){
       }
 
     })
-
 
   })
 }
