@@ -322,7 +322,6 @@ cache_raw_data <- function(conn) {
   return(updated_data)
 }
 
-
 # Function to extract and process nodes and edges for Keywords and Authors
 process_and_cache_new_data <- function(raw_data, input_event_type, conn) {
   
@@ -470,8 +469,20 @@ process_and_cache_new_data <- function(raw_data, input_event_type, conn) {
       year_range = paste(unique(year_range), collapse = " | "),
       DOI = paste(unique(DOI), collapse = "; ")
     ) %>%
-    dplyr::ungroup() %>%
-    dplyr::mutate(id = dplyr::row_number())
+    dplyr::ungroup() 
+  
+  # Get the maximum existing id from the database (if table exists)
+  if (DBI::dbExistsTable(conn, nodes_table)) {
+    current_max_id <- DBI::dbGetQuery(conn, paste0("SELECT MAX(id) AS max_id FROM ", nodes_table))$max_id
+    current_max_id <- ifelse(is.na(current_max_id), 0, current_max_id)
+  } else {
+    current_max_id <- 0
+  }
+  
+  # Then assign new ids starting after the current maximum
+  nodes <- nodes %>%
+    dplyr::mutate(id = current_max_id + dplyr::row_number())
+  
   
   # Create edges
   event_occurrences <- lapply(nodes$label, function(ev) which(grepl(ev, all_data[[input_event_type]], ignore.case = TRUE)))

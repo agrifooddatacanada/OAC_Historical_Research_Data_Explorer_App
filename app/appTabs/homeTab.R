@@ -142,7 +142,7 @@ explorer_list$homeTab_ui  <- tabItem(
     font-size: 20px;
     line-height: 1.6;
     color: #333333;",
-    tags$h4(tags$b("Agri-Food data Canada")),
+    tags$h4(tags$b("Agri-food Data Canada")),
     tags$hr(style = "border: 2px solid #3c8dbc; width: 250px; margin: auto;"),
     
     br(),
@@ -152,7 +152,7 @@ explorer_list$homeTab_ui  <- tabItem(
           (i.e., Findable, Accessible, Interoperable, and Reusable).
           Our mission is to support researchers in maximizing data impact by
           simplifying access,fostering innovation, and integrating historical research.
-          Learn more about the Agric-Food data Canada at the University of Guelph,",
+          Learn more about the Agric-food Data Canada at the University of Guelph,",
       tags$a(href = "https://agrifooddatacanada.ca/",
              tags$b("here."), target = "_blank", style = "color:#3c8dbc;")
     )),
@@ -216,14 +216,14 @@ explorer_list$homeTab_ui  <- tabItem(
     tags$hr(style = "border: 2px solid #3c8dbc; width: 100px; margin: auto;"),
     br(),
     p("The ", strong("Explore Borealis tab"),
-      "lets users visualize study networks in the OAC repository based on
+      "lets users visualize study networks in the Agri-environmental Research Data repository based on
         keywords and author names. Users can select a keyword or author to explore
         related studies and gain deeper insights through the study overview,
         metadata, and data exploration tabs. Click ",
-      tags$a(href = "https://borealisdata.ca/dataverse/oac",
+      tags$a(href = "https://borealisdata.ca/dataverse/ugardr",
              tags$b("here"),
              target = "_blank", style = "color:#3c8dbc;"),
-      " to access the OAC dataverse in the Borealis database.")
+      " to access the Agri-environmental Research Data dataverse in the Borealis database.")
   ),
   
   br(),br(), br(),

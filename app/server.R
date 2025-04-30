@@ -53,7 +53,7 @@ server <- function(input, output, session) {
       explorer_list$networkTab_server(input, output, session, study_data, shared_data, conn)
       datareviewTab_server("data", study_data, shared_data)
       
-      # ✅ Process & cache only new studies
+      # Process & cache only new studies
       observeEvent(study_data(), {
         new_data <- study_data()
         

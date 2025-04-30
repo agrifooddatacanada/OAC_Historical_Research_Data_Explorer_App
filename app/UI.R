@@ -76,11 +76,30 @@ ui <- dashboardPage(
     
     # Add Footer
     tags$footer(
-      tags$p(
-        HTML(paste0("&copy; Agrifood Data Canada ", format(Sys.Date(), "%Y"), ". All rights reserved.")),
-        style = "font-size: 16px; font-weight: bold; color: #333;"
+      style = "padding: 10px; background-color: #f8f9fa; width: 100%;",
+      
+      tags$div(
+        h6("Powered by"),
+        tags$img(
+          src = "Agri-food.png", 
+          style = "max-width: 300px; width: 100%; height: auto; display: block; margin-left: 10px;"
+        ),
+        style = "font-weight: bold; margin: 5px 0 10px 0;"
       ),
-      style = "text-align: center; padding: 10px; background-color: #f8f8f8; width: 100%;"
+      
+      tags$div(
+        h6("Supported by"),
+        tags$img(
+          src = "Canada_first.png", 
+          style = "max-width: 300px; width: 100%; height: auto; display: block; margin-left: 10px;"
+        ),
+        style = "font-weight: bold; margin: 5px 0 10px 0;"
+      ),
+      
+      tags$p(
+        HTML(paste0("&copy; Agri-food Data Canada ", format(Sys.Date(), "%Y"), ". All rights reserved.")),
+        style = "font-size: 16px; font-weight: bold; color: #333; text-align: center;"
+      )
     )
   )
 )

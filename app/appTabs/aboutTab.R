@@ -27,10 +27,10 @@ explorer_list$aboutTab_ui <-tabItem(
     p("This app enhances research data value by following
         FAIR principles—Findable, Accessible, Interoperable, and Reusable.
         By simplifying their application, it improves data usability for researchers,
-        industry professionals, and stakeholders in the Agri-Food sector."),
+        industry professionals, and stakeholders in the Agri-food sector."),
     
-    p("Agri-Food Data Canada at the University of Guelph helps researchers
-        maximize data potential, fostering innovation and advancing the agrifood sector.")
+    p("Agri-food Data Canada at the University of Guelph helps researchers
+        maximize data potential, fostering innovation and advancing the Agri-food sector.")
   ),
   
   br(), br(),
@@ -64,7 +64,7 @@ explorer_list$aboutTab_ui <-tabItem(
     p("By equipping researchers with practical skills and tools,
             the workshop aimed to foster a mindset of data reusability,
             ensuring that valuable research data can be effectively reused
-            to support advancements in the Agri-Food sector. At the end of the workshop,
+            to support advancements in the Agri-food sector. At the end of the workshop,
             the idea to create an app that simplifies the process of accessing and
             understanding historical data was born, further supporting researchers
             in maximizing the potential of their data for future discoveries.
@@ -176,13 +176,13 @@ explorer_list$aboutTab_ui <-tabItem(
     
     p("The Reusable Data Explorer (RED-X) app is funded by",
       tags$a(href = "https://agrifooddatacanada.ca/",
-             tags$b("Agri-Food Data Canada"),
+             tags$b("Agri-food Data Canada"),
              target = "_blank", style = "color:#3c8dbc;"),
       "with partial support from",
       tags$a(href = "https://www.computeontario.ca/",
              tags$b("Compute Ontario"),
              target = "_blank", style = "color:#3c8dbc;"),
-      "through a workshop that laid thefoundation for its development.")
+      "through a workshop that laid the foundation for its development.")
   ),
   
   br(), br(),

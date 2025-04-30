@@ -218,20 +218,8 @@ dataexplorationserver_module <- function(id, input_dataset_select, shared_data){
                        'xlsx' = {
                          read_excel(selected_file)
                        },
-                       'pdf' = {
-                         text <- pdf_text(selected_file)
-                         data.frame(Text = unlist(text), stringsAsFactors = FALSE)
-                       },
-                       'sas' = {
-                         read.sas7bdat(selected_file)
-                       },
                        'tab' = {
                          read.delim(selected_file, header = TRUE, sep = "\t")
-                       },
-                       'xml' = {
-                         xml_data <- xmlParse(selected_file)
-                         xml_df <- xmlToDataFrame(xml_data)
-                         xml_df
                        },
                        data.frame(Message = paste("Unsupported file type:", file_ext))  # Default case
         )
