@@ -7,6 +7,32 @@ ui <- dashboardPage(
   help = NULL,              # Placeholder for future help functionality (currently unused)
   dark = NULL,              # Placeholder for future dark mode functionality (currently unused)
   title = "RED-X | Re-usable Data Explorer App",
+  # Add footer
+  footer = bs4DashFooter(
+    tagList(
+      tags$div(
+        h6("Powered by"),
+        tags$img(
+          src = "Agri-food.png", 
+          style = "max-width: 300px; width: 100%; height: auto; display: block; margin-left: 10px;"
+        ),
+        style = "font-weight: bold; margin: 5px 0 10px 0;"
+      ),
+      tags$div(
+        h6("Supported by"),
+        tags$img(
+          src = "Canada_first.png", 
+          style = "max-width: 300px; width: 100%; height: auto; display: block; margin-left: 10px;"
+        ),
+        style = "font-weight: bold; margin: 5px 0 10px 0;"
+      ),
+      tags$p(
+        HTML(paste0("&copy; Agri-food Data Canada ", format(Sys.Date(), "%Y"), ". All rights reserved.")),
+        style = "font-size: 16px; font-weight: bold; color: #333; text-align: center;"
+      )
+    )
+  ),
+  
   # Define the dashboard header with a fixed position and a navbar menu module
   dashboardHeader(
     status = "lightblue",   # Set the header's color to light blue
@@ -64,7 +90,7 @@ ui <- dashboardPage(
     
     tabItems(
       explorer_list$homeTab_ui,
-     explorer_list$aboutTab_ui,
+      explorer_list$aboutTab_ui,
       explorer_list$networkTab_ui,
       tabItem(
         tabName = "borealis_tab",
@@ -73,34 +99,6 @@ ui <- dashboardPage(
     ),
     
     br(), br(),
-    
-    # Add Footer
-    tags$footer(
-      style = "padding: 10px; background-color: #f8f9fa; width: 100%;",
-      
-      tags$div(
-        h6("Powered by"),
-        tags$img(
-          src = "Agri-food.png", 
-          style = "max-width: 300px; width: 100%; height: auto; display: block; margin-left: 10px;"
-        ),
-        style = "font-weight: bold; margin: 5px 0 10px 0;"
-      ),
-      
-      tags$div(
-        h6("Supported by"),
-        tags$img(
-          src = "Canada_first.png", 
-          style = "max-width: 300px; width: 100%; height: auto; display: block; margin-left: 10px;"
-        ),
-        style = "font-weight: bold; margin: 5px 0 10px 0;"
-      ),
-      
-      tags$p(
-        HTML(paste0("&copy; Agri-food Data Canada ", format(Sys.Date(), "%Y"), ". All rights reserved.")),
-        style = "font-size: 16px; font-weight: bold; color: #333; text-align: center;"
-      )
-    )
   )
 )
 
