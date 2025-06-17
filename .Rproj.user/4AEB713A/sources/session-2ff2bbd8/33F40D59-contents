@@ -1,0 +1,35 @@
+project:
+  type: website
+
+website:
+  title: "OBRC Portal Documentation"
+  navbar:
+    title: "OBRC Portal Documentation"
+    background: "primary"
+    pinned: false
+  sidebar:
+    style: docked
+    contents: 
+      - index.qmd
+      - System_Architecture.qmd
+      - Dev.qmd
+      - Admin.qmd
+      - User.qmd
+      - Data.qmd
+ 
+format:
+  html:
+    number-sections: true
+    theme:
+      light: flatly
+      dark: darkly
+    css: styles.css
+    toc: true
+    toc-depth: 3
+    toc-title: "On this page"
+    mermaid:
+      theme: neutral
+      mermaid-format: png
+
+
+
