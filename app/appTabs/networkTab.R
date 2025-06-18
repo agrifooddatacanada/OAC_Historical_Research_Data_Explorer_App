@@ -62,52 +62,58 @@ explorer_list$networkTab_ui <- tabItem(
     )
   ),
   
-  fluidRow(
-    column(12,
-           box(
-             title = "Explore",
-             status = "lightblue",
-             solidHeader = FALSE,
-             collapsible = FALSE,
-             elevation = 1,
-             width = 12,
-             collapsed = FALSE,
-             
-             div(style = "margin-left: 10px;",
-                 awesomeRadio(
-                   inputId = "event_type",
-                   label = "View Network By",
-                   choices = c("Keywords", "Authors"),
-                   selected = "Keywords",
-                   inline = TRUE
-                 )
-             ),
-             
-             hr(),
-             fluidRow(
-               column(10,
-                      withSpinner(visNetworkOutput(
-                        "networkPlot",
-                        width = "100%",
-                        height = "800px"
-                      ))
-               ),
-               column(2,
-                      div(class = "custom-legend",
-                          uiOutput("customLegend", 
-                                   style = "display: flex; justify-content: center; align-items: center;
+  shinyjs::hidden(
+    # Div to hold the content of the tab once a college/dept is selected
+    div(
+      id = "networkBox",
+      fluidRow(
+        column(12,
+               box(
+                 title = "Explore",
+                 status = "lightblue",
+                 solidHeader = FALSE,
+                 collapsible = FALSE,
+                 elevation = 1,
+                 width = 12,
+                 collapsed = FALSE,
+                 
+                 div(style = "margin-left: 10px;",
+                     awesomeRadio(
+                       inputId = "event_type",
+                       label = "View Network By",
+                       choices = c("Keywords", "Authors"),
+                       selected = "Keywords",
+                       inline = TRUE
+                     )
+                 ),
+                 
+                 hr(),
+                 fluidRow(
+                   column(10,
+                          withSpinner(visNetworkOutput(
+                            "networkPlot",
+                            width = "100%",
+                            height = "800px"
+                          ))
+                   ),
+                   column(2,
+                          div(class = "custom-legend",
+                              uiOutput("customLegend", 
+                                       style = "display: flex; justify-content: center; align-items: center;
                             position: relative; top: 120px;")
-                      )
-                      
+                          )
+                          
+                   )
+                 ),
+                 hr(),
+                 fluidRow(
+                   column(12,
+                          uiOutput("nodeInfo")
+                   )
+                 )
                )
-             ),
-             hr(),
-             fluidRow(
-               column(12,
-                      uiOutput("nodeInfo")
-               )
-             )
-           )
+        )
+      )
     )
   )
 )
@@ -160,6 +166,17 @@ explorer_list$networkTab_server <- function(input, output, session, study_data, 
   observe({
     shared_data$selected_dataverse <- input$select_dataverse
   })
+  
+  # Show or hide the network box depending on selection
+  observe({
+    
+    if (!is.null(input$select_dataverse) && length(input$select_dataverse) > 0) {
+      shinyjs::show("networkBox")
+    } else {
+      shinyjs::hide("networkBox")
+    }
+  })
+  
   
   # Reactive expression to filter data based on selected dataverse(s)
   shared_data$filtered_data <- reactive({
@@ -239,43 +256,43 @@ explorer_list$networkTab_server <- function(input, output, session, study_data, 
       top = 0,
       right = 0,
       draggable = TRUE,
-
-      bs4Card(
-      title = tags$div(
-        "Network Legend",
-        style = "text-align: center; font-size: 20px; font-weight: bold;"
-      ),
-      collapsible = TRUE,
-      width = 12,
-      solidHeader = TRUE,
-      status = "lightblue",
       
-      reactable(
-        legend_data,
-        columns = list(
-          label = colDef(
-            name = "",
-            minWidth = 200
-          ),
-          color = colDef(
-            name = "",
-            cell = function(value) {
-              div(style = paste0("background-color:", value, 
-                                 "; width: 20px; height: 20px; border-radius: 4px;"))
-            },
-            headerStyle = list(textAlign = "center"),
-            style = list(textAlign = "right"),
-            minWidth = 50
-          )
+      bs4Card(
+        title = tags$div(
+          "Network Legend",
+          style = "text-align: center; font-size: 20px; font-weight: bold;"
         ),
-        # Visually hide column headers
-        class = "hidden-column-headers",
-        width = "100%",
-        outlined = FALSE,
-        borderless = TRUE,
-        sortable = FALSE
+        collapsible = TRUE,
+        width = 12,
+        solidHeader = TRUE,
+        status = "lightblue",
+        
+        reactable(
+          legend_data,
+          columns = list(
+            label = colDef(
+              name = "",
+              minWidth = 200
+            ),
+            color = colDef(
+              name = "",
+              cell = function(value) {
+                div(style = paste0("background-color:", value, 
+                                   "; width: 20px; height: 20px; border-radius: 4px;"))
+              },
+              headerStyle = list(textAlign = "center"),
+              style = list(textAlign = "right"),
+              minWidth = 50
+            )
+          ),
+          # Visually hide column headers
+          class = "hidden-column-headers",
+          width = "100%",
+          outlined = FALSE,
+          borderless = TRUE,
+          sortable = FALSE
+        )
       )
-    )
     )
   })
   
@@ -362,19 +379,25 @@ explorer_list$networkTab_server <- function(input, output, session, study_data, 
       # Define click event behavior using JavaScript
       visEvents(click = glue::glue(
         "function(nodes) {{
-        if (nodes.nodes.length > 0) {{
-          Shiny.setInputValue('{'selectedEvent'}', nodes.nodes[0], {{priority: 'event'}});
-        }} else {{
-          Shiny.setInputValue('{'selectedEvent'}', null, {{priority: 'event'}});
-        }}
-      }}"
+            if (nodes.nodes.length > 0) {{
+              Shiny.setInputValue('selectedEvent', nodes.nodes[0], {{priority: 'event'}});
+            }} else {{
+              Shiny.setInputValue('selectedEvent', 'none', {{priority: 'event'}});
+            }}
+          }}"
       ))
   })
   
   # Event: Update UI based on selected node
   observeEvent(input$selectedEvent, {
+    
+    if (is.null(input$selectedEvent) || input$selectedEvent == "none") {
+      output$nodeInfo <- renderUI({ NULL })
+      return()
+    }
+    
     req(shared_data$filtered_data(), shared_data$selected_dataverse, input$selectedEvent, conn)
-    # browser()
+    
     # Get filtered data based on selected dataverse(s)
     data <- shared_data$filtered_data()
     

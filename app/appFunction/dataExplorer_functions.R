@@ -173,47 +173,47 @@ fetch_study_details <- function(data) {
 #  This function download the data for each study based on the study DOIs
 access_data <- function(doi) {
   Acess_data_url <- "https://borealisdata.ca/api/access/dataset/"
-
+  
   # Full URL construction and file path setup
   full_url3 <- paste0(Acess_data_url, ":persistentId/?persistentId=", doi)
   # zip_path <- file.path(unique_dir, "downloaded_data.zip")
-
+  
   # Make the API request and download the ZIP file
   tryCatch({
     response <- request(full_url3) %>%
       req_headers(`X-Dataverse-key`= Api_token) %>%
       req_perform()
-
+    
     if (response$status_code == 200) {
-
+      
       # Get the content of the response as a raw vector
       zip_content <- resp_body_raw(response)
-
+      
       # Use tempfile to create a temporary file for the zip content
       temp_zip <- tempfile(fileext = ".zip")
-
+      
       # Write the raw vector to the temporary file
       writeBin(zip_content, temp_zip)
-
+      
       # Use a temporary directory to extract the files
       temp_unzip_dir <- tempfile()
-
+      
       # Extract the files to the temporary directory
       unzip(temp_zip, exdir = temp_unzip_dir)
-
+      
       # List files in the temporary directory
       file_list <- list.files(temp_unzip_dir, full.names = TRUE)
-
+      
       # Clean up the temporary zip file
       unlink(temp_zip)
-
+      
       # Process the files as needed (this example simply returns the list of files)
       return(file_list)
     }
     else {
       return(NULL)
     }
-
+    
   }, error = function(e) {
     print("Restricted data not accessible.")
   })
@@ -321,7 +321,6 @@ cache_raw_data <- function(conn) {
   updated_data <- dbReadTable(conn, "research_data")
   return(updated_data)
 }
-
 
 # Function to extract and process nodes and edges for Keywords and Authors
 process_and_cache_new_data <- function(raw_data, input_event_type, conn) {
@@ -470,8 +469,20 @@ process_and_cache_new_data <- function(raw_data, input_event_type, conn) {
       year_range = paste(unique(year_range), collapse = " | "),
       DOI = paste(unique(DOI), collapse = "; ")
     ) %>%
-    dplyr::ungroup() %>%
-    dplyr::mutate(id = dplyr::row_number())
+    dplyr::ungroup() 
+  
+  # Get the maximum existing id from the database (if table exists)
+  if (DBI::dbExistsTable(conn, nodes_table)) {
+    current_max_id <- DBI::dbGetQuery(conn, paste0("SELECT MAX(id) AS max_id FROM ", nodes_table))$max_id
+    current_max_id <- ifelse(is.na(current_max_id), 0, current_max_id)
+  } else {
+    current_max_id <- 0
+  }
+  
+  # Then assign new ids starting after the current maximum
+  nodes <- nodes %>%
+    dplyr::mutate(id = current_max_id + dplyr::row_number())
+  
   
   # Create edges
   event_occurrences <- lapply(nodes$label, function(ev) which(grepl(ev, all_data[[input_event_type]], ignore.case = TRUE)))
