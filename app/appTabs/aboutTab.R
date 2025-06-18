@@ -204,7 +204,7 @@ explorer_list$aboutTab_ui <-tabItem(
     br(),
     
     p("This application is released under this",
-      tags$a(href = "https://github.com/agrifooddatacanada/OAC_Historical_Research_Data_Explorer_App/blob/main/LICENSE.md",
+      tags$a(href = "https://github.com/agrifooddatacanada/OAC_Historical_Research_Data_Explorer_App/blob/main/LICENSE",
              tags$b("License"),
              target = "_blank", style = "color:#3c8dbc;"))
   )
