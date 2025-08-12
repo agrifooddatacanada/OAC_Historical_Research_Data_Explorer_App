@@ -10,8 +10,6 @@ body {
   font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
   font-size: 16px;
   line-height: 1.6;
-  color: #333;
-  background-color: #ffffff;
 }
 
 /* Link colors */
@@ -40,10 +38,6 @@ th, td {
   padding: 8px;
 }
 
-th {
-  background-color: #f2f2f2;
-  color: #333;
-}
 
 .medium-zoom-overlay {
   z-index: 9999 !important;  /* Ensure it's on top of sidebar */
