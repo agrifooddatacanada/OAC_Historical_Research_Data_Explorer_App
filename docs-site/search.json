@@ -1,0 +1,885 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome to RED‑X",
+    "section": "",
+    "text": "1.0 RED‑X (Re‑usable Data Explorer)\nRED-X is a reusable data exploration app that helps users discover historical research data hosted on the Borealis Dataverse.It is a modern web application developed by Agri‑Food Data Canada (ADC) to provide researchers and data managers streamlined access to historical research data. It simplifies access to metadata, visualizes keyword/author relationships, and supports informed reuse of datasets. With version 2.0, RED‑X delivers faster performance, a broader institutional scope, and intuitive visual tools.\n\n\n\n2.0 Background and Motivation\nRED-X was developed in response to a growing need for efficient access to historical research datasets—particularly in the agricultural and environmental sciences.\nOver the years, large volumes of valuable data have been collected by researchers at the University of Guelph, especially through the Ontario Agricultural College (OAC). However, much of this data remained siloed, inconsistently described, or difficult to navigate, making reuse a significant challenge.\nThe motivation behind RED-X came from a workshop hosted by the University of Guelph in collaboration with Compute Ontario, which focused on enhancing the FAIRness (Findability, Accessibility, Interoperability, and Reusability) of research data. Researchers, librarians, and data specialists at the event emphasized the need for a user-friendly tool that could help bridge the gap between stored data and actionable insight.\nRED-X was thus envisioned as a web-based metadata and dataset discovery platform, built using RShiny, that connects directly to Borealis, a Dataverse-based data repository platform. The app provides both technical and non-technical users with intuitive tools for exploring, visualizing, and filtering datasets, enabling better use of existing research outputs and supporting data-driven collaboration across departments and institutions.\n\n\n\n3.0 Purpose & Goals\n\nUnlock historical research insights — aggregates metadata and datasets from multiple colleges and departments within the Agri-environmental Research Data dataverse in Borealis (Canadian Dataverse Repository).\nPromote FAIR principles — ensures data is Findable, Accessible, Interoperable, and Reusable, elevating the value of Agri-Food data.\nEnhance discoverability — presents keyword-author network visualizations and smart filters to reveal connections and trends.\n\n\n\n\n4.0 Who Should Use RED‑X\n\nAcademic researchers/Scientist investigating historical trends.\n\nData librarians and stewards aiming to manage and share historical datasets.\n\nGraduate students conducting meta-analyses or literature reviews/data review.\n\n\n\n\n5.0 Key Features in Version 2.0\n\nOptimized loading through direct database access and 48‑hour auto-refresh.\n\nNetwork Explorer — visualize relationships among keywords, authors, institutions, and colleges.\nExplore datasets and metadata- Navigate historical datasets collected across various colleges and departments, with metadata drawn directly from Borealis.\nSmart Filters — quickly navigate by college, department, or campus.\n\nHome Tab Summary — at-a-glance metrics for available studies and datasets.\nView study-level summaries - Gain insight into each dataset through high-level summary statistics, research objectives, study location, and associated keywords.\nSeamless navigation — one-click access to Network or Data Explorer interfaces.\n\n\n\n\n6.0 Getting Started\nVisit the Getting Started to launch the RED‑X app, explore its structure, understand system requirements, and get a quick overview of how to navigate and begin using its core features.\n\n\n\n7.0 Browse the Documentation\nUse the sidebar to navigate in sequence:\n\nGetting Started\n\nUser Guide\n\nSystem Architecture\n\nAPI Guide\nDeveloper Guide\nDeveloper Guide\n\n\n\n\n8.0 Support & Credits\nRED‑X was developed by Agri‑Food Data Canada at the University of Guelph with support from the Canada First Research Excellence Fund. Special thanks to Dr. Busayo Kodaolu for contributions to the design, development, and documentation of RED‑X Version 2.0. For inquiries or technical support, contact: adc@uoguelph.ca.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "Processed_OCA_schema.html",
+    "href": "Processed_OCA_schema.html",
+    "title": "Processed datasets in RED-X",
+    "section": "",
+    "text": "{: .no_toc }\n\n\n{: .no_toc .text-delta }\n\nTOC {:toc}\n\nName: Processed datasets in RED-X\nDescription: The processed_studies file contains a list of DOIs (Digital Object Identifiers) that have already been processed and cached within the RED-X app. It plays a crucial role in optimizing performance by allowing the application to skip reprocessing datasets that are already up-to-date. This helps reduce API load and improve app speed, especially when checking for new or updated studies from the Borealis Dataverse. In essence, it acts as a tracking list or checkpoint registry that the caching function (cache_raw_data()) uses to compare and filter out redundant operations.\nClassification: RDF212\nSchema package SAID: EEew5fwKdA3zkz_Y8CMSDnBFdJRAwZYGiuOtQhlypCnp\n\n\n\n\n\n\n\n\n\n\n\nAttribute\nLabel\nDescription\n\n\n\n\nDOI\nDOI\nA unique persistent identifier for a research dataset. Used to verify whether the study has been processed.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLanguage\nName\nDescription\n\n\n\n\nEnglish\nProcessed datasets in RED-X\nThe processed_studies file contains a list of DOIs (Digital Object Identifiers) that have already been processed and cached within the RED-X app. It plays a crucial role in optimizing performance by allowing the application to skip reprocessing datasets that are already up-to-date. This helps reduce API load and improve app speed, especially when checking for new or updated studies from the Borealis Dataverse. In essence, it acts as a tracking list or checkpoint registry that the caching function (cache_raw_data()) uses to compare and filter out redundant operations.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAttribute\nSensitive\nUnit\nType\nCharacter encoding\nRequired entry\nFormat rule\n\n\n\n\nDOI\nfalse\n\nNumeric\nutf-8\ntrue\n^doi:10\\.\\d{4,9}/[-._;()/:Aa-Zz0-9]+$\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAttribute\nLabel\nDescription\nList\n\n\n\n\nDOI\nDOI\nA unique persistent identifier for a research dataset. Used to verify whether the study has been processed.\nNot a list\n\n\n\n\n\n\n\nCapture base: EBcWQH7PjQw6JiKG0X7FMFeUgMNv3SIstRf4MxhYzjeS\nBundle: EFCP0jgcA_VD-jSMX9Gt4NuJ8eQrzuG7CHnzM9SgGtwW\nPackage: EEew5fwKdA3zkz_Y8CMSDnBFdJRAwZYGiuOtQhlypCnp\n\n\n\n\n\n\n\n\nLayer\nSAID\nType\n\n\n\n\ncharacter_encoding\nEGoNKnM8_drZa2f_5kGkkZJ9L2fjr6_2U-QQulUGApy2\nspec/overlays/character_encoding/1.1\n\n\nconformance\nEKlhmc-JUaTyrcdWz1-Q1tAp1fbOMVfEhSdg6ZRsJ8j3\nspec/overlays/conformance/1.1\n\n\nformat\nEGcL2BlrJ835nNSF1EMXHarKYxuZUkw0kQhROK7Y1u-m\nspec/overlays/format/1.1\n\n\ninformation (eng)\nENeQ3DsBK2jl_3M3lFdEfBqHnBQjBbr077hZxrCzwTvs\nspec/overlays/information/1.1\n\n\nlabel (eng)\nEHJ39Oui6MI53ZnlHyfzvoRQliiTqzjps9fdSOFcdsim\nspec/overlays/label/1.1\n\n\nmeta (eng)\nEEzuZlJb1mq2A2dC5vT8wM2ukJOebZtEM8ykbWKg1Dh5\nspec/overlays/meta/1.1\n\n\nordering\nEE6DknXqe1M6vGkbzslM__g4NkBVq0e1oT6vm2AXSHvP\ncommunity/overlays/adc/ordering/1.1\n\n\n\nDate created: 2025-07-30 06:44:38",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "Processed_studies"
+    ]
+  },
+  {
+    "objectID": "Processed_OCA_schema.html#table-of-contents",
+    "href": "Processed_OCA_schema.html#table-of-contents",
+    "title": "Processed datasets in RED-X",
+    "section": "",
+    "text": "{: .no_toc .text-delta }\n\nTOC {:toc}\n\nName: Processed datasets in RED-X\nDescription: The processed_studies file contains a list of DOIs (Digital Object Identifiers) that have already been processed and cached within the RED-X app. It plays a crucial role in optimizing performance by allowing the application to skip reprocessing datasets that are already up-to-date. This helps reduce API load and improve app speed, especially when checking for new or updated studies from the Borealis Dataverse. In essence, it acts as a tracking list or checkpoint registry that the caching function (cache_raw_data()) uses to compare and filter out redundant operations.\nClassification: RDF212\nSchema package SAID: EEew5fwKdA3zkz_Y8CMSDnBFdJRAwZYGiuOtQhlypCnp",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "Processed_studies"
+    ]
+  },
+  {
+    "objectID": "Processed_OCA_schema.html#schema-quick-view",
+    "href": "Processed_OCA_schema.html#schema-quick-view",
+    "title": "Processed datasets in RED-X",
+    "section": "",
+    "text": "Attribute\nLabel\nDescription\n\n\n\n\nDOI\nDOI\nA unique persistent identifier for a research dataset. Used to verify whether the study has been processed.",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "Processed_studies"
+    ]
+  },
+  {
+    "objectID": "Processed_OCA_schema.html#international-schema-information",
+    "href": "Processed_OCA_schema.html#international-schema-information",
+    "title": "Processed datasets in RED-X",
+    "section": "",
+    "text": "Language\nName\nDescription\n\n\n\n\nEnglish\nProcessed datasets in RED-X\nThe processed_studies file contains a list of DOIs (Digital Object Identifiers) that have already been processed and cached within the RED-X app. It plays a crucial role in optimizing performance by allowing the application to skip reprocessing datasets that are already up-to-date. This helps reduce API load and improve app speed, especially when checking for new or updated studies from the Borealis Dataverse. In essence, it acts as a tracking list or checkpoint registry that the caching function (cache_raw_data()) uses to compare and filter out redundant operations.",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "Processed_studies"
+    ]
+  },
+  {
+    "objectID": "Processed_OCA_schema.html#language-independent-schema-details",
+    "href": "Processed_OCA_schema.html#language-independent-schema-details",
+    "title": "Processed datasets in RED-X",
+    "section": "",
+    "text": "Attribute\nSensitive\nUnit\nType\nCharacter encoding\nRequired entry\nFormat rule\n\n\n\n\nDOI\nfalse\n\nNumeric\nutf-8\ntrue\n^doi:10\\.\\d{4,9}/[-._;()/:Aa-Zz0-9]+$",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "Processed_studies"
+    ]
+  },
+  {
+    "objectID": "Processed_OCA_schema.html#language-specific-schema-details",
+    "href": "Processed_OCA_schema.html#language-specific-schema-details",
+    "title": "Processed datasets in RED-X",
+    "section": "",
+    "text": "Attribute\nLabel\nDescription\nList\n\n\n\n\nDOI\nDOI\nA unique persistent identifier for a research dataset. Used to verify whether the study has been processed.\nNot a list",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "Processed_studies"
+    ]
+  },
+  {
+    "objectID": "Processed_OCA_schema.html#schema-saids",
+    "href": "Processed_OCA_schema.html#schema-saids",
+    "title": "Processed datasets in RED-X",
+    "section": "",
+    "text": "Capture base: EBcWQH7PjQw6JiKG0X7FMFeUgMNv3SIstRf4MxhYzjeS\nBundle: EFCP0jgcA_VD-jSMX9Gt4NuJ8eQrzuG7CHnzM9SgGtwW\nPackage: EEew5fwKdA3zkz_Y8CMSDnBFdJRAwZYGiuOtQhlypCnp\n\n\n\n\n\n\n\n\nLayer\nSAID\nType\n\n\n\n\ncharacter_encoding\nEGoNKnM8_drZa2f_5kGkkZJ9L2fjr6_2U-QQulUGApy2\nspec/overlays/character_encoding/1.1\n\n\nconformance\nEKlhmc-JUaTyrcdWz1-Q1tAp1fbOMVfEhSdg6ZRsJ8j3\nspec/overlays/conformance/1.1\n\n\nformat\nEGcL2BlrJ835nNSF1EMXHarKYxuZUkw0kQhROK7Y1u-m\nspec/overlays/format/1.1\n\n\ninformation (eng)\nENeQ3DsBK2jl_3M3lFdEfBqHnBQjBbr077hZxrCzwTvs\nspec/overlays/information/1.1\n\n\nlabel (eng)\nEHJ39Oui6MI53ZnlHyfzvoRQliiTqzjps9fdSOFcdsim\nspec/overlays/label/1.1\n\n\nmeta (eng)\nEEzuZlJb1mq2A2dC5vT8wM2ukJOebZtEM8ykbWKg1Dh5\nspec/overlays/meta/1.1\n\n\nordering\nEE6DknXqe1M6vGkbzslM__g4NkBVq0e1oT6vm2AXSHvP\ncommunity/overlays/adc/ordering/1.1\n\n\n\nDate created: 2025-07-30 06:44:38",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "Processed_studies"
+    ]
+  },
+  {
+    "objectID": "Keyword_node_OCA_schema.html",
+    "href": "Keyword_node_OCA_schema.html",
+    "title": "Keyword Node",
+    "section": "",
+    "text": "{: .no_toc }\n\n\n{: .no_toc .text-delta }\n\nTOC {:toc}\n\nName: Keyword Node\nDescription: The keywords_node dataset is used in the RED-X application to represent keyword nodes within the research network visualization. Each row corresponds to a unique keyword found in the research metadata, along with attributes that help categorize, color-code, and display connections in the app’s interactive network plot. The network allows users to explore how specific keywords are distributed across departments, colleges, and over time, offering a visual overview of research trends and thematic overlaps. In the app, each keyword node is connected to others through shared appearances in the same studies (captured in a separate keywords_edge.csv file). When a user clicks on a node, the app highlights related keywords and reveals metadata for associated studies. The node color represents its affiliated college or department, making it easier to see institutional patterns. This dataset underpins the keyword filtering functionality in RED-X and supports discovery of related research themes through visual exploration.\nClassification: RDF212\nSchema package SAID: EIQeu3xRmf0uz6xR2rFekFRQVrN2x0ub5CI4DIfLcEk8\n\n\n\n\n\n\n\n\n\n\n\nAttribute\nLabel\nDescription\n\n\n\n\nlabel\nlabel\nThe keyword term (e.g., “Soil Health”) used as the unique node label\n\n\nnode_group\nNode group\nClassification of the node group (e.g., “Keywords”)\n\n\ntitle\ntitle\nTooltip-style summary (e.g., \"Study Count: 3 Year Range: 2017 to 2021\")\n\n\nCollegeColor\nCollege Color\nName of the college associated with the keyword's studies\n\n\nDepartmentColor\nDepartment Color\nName of the department tied to the keyword’s usage\n\n\nCollegeName\nCollege Name\nHex color code used for visualizing college-affiliation in the network\n\n\nDepartmentName\nDepartment Name\nHex color code used for department-affiliation in the network\n\n\nstudy_count\nStudy count\nNumber of studies in which the keyword appears\n\n\nyear_range\nYear range\nRepresentation of publication years for the studies\n\n\nDOI\nDOI\nUnique identifier for each studies in which the keywords appear\n\n\nid\nid\nUnique identifier assigned to each node\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLanguage\nName\nDescription\n\n\n\n\nEnglish\nKeyword Node\nThe keywords_node dataset is used in the RED-X application to represent keyword nodes within the research network visualization. Each row corresponds to a unique keyword found in the research metadata, along with attributes that help categorize, color-code, and display connections in the app’s interactive network plot. The network allows users to explore how specific keywords are distributed across departments, colleges, and over time, offering a visual overview of research trends and thematic overlaps. In the app, each keyword node is connected to others through shared appearances in the same studies (captured in a separate keywords_edge.csv file). When a user clicks on a node, the app highlights related keywords and reveals metadata for associated studies. The node color represents its affiliated college or department, making it easier to see institutional patterns. This dataset underpins the keyword filtering functionality in RED-X and supports discovery of related research themes through visual exploration.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAttribute\nSensitive\nUnit\nType\nCharacter encoding\nRequired entry\nFormat rule\n\n\n\n\nlabel\nfalse\n\nText\nutf-8\ntrue\n\n\n\nnode_group\nfalse\n\nText\nutf-8\ntrue\n\n\n\ntitle\nfalse\n\nText\nutf-8\ntrue\n\n\n\nCollegeColor\nfalse\n\nText\nutf-8\ntrue\n^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$\n\n\nDepartmentColor\nfalse\n\nText\nutf-8\ntrue\n^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$\n\n\nCollegeName\nfalse\n\nText\nutf-8\ntrue\n\n\n\nDepartmentName\nfalse\n\nText\nutf-8\ntrue\n\n\n\nstudy_count\nfalse\n\nNumeric\n\ntrue\n^\\d+$\n\n\nyear_range\nfalse\n\nText\nutf-8\ntrue\n\n\n\nDOI\nfalse\n\nText\nutf-8\ntrue\n^doi:10\\.\\d{4,9}/[-._;()/:Aa-Zz0-9]+$\n\n\nid\nfalse\n\nNumeric\n\ntrue\n^\\d+$\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAttribute\nLabel\nDescription\nList\n\n\n\n\nlabel\nlabel\nThe keyword term (e.g., “Soil Health”) used as the unique node label\nNot a list\n\n\nnode_group\nNode group\nClassification of the node group (e.g., “Keywords”)\nNot a list\n\n\ntitle\ntitle\nTooltip-style summary (e.g., \"Study Count: 3 Year Range: 2017 to 2021\")\nNot a list\n\n\nCollegeColor\nCollege Color\nName of the college associated with the keyword's studies\nNot a list\n\n\nDepartmentColor\nDepartment Color\nName of the department tied to the keyword’s usage\nNot a list\n\n\nCollegeName\nCollege Name\nHex color code used for visualizing college-affiliation in the network\nNot a list\n\n\nDepartmentName\nDepartment Name\nHex color code used for department-affiliation in the network\nNot a list\n\n\nstudy_count\nStudy count\nNumber of studies in which the keyword appears\nNot a list\n\n\nyear_range\nYear range\nRepresentation of publication years for the studies\nNot a list\n\n\nDOI\nDOI\nUnique identifier for each studies in which the keywords appear\nNot a list\n\n\nid\nid\nUnique identifier assigned to each node\nNot a list\n\n\n\n\n\n\n\nCapture base: EErvygNKDSiSJlIyI1Xr5ptemkmRGXViH2nPYmU9TuYM\nBundle: EAJNbuReH5ndB3zgGyBAMQEglFEe-bPEHF2qubsGbU8N\nPackage: EIQeu3xRmf0uz6xR2rFekFRQVrN2x0ub5CI4DIfLcEk8\n\n\n\n\n\n\n\n\nLayer\nSAID\nType\n\n\n\n\ncharacter_encoding\nEId4qK9jG2jiI_gDciiBUKVv4vd26tevKxMo2v1te5oy\nspec/overlays/character_encoding/1.1\n\n\nconformance\nECQzJ3PfDLsCtqaFHm3uVPs9uQIGzuRkLYR2YHRiTtuP\nspec/overlays/conformance/1.1\n\n\nformat\nEPJeUB-M-d9za2yW8ST6gbVDbBeAYWZHdbY8FUIW_qHZ\nspec/overlays/format/1.1\n\n\ninformation (eng)\nEGTltT9R6zYsr1N17beLBCrMZ9ffJuKKSIf9HaRBRnDV\nspec/overlays/information/1.1\n\n\nlabel (eng)\nEIlTOVOjITxYQWmtTQIuwQ4ZEA9WNWF9vQBthYtrRP00\nspec/overlays/label/1.1\n\n\nmeta (eng)\nEFu1lA89ounWzPVa6XRyPwhOle06-XzyNSoyrlgp7Y5_\nspec/overlays/meta/1.1\n\n\nordering\nEP6PBzIq0meI-CrbjYiJ0zqO6cb5rvDBo0DrEP_4mzEY\ncommunity/overlays/adc/ordering/1.1\n\n\n\nDate created: 2025-07-31 05:31:16",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "Keywords_node"
+    ]
+  },
+  {
+    "objectID": "Keyword_node_OCA_schema.html#table-of-contents",
+    "href": "Keyword_node_OCA_schema.html#table-of-contents",
+    "title": "Keyword Node",
+    "section": "",
+    "text": "{: .no_toc .text-delta }\n\nTOC {:toc}\n\nName: Keyword Node\nDescription: The keywords_node dataset is used in the RED-X application to represent keyword nodes within the research network visualization. Each row corresponds to a unique keyword found in the research metadata, along with attributes that help categorize, color-code, and display connections in the app’s interactive network plot. The network allows users to explore how specific keywords are distributed across departments, colleges, and over time, offering a visual overview of research trends and thematic overlaps. In the app, each keyword node is connected to others through shared appearances in the same studies (captured in a separate keywords_edge.csv file). When a user clicks on a node, the app highlights related keywords and reveals metadata for associated studies. The node color represents its affiliated college or department, making it easier to see institutional patterns. This dataset underpins the keyword filtering functionality in RED-X and supports discovery of related research themes through visual exploration.\nClassification: RDF212\nSchema package SAID: EIQeu3xRmf0uz6xR2rFekFRQVrN2x0ub5CI4DIfLcEk8",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "Keywords_node"
+    ]
+  },
+  {
+    "objectID": "Keyword_node_OCA_schema.html#schema-quick-view",
+    "href": "Keyword_node_OCA_schema.html#schema-quick-view",
+    "title": "Keyword Node",
+    "section": "",
+    "text": "Attribute\nLabel\nDescription\n\n\n\n\nlabel\nlabel\nThe keyword term (e.g., “Soil Health”) used as the unique node label\n\n\nnode_group\nNode group\nClassification of the node group (e.g., “Keywords”)\n\n\ntitle\ntitle\nTooltip-style summary (e.g., \"Study Count: 3 Year Range: 2017 to 2021\")\n\n\nCollegeColor\nCollege Color\nName of the college associated with the keyword's studies\n\n\nDepartmentColor\nDepartment Color\nName of the department tied to the keyword’s usage\n\n\nCollegeName\nCollege Name\nHex color code used for visualizing college-affiliation in the network\n\n\nDepartmentName\nDepartment Name\nHex color code used for department-affiliation in the network\n\n\nstudy_count\nStudy count\nNumber of studies in which the keyword appears\n\n\nyear_range\nYear range\nRepresentation of publication years for the studies\n\n\nDOI\nDOI\nUnique identifier for each studies in which the keywords appear\n\n\nid\nid\nUnique identifier assigned to each node",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "Keywords_node"
+    ]
+  },
+  {
+    "objectID": "Keyword_node_OCA_schema.html#international-schema-information",
+    "href": "Keyword_node_OCA_schema.html#international-schema-information",
+    "title": "Keyword Node",
+    "section": "",
+    "text": "Language\nName\nDescription\n\n\n\n\nEnglish\nKeyword Node\nThe keywords_node dataset is used in the RED-X application to represent keyword nodes within the research network visualization. Each row corresponds to a unique keyword found in the research metadata, along with attributes that help categorize, color-code, and display connections in the app’s interactive network plot. The network allows users to explore how specific keywords are distributed across departments, colleges, and over time, offering a visual overview of research trends and thematic overlaps. In the app, each keyword node is connected to others through shared appearances in the same studies (captured in a separate keywords_edge.csv file). When a user clicks on a node, the app highlights related keywords and reveals metadata for associated studies. The node color represents its affiliated college or department, making it easier to see institutional patterns. This dataset underpins the keyword filtering functionality in RED-X and supports discovery of related research themes through visual exploration.",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "Keywords_node"
+    ]
+  },
+  {
+    "objectID": "Keyword_node_OCA_schema.html#language-independent-schema-details",
+    "href": "Keyword_node_OCA_schema.html#language-independent-schema-details",
+    "title": "Keyword Node",
+    "section": "",
+    "text": "Attribute\nSensitive\nUnit\nType\nCharacter encoding\nRequired entry\nFormat rule\n\n\n\n\nlabel\nfalse\n\nText\nutf-8\ntrue\n\n\n\nnode_group\nfalse\n\nText\nutf-8\ntrue\n\n\n\ntitle\nfalse\n\nText\nutf-8\ntrue\n\n\n\nCollegeColor\nfalse\n\nText\nutf-8\ntrue\n^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$\n\n\nDepartmentColor\nfalse\n\nText\nutf-8\ntrue\n^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$\n\n\nCollegeName\nfalse\n\nText\nutf-8\ntrue\n\n\n\nDepartmentName\nfalse\n\nText\nutf-8\ntrue\n\n\n\nstudy_count\nfalse\n\nNumeric\n\ntrue\n^\\d+$\n\n\nyear_range\nfalse\n\nText\nutf-8\ntrue\n\n\n\nDOI\nfalse\n\nText\nutf-8\ntrue\n^doi:10\\.\\d{4,9}/[-._;()/:Aa-Zz0-9]+$\n\n\nid\nfalse\n\nNumeric\n\ntrue\n^\\d+$",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "Keywords_node"
+    ]
+  },
+  {
+    "objectID": "Keyword_node_OCA_schema.html#language-specific-schema-details",
+    "href": "Keyword_node_OCA_schema.html#language-specific-schema-details",
+    "title": "Keyword Node",
+    "section": "",
+    "text": "Attribute\nLabel\nDescription\nList\n\n\n\n\nlabel\nlabel\nThe keyword term (e.g., “Soil Health”) used as the unique node label\nNot a list\n\n\nnode_group\nNode group\nClassification of the node group (e.g., “Keywords”)\nNot a list\n\n\ntitle\ntitle\nTooltip-style summary (e.g., \"Study Count: 3 Year Range: 2017 to 2021\")\nNot a list\n\n\nCollegeColor\nCollege Color\nName of the college associated with the keyword's studies\nNot a list\n\n\nDepartmentColor\nDepartment Color\nName of the department tied to the keyword’s usage\nNot a list\n\n\nCollegeName\nCollege Name\nHex color code used for visualizing college-affiliation in the network\nNot a list\n\n\nDepartmentName\nDepartment Name\nHex color code used for department-affiliation in the network\nNot a list\n\n\nstudy_count\nStudy count\nNumber of studies in which the keyword appears\nNot a list\n\n\nyear_range\nYear range\nRepresentation of publication years for the studies\nNot a list\n\n\nDOI\nDOI\nUnique identifier for each studies in which the keywords appear\nNot a list\n\n\nid\nid\nUnique identifier assigned to each node\nNot a list",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "Keywords_node"
+    ]
+  },
+  {
+    "objectID": "Keyword_node_OCA_schema.html#schema-saids",
+    "href": "Keyword_node_OCA_schema.html#schema-saids",
+    "title": "Keyword Node",
+    "section": "",
+    "text": "Capture base: EErvygNKDSiSJlIyI1Xr5ptemkmRGXViH2nPYmU9TuYM\nBundle: EAJNbuReH5ndB3zgGyBAMQEglFEe-bPEHF2qubsGbU8N\nPackage: EIQeu3xRmf0uz6xR2rFekFRQVrN2x0ub5CI4DIfLcEk8\n\n\n\n\n\n\n\n\nLayer\nSAID\nType\n\n\n\n\ncharacter_encoding\nEId4qK9jG2jiI_gDciiBUKVv4vd26tevKxMo2v1te5oy\nspec/overlays/character_encoding/1.1\n\n\nconformance\nECQzJ3PfDLsCtqaFHm3uVPs9uQIGzuRkLYR2YHRiTtuP\nspec/overlays/conformance/1.1\n\n\nformat\nEPJeUB-M-d9za2yW8ST6gbVDbBeAYWZHdbY8FUIW_qHZ\nspec/overlays/format/1.1\n\n\ninformation (eng)\nEGTltT9R6zYsr1N17beLBCrMZ9ffJuKKSIf9HaRBRnDV\nspec/overlays/information/1.1\n\n\nlabel (eng)\nEIlTOVOjITxYQWmtTQIuwQ4ZEA9WNWF9vQBthYtrRP00\nspec/overlays/label/1.1\n\n\nmeta (eng)\nEFu1lA89ounWzPVa6XRyPwhOle06-XzyNSoyrlgp7Y5_\nspec/overlays/meta/1.1\n\n\nordering\nEP6PBzIq0meI-CrbjYiJ0zqO6cb5rvDBo0DrEP_4mzEY\ncommunity/overlays/adc/ordering/1.1\n\n\n\nDate created: 2025-07-31 05:31:16",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "Keywords_node"
+    ]
+  },
+  {
+    "objectID": "Research_data_OCA_schema.html",
+    "href": "Research_data_OCA_schema.html",
+    "title": "Research_data",
+    "section": "",
+    "text": "{: .no_toc }\n\n\n{: .no_toc .text-delta }\n\nTOC {:toc}\n\nName: Research_data\nDescription: The research_data.csv dataset is a core component of the RED-X app and serves as the primary cache of research metadata retrieved from the Borealis Dataverse repository. It contains structured metadata for multiple agricultural and environmental studies, including fields such as Title, PublicationDate, Authors, Affiliations, Keywords, and Objectives. Each record is linked to a persistent identifier (DOI), along with institutional context like CollegeName and DepartmentName. These entries support the app’s dynamic search, visualization, and filtering features, and are stored in a local SQLite database to improve performance and reduce redundant API calls.\nClassification: RDF212\nSchema package SAID: EG6D6-mYDrAB1iivIHNnhqumcEbWaoyujJmSzlcunc-M\n\n\n\n\n\n\n\n\n\n\n\nAttribute\nLabel\nDescription\n\n\n\n\nTitle\nTitle\nThe title of the dataset or study as published in Borealis\n\n\nPublicationDate\nPublication Date\nThe date the dataset was made publicly available\n\n\nAuthors\nAuthors\nA list of the individuals who contributed to or authored the dataset\n\n\nAffiliations\nAffiliations\nThe institutional affiliations of the authors, such as departments or research centers\n\n\nKeywords\nKeywords\nTerms associated with the dataset for easier search and thematic classification\n\n\nObjectives\nObjectives\nA brief description of the research goals or purpose of the dataset\n\n\nCitation\nCitation\nFormal citation information for referencing the dataset in publications\n\n\nPeriodCovered\nPeriod Covered\nThe time frame during which data was collected (e.g., growing seasons, study period)\n\n\nStudyLocation\nStudy Location\nGeographic location where the study or data collection took place\n\n\nFunder\nFunder\nOrganizations or institutions that funded the research or data collection\n\n\nFileList\nFile List\nNames of files included in the dataset, such as .tab, .csv, or .txt files\n\n\nDataLicense\nData License\nLicensing information that defines how the dataset can be used or shared\n\n\nDOI\nDOI\nThe persistent identifier (Digital Object Identifier) that uniquely identifies the dataset\n\n\nCollegeName\nCollege Name\nThe college or broader organizational unit associated with the dataset\n\n\nDepartmentName\nDepartment Name\nThe specific department, lab, or research center responsible for the dataset\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLanguage\nName\nDescription\n\n\n\n\nEnglish\nResearch_data\nThe research_data.csv dataset is a core component of the RED-X app and serves as the primary cache of research metadata retrieved from the Borealis Dataverse repository. It contains structured metadata for multiple agricultural and environmental studies, including fields such as Title, PublicationDate, Authors, Affiliations, Keywords, and Objectives. Each record is linked to a persistent identifier (DOI), along with institutional context like CollegeName and DepartmentName. These entries support the app’s dynamic search, visualization, and filtering features, and are stored in a local SQLite database to improve performance and reduce redundant API calls.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAttribute\nSensitive\nUnit\nType\nCharacter encoding\nRequired entry\nFormat rule\n\n\n\n\nTitle\nfalse\n\nText\nutf-8\ntrue\n\n\n\nPublicationDate\nfalse\n\nDateTime\nutf-8\ntrue\n\n\n\nAuthors\nfalse\n\nText\nutf-8\ntrue\n\n\n\nAffiliations\nfalse\n\nText\nutf-8\nfalse\n\n\n\nKeywords\nfalse\n\nText\nutf-8\ntrue\n\n\n\nObjectives\nfalse\n\nText\nutf-8\nfalse\n\n\n\nCitation\nfalse\n\nText\nutf-8\nfalse\n\n\n\nPeriodCovered\nfalse\n\nText\nutf-8\nfalse\n\n\n\nStudyLocation\nfalse\n\nText\nutf-8\nfalse\n\n\n\nFunder\nfalse\n\nText\nutf-8\nfalse\n\n\n\nFileList\nfalse\n\nText\nutf-8\nfalse\n\n\n\nDataLicense\nfalse\n\nText\nutf-8\nfalse\n\n\n\nDOI\nfalse\n\nText\nutf-8\ntrue\n^doi:10\\.\\d{4,9}/[-._;()/:Aa-Zz0-9]+$\n\n\nCollegeName\nfalse\n\nText\nutf-8\ntrue\n\n\n\nDepartmentName\nfalse\n\nText\nutf-8\ntrue\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAttribute\nLabel\nDescription\nList\n\n\n\n\nTitle\nTitle\nThe title of the dataset or study as published in Borealis\nNot a list\n\n\nPublicationDate\nPublication Date\nThe date the dataset was made publicly available\nNot a list\n\n\nAuthors\nAuthors\nA list of the individuals who contributed to or authored the dataset\nNot a list\n\n\nAffiliations\nAffiliations\nThe institutional affiliations of the authors, such as departments or research centers\nNot a list\n\n\nKeywords\nKeywords\nTerms associated with the dataset for easier search and thematic classification\nNot a list\n\n\nObjectives\nObjectives\nA brief description of the research goals or purpose of the dataset\nNot a list\n\n\nCitation\nCitation\nFormal citation information for referencing the dataset in publications\nNot a list\n\n\nPeriodCovered\nPeriod Covered\nThe time frame during which data was collected (e.g., growing seasons, study period)\nNot a list\n\n\nStudyLocation\nStudy Location\nGeographic location where the study or data collection took place\nNot a list\n\n\nFunder\nFunder\nOrganizations or institutions that funded the research or data collection\nNot a list\n\n\nFileList\nFile List\nNames of files included in the dataset, such as .tab, .csv, or .txt files\nNot a list\n\n\nDataLicense\nData License\nLicensing information that defines how the dataset can be used or shared\nNot a list\n\n\nDOI\nDOI\nThe persistent identifier (Digital Object Identifier) that uniquely identifies the dataset\nNot a list\n\n\nCollegeName\nCollege Name\nThe college or broader organizational unit associated with the dataset\nNot a list\n\n\nDepartmentName\nDepartment Name\nThe specific department, lab, or research center responsible for the dataset\nNot a list\n\n\n\n\n\n\n\nCapture base: EAbbWiPPVbr8eHX9Vy0zghNVzfOtHScaSTjyy39DjNFq\nBundle: EOVr6xIUajAON8if09vlXAvWOhVp8tsbOYUGVMKOYtAc\nPackage: EG6D6-mYDrAB1iivIHNnhqumcEbWaoyujJmSzlcunc-M\n\n\n\n\n\n\n\n\nLayer\nSAID\nType\n\n\n\n\ncharacter_encoding\nEFF_SIriN5fvG0dOuqO0ArKsulc-k4jfsz82RFosFbiD\nspec/overlays/character_encoding/1.1\n\n\nconformance\nECNSoB8U31gxNcyHJfxk6XFDD_9flElc_gH6kCE8IUdB\nspec/overlays/conformance/1.1\n\n\nformat\nEFr_apY3LgDd9Zyns3alJUVyLxapP5NSKsphb7_z_a79\nspec/overlays/format/1.1\n\n\ninformation (eng)\nEO9iqg0aCp32hsVB7qLRRQ6EwgTwe-FXhrBhWDO_v8c8\nspec/overlays/information/1.1\n\n\nlabel (eng)\nEEQSRNYUSLktOqYLha2udTs5HzBmWjpl3hNF0ylrmlV-\nspec/overlays/label/1.1\n\n\nmeta (eng)\nEAyt9CmbKnc_xBwJ1TqN6nnjDYFhCd5pbgw1-peUkIQR\nspec/overlays/meta/1.1\n\n\nordering\nEG4ysAjmw2iv6NK7OhkHtV9167W5qMimERnJl9OgKoeB\ncommunity/overlays/adc/ordering/1.1\n\n\n\nDate created: 2025-07-31 05:29:10",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "research_data"
+    ]
+  },
+  {
+    "objectID": "Research_data_OCA_schema.html#table-of-contents",
+    "href": "Research_data_OCA_schema.html#table-of-contents",
+    "title": "Research_data",
+    "section": "",
+    "text": "{: .no_toc .text-delta }\n\nTOC {:toc}\n\nName: Research_data\nDescription: The research_data.csv dataset is a core component of the RED-X app and serves as the primary cache of research metadata retrieved from the Borealis Dataverse repository. It contains structured metadata for multiple agricultural and environmental studies, including fields such as Title, PublicationDate, Authors, Affiliations, Keywords, and Objectives. Each record is linked to a persistent identifier (DOI), along with institutional context like CollegeName and DepartmentName. These entries support the app’s dynamic search, visualization, and filtering features, and are stored in a local SQLite database to improve performance and reduce redundant API calls.\nClassification: RDF212\nSchema package SAID: EG6D6-mYDrAB1iivIHNnhqumcEbWaoyujJmSzlcunc-M",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "research_data"
+    ]
+  },
+  {
+    "objectID": "Research_data_OCA_schema.html#schema-quick-view",
+    "href": "Research_data_OCA_schema.html#schema-quick-view",
+    "title": "Research_data",
+    "section": "",
+    "text": "Attribute\nLabel\nDescription\n\n\n\n\nTitle\nTitle\nThe title of the dataset or study as published in Borealis\n\n\nPublicationDate\nPublication Date\nThe date the dataset was made publicly available\n\n\nAuthors\nAuthors\nA list of the individuals who contributed to or authored the dataset\n\n\nAffiliations\nAffiliations\nThe institutional affiliations of the authors, such as departments or research centers\n\n\nKeywords\nKeywords\nTerms associated with the dataset for easier search and thematic classification\n\n\nObjectives\nObjectives\nA brief description of the research goals or purpose of the dataset\n\n\nCitation\nCitation\nFormal citation information for referencing the dataset in publications\n\n\nPeriodCovered\nPeriod Covered\nThe time frame during which data was collected (e.g., growing seasons, study period)\n\n\nStudyLocation\nStudy Location\nGeographic location where the study or data collection took place\n\n\nFunder\nFunder\nOrganizations or institutions that funded the research or data collection\n\n\nFileList\nFile List\nNames of files included in the dataset, such as .tab, .csv, or .txt files\n\n\nDataLicense\nData License\nLicensing information that defines how the dataset can be used or shared\n\n\nDOI\nDOI\nThe persistent identifier (Digital Object Identifier) that uniquely identifies the dataset\n\n\nCollegeName\nCollege Name\nThe college or broader organizational unit associated with the dataset\n\n\nDepartmentName\nDepartment Name\nThe specific department, lab, or research center responsible for the dataset",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "research_data"
+    ]
+  },
+  {
+    "objectID": "Research_data_OCA_schema.html#international-schema-information",
+    "href": "Research_data_OCA_schema.html#international-schema-information",
+    "title": "Research_data",
+    "section": "",
+    "text": "Language\nName\nDescription\n\n\n\n\nEnglish\nResearch_data\nThe research_data.csv dataset is a core component of the RED-X app and serves as the primary cache of research metadata retrieved from the Borealis Dataverse repository. It contains structured metadata for multiple agricultural and environmental studies, including fields such as Title, PublicationDate, Authors, Affiliations, Keywords, and Objectives. Each record is linked to a persistent identifier (DOI), along with institutional context like CollegeName and DepartmentName. These entries support the app’s dynamic search, visualization, and filtering features, and are stored in a local SQLite database to improve performance and reduce redundant API calls.",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "research_data"
+    ]
+  },
+  {
+    "objectID": "Research_data_OCA_schema.html#language-independent-schema-details",
+    "href": "Research_data_OCA_schema.html#language-independent-schema-details",
+    "title": "Research_data",
+    "section": "",
+    "text": "Attribute\nSensitive\nUnit\nType\nCharacter encoding\nRequired entry\nFormat rule\n\n\n\n\nTitle\nfalse\n\nText\nutf-8\ntrue\n\n\n\nPublicationDate\nfalse\n\nDateTime\nutf-8\ntrue\n\n\n\nAuthors\nfalse\n\nText\nutf-8\ntrue\n\n\n\nAffiliations\nfalse\n\nText\nutf-8\nfalse\n\n\n\nKeywords\nfalse\n\nText\nutf-8\ntrue\n\n\n\nObjectives\nfalse\n\nText\nutf-8\nfalse\n\n\n\nCitation\nfalse\n\nText\nutf-8\nfalse\n\n\n\nPeriodCovered\nfalse\n\nText\nutf-8\nfalse\n\n\n\nStudyLocation\nfalse\n\nText\nutf-8\nfalse\n\n\n\nFunder\nfalse\n\nText\nutf-8\nfalse\n\n\n\nFileList\nfalse\n\nText\nutf-8\nfalse\n\n\n\nDataLicense\nfalse\n\nText\nutf-8\nfalse\n\n\n\nDOI\nfalse\n\nText\nutf-8\ntrue\n^doi:10\\.\\d{4,9}/[-._;()/:Aa-Zz0-9]+$\n\n\nCollegeName\nfalse\n\nText\nutf-8\ntrue\n\n\n\nDepartmentName\nfalse\n\nText\nutf-8\ntrue",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "research_data"
+    ]
+  },
+  {
+    "objectID": "Research_data_OCA_schema.html#language-specific-schema-details",
+    "href": "Research_data_OCA_schema.html#language-specific-schema-details",
+    "title": "Research_data",
+    "section": "",
+    "text": "Attribute\nLabel\nDescription\nList\n\n\n\n\nTitle\nTitle\nThe title of the dataset or study as published in Borealis\nNot a list\n\n\nPublicationDate\nPublication Date\nThe date the dataset was made publicly available\nNot a list\n\n\nAuthors\nAuthors\nA list of the individuals who contributed to or authored the dataset\nNot a list\n\n\nAffiliations\nAffiliations\nThe institutional affiliations of the authors, such as departments or research centers\nNot a list\n\n\nKeywords\nKeywords\nTerms associated with the dataset for easier search and thematic classification\nNot a list\n\n\nObjectives\nObjectives\nA brief description of the research goals or purpose of the dataset\nNot a list\n\n\nCitation\nCitation\nFormal citation information for referencing the dataset in publications\nNot a list\n\n\nPeriodCovered\nPeriod Covered\nThe time frame during which data was collected (e.g., growing seasons, study period)\nNot a list\n\n\nStudyLocation\nStudy Location\nGeographic location where the study or data collection took place\nNot a list\n\n\nFunder\nFunder\nOrganizations or institutions that funded the research or data collection\nNot a list\n\n\nFileList\nFile List\nNames of files included in the dataset, such as .tab, .csv, or .txt files\nNot a list\n\n\nDataLicense\nData License\nLicensing information that defines how the dataset can be used or shared\nNot a list\n\n\nDOI\nDOI\nThe persistent identifier (Digital Object Identifier) that uniquely identifies the dataset\nNot a list\n\n\nCollegeName\nCollege Name\nThe college or broader organizational unit associated with the dataset\nNot a list\n\n\nDepartmentName\nDepartment Name\nThe specific department, lab, or research center responsible for the dataset\nNot a list",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "research_data"
+    ]
+  },
+  {
+    "objectID": "Research_data_OCA_schema.html#schema-saids",
+    "href": "Research_data_OCA_schema.html#schema-saids",
+    "title": "Research_data",
+    "section": "",
+    "text": "Capture base: EAbbWiPPVbr8eHX9Vy0zghNVzfOtHScaSTjyy39DjNFq\nBundle: EOVr6xIUajAON8if09vlXAvWOhVp8tsbOYUGVMKOYtAc\nPackage: EG6D6-mYDrAB1iivIHNnhqumcEbWaoyujJmSzlcunc-M\n\n\n\n\n\n\n\n\nLayer\nSAID\nType\n\n\n\n\ncharacter_encoding\nEFF_SIriN5fvG0dOuqO0ArKsulc-k4jfsz82RFosFbiD\nspec/overlays/character_encoding/1.1\n\n\nconformance\nECNSoB8U31gxNcyHJfxk6XFDD_9flElc_gH6kCE8IUdB\nspec/overlays/conformance/1.1\n\n\nformat\nEFr_apY3LgDd9Zyns3alJUVyLxapP5NSKsphb7_z_a79\nspec/overlays/format/1.1\n\n\ninformation (eng)\nEO9iqg0aCp32hsVB7qLRRQ6EwgTwe-FXhrBhWDO_v8c8\nspec/overlays/information/1.1\n\n\nlabel (eng)\nEEQSRNYUSLktOqYLha2udTs5HzBmWjpl3hNF0ylrmlV-\nspec/overlays/label/1.1\n\n\nmeta (eng)\nEAyt9CmbKnc_xBwJ1TqN6nnjDYFhCd5pbgw1-peUkIQR\nspec/overlays/meta/1.1\n\n\nordering\nEG4ysAjmw2iv6NK7OhkHtV9167W5qMimERnJl9OgKoeB\ncommunity/overlays/adc/ordering/1.1\n\n\n\nDate created: 2025-07-31 05:29:10",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "research_data"
+    ]
+  },
+  {
+    "objectID": "user-guide.html",
+    "href": "user-guide.html",
+    "title": "User Guide",
+    "section": "",
+    "text": "1.0 How to Use RED-X\nThis section provides step-by-step guidance on using each component of RED-X. Whether you’re exploring historical data, identifying research trends, or preparing for a new project, RED-X offers tools to support your workflow.\n\n\n\n2.0 Home Tab\nWhen you first access RED-X, you’re welcomed by the Home tab, which serves as both an overview and introduction to the platform.\nAt the top of the page is a carousel-style summary that cycles through key statistics and features:\n\nAvailable dataverses\nTotal number of studies\nNumber of authors and keywords\nNumber of downloadable files\n\n\nFigure: Home tab displaying summary statistics.\nThe Home tab also includes a visual preview and description of the two main functional areas of the app:\n\nNetwork Explorer – For visualizing data relationships by keyword, author, and institution.\nData Explorer – For detailed study-level metadata browsing and file access.\n\nBeneath the carousel, you’ll find a short introduction to the RED-X platform. This text outlines the purpose of the app — helping users explore historical Agri-Food data, identify reusable datasets, and support various stages of research.\n\nTip: Use the Home tab as a launching point to understand what’s available and choose your next step based on your research needs.\n\n\n\n3.0 Network Explorer\nThe Network Explorer tab provides an interactive visualization of how studies are connected through shared keywords and authors, as well as their associated colleges and departments. This tool helps users uncover patterns, identify collaborators, and explore thematic clusters across historical datasets.\nUser can use the filters feature to narrow results, then interact with nodes in the network to see how keywords, people, and institutions are connected.\n\n\n3.1 Featured example:\nSuppose you are planning a research project focused on pH. Here’s how RED-X supports your workflow:\n\nSearch for the keyword (e.g., “pH”) to reveal all related studies, other linked keywords, and contributing authors.\n\n\n\nClick nodes to highlight related studies.\nHover over nodes to reveal labels and context.\n\n\n\nUse dropdown filters to focus the network by:\n\nCollege/Campus/Institution\nDepartment/Campus\n\nZoom, pan and scroll down to navigate the network space dynamically and display more details about the keywords including the number of associated studies and links to their DOIs on the Borealis Dataverse.\n\n\nThe visual structure enables discovery of new directions for research, potential collaborators, and dataset relevance based on shared keywords or institutional ties.\n\n\n\nFigure: Network Explorer showing the keyword “pH” with connections to related studies, authors, and academic departments.\n\nExplore Collaborations:\nTrace authors or departments with similar work and explore their datasets for deeper context. The legend displays the color assigned to each department, making it easier to visually trace connections within the network. The “Shared Across Multiple” category represents keywords or authors that appear in more than one department or college.\n\n\n\nTip: Use this tool early in your research planning to map out what’s already been studied and where gaps or opportunities may exist.\n\n\n\n\n4.0 Data Explorer\nThe Data Explorer tab presents a comprehensive, filterable table of all available studies harvested from the Borealis Dataverse. It serves as the primary interface for browsing study-level metadata and accessing associated data files.\nUsers can:\n\nFilter by college, department, or dataverse using dynamic dropdowns.\nSearch by keyword to find studies relevant to specific topics (e.g., pH, manure, cover crops).\n\n\n\n\nView metadata including study title, publication date, authors, affiliated institution, and study objectives.\n\n\n\n\nAccess available files.\n\n\n4.1 Featured Example\nThis example walks you through interacting with an individual study using the Data Explorer tab. You can view metadata, inspect raw data files, and review summary statistics to evaluate the study’s content and reusability.\n\nStudy Overview\n\nThe Study Overview tab provides a concise, table-form summary of the metadata associated with a selected study. It displays key information such as the study title, period covered, DOI, data license, and other relevant details in a clear two-column layout. It also displays some interactive elements such as clickable DOI and license links to enhance usability and visibility. This tab offers users a quick and accessible way to assess study-level information before exploring raw data or associated files.\n\n\nView Metadata\n\nThe Metadata tab helps users explore important background information about each dataset. When available, it shows two sections: a Data Description, which gives general details about the study, and a Data Schema, which outlines the structure of the dataset (such as column names and types). RED-X automatically displays this information if a compatible .txt metadata file is included. However, if no metadata file is found or the file is in an unsupported format (like PDF or Word), the tab will show no metadata file found indicating that metadata is not available. This feature gives users a quick overview of a dataset’s context before reviewing the raw data.\n\n\nFigure showing what is displayed when metadata is available\n\n\n\nFigure showing what is displayed when metadata is not available\n\nData exploration Tab\n\nView All Datafile This section displays the full contents of the selected dataset in an interactive table. Users can scroll, search, and sort the data to explore the raw values directly within the app. It’s helpful for quickly reviewing the structure of the dataset, spotting missing values, or identifying specific entries.\n\nData Summary The Data Summary section provides basic descriptive statistics for numeric columns in the selected dataset. This includes metrics like mean, minimum, maximum, and counts. It gives users a quick snapshot of the data’s distribution and quality, helping to assess its potential for reuse. If the dataset contains only text or unsupported values, the summary may be blank or trigger an error message.\n\nNote: The Data Exploration tab only supports .tab or .csv file formats. If no compatible data file is found, or if the dataset is missing entirely, the app will display a message no data files found indicating that no data file is available. Additionally, the Data Summary and Data Visualization features are designed to work with numeric data. If the selected file contains only text or unsupported formats, these sections may show an error or return no results.\n\nData Visualization This section generates simple plots (e.g., histograms or scatter plots) based on the dataset’s contents. It allows users to visually explore trends, compare variables, and better understand the shape and relationships within the data. Visualizations are most useful when the dataset includes numeric columns. If the data is not suitable for plotting, this section may not display any output.\nSelect studies with accessible files for preliminary data review for reuse. Users can select datasets to view trends and summary statistics, helping them better understand the structure, scope, and potential reusability of historical data for their own research.\n\nFigure: Example of visualizing dataset trends and summary statistics using the data visualization tool within RED-X.\n\nTip: Use the Data Explorer to review metadata and visualize data. Reviewed studies and data can provide useful context or methodological references for prelimimary stage during project development.\n\n\n\n\n5.0 About Tab\nThe About tab contains background information on RED-X, its goals, and contributing institutions. This section is useful for understanding the development context and the broader research infrastructure it supports. It also gives information about the development team.\n\n\n\n6.0 Tips & Best Practices\n\nStart with broad searches to discover unexpected related studies.\nUse both the Network and Data Explorer tabs for a comprehensive view.\nUse the summary boxes in the Home tab to monitor total data availability.\nData updates every 48 hours — revisit often for new studies.\n\n\n\n\n7.0 Need More Help?\nIf you need further assistance using the platform, refer to the Getting Started guide or contact the support team at adc@uoguelph.ca.",
+    "crumbs": [
+      "User Guide"
+    ]
+  },
+  {
+    "objectID": "Update_info_OCA_schema.html",
+    "href": "Update_info_OCA_schema.html",
+    "title": "Update_info",
+    "section": "",
+    "text": "{: .no_toc }\n\n\n{: .no_toc .text-delta }\n\nTOC {:toc}\n\nName: Update_info\nDescription: The update_info file stores the timestamp of the last successful data cache update in the RED-X application. It is used by the cache_raw_data() function to determine whether enough time (48 hours) has passed since the last update. If so, the app re-fetches metadata from Borealis; otherwise, it uses the cached data to reduce load time and avoid redundant API calls. This file serves as a lightweight control mechanism that ensures the app remains current while optimizing performance and bandwidth usage.\nClassification: RDF212\nSchema package SAID: EOVVy8DwCTq91031EUmNqY-5QGSBbVAbfTu-9ajscaEg\n\n\n\n\n\n\n\n\n\n\n\nAttribute\nLabel\nDescription\n\n\n\n\nlast_update\nlast_update\nTimestamp of the last successful data caching operation in RED-X.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLanguage\nName\nDescription\n\n\n\n\nEnglish\nUpdate_info\nThe update_info file stores the timestamp of the last successful data cache update in the RED-X application. It is used by the cache_raw_data() function to determine whether enough time (48 hours) has passed since the last update. If so, the app re-fetches metadata from Borealis; otherwise, it uses the cached data to reduce load time and avoid redundant API calls. This file serves as a lightweight control mechanism that ensures the app remains current while optimizing performance and bandwidth usage.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAttribute\nSensitive\nUnit\nType\nCharacter encoding\nRequired entry\nFormat rule\n\n\n\n\nlast_update\nfalse\n\nDateTime\nutf-8\ntrue\n^(?:\\d{4})-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])T([01]\\d|2[0-3]):([0-5]\\d):([0-5]\\d)Z$\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAttribute\nLabel\nDescription\nList\n\n\n\n\nlast_update\nlast_update\nTimestamp of the last successful data caching operation in RED-X.\nNot a list\n\n\n\n\n\n\n\nCapture base: EMJTU2IzXFesKF4ktRmp3w_QX2tJ4s_Rk_eqccbPccKr\nBundle: EKIXxIe1MeesMYdh1V5YOsZLCyzGz2cg5L0gbo8NZOWB\nPackage: EOVVy8DwCTq91031EUmNqY-5QGSBbVAbfTu-9ajscaEg\n\n\n\n\n\n\n\n\nLayer\nSAID\nType\n\n\n\n\ncharacter_encoding\nEAdBmoSyflBvE4QBKbz8FR6OaB6y8RXTlS-0UgfS7SBN\nspec/overlays/character_encoding/1.1\n\n\nconformance\nEB9m1eX6i8xYblu68lYXN3_3FUyo_jazTL9eP4gXWfyS\nspec/overlays/conformance/1.1\n\n\nformat\nEPxsNRUnFa-vr85brCI9PpfuK2NdaNg44BNf2ZEywnSc\nspec/overlays/format/1.1\n\n\ninformation (eng)\nEEpRI4L5bDIeVAg9Cu-qF08V_o2y1X36GnAV-uPaZeai\nspec/overlays/information/1.1\n\n\nlabel (eng)\nEOpq63LB1OUJgR0VYc-vM_46kM2HcFYPG5ok_aRUtPvT\nspec/overlays/label/1.1\n\n\nmeta (eng)\nEK-1KGKUjqfJayB3u0TYxhQaZ605u1Z9BRO8eP3qIvAp\nspec/overlays/meta/1.1\n\n\nordering\nEMY7PavL5JKR7_uTBQhCiseq3CHlvViA1QPjUs8vj2vx\ncommunity/overlays/adc/ordering/1.1\n\n\n\nDate created: 2025-07-29 04:40:40",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "Update_info"
+    ]
+  },
+  {
+    "objectID": "Update_info_OCA_schema.html#table-of-contents",
+    "href": "Update_info_OCA_schema.html#table-of-contents",
+    "title": "Update_info",
+    "section": "",
+    "text": "{: .no_toc .text-delta }\n\nTOC {:toc}\n\nName: Update_info\nDescription: The update_info file stores the timestamp of the last successful data cache update in the RED-X application. It is used by the cache_raw_data() function to determine whether enough time (48 hours) has passed since the last update. If so, the app re-fetches metadata from Borealis; otherwise, it uses the cached data to reduce load time and avoid redundant API calls. This file serves as a lightweight control mechanism that ensures the app remains current while optimizing performance and bandwidth usage.\nClassification: RDF212\nSchema package SAID: EOVVy8DwCTq91031EUmNqY-5QGSBbVAbfTu-9ajscaEg",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "Update_info"
+    ]
+  },
+  {
+    "objectID": "Update_info_OCA_schema.html#schema-quick-view",
+    "href": "Update_info_OCA_schema.html#schema-quick-view",
+    "title": "Update_info",
+    "section": "",
+    "text": "Attribute\nLabel\nDescription\n\n\n\n\nlast_update\nlast_update\nTimestamp of the last successful data caching operation in RED-X.",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "Update_info"
+    ]
+  },
+  {
+    "objectID": "Update_info_OCA_schema.html#international-schema-information",
+    "href": "Update_info_OCA_schema.html#international-schema-information",
+    "title": "Update_info",
+    "section": "",
+    "text": "Language\nName\nDescription\n\n\n\n\nEnglish\nUpdate_info\nThe update_info file stores the timestamp of the last successful data cache update in the RED-X application. It is used by the cache_raw_data() function to determine whether enough time (48 hours) has passed since the last update. If so, the app re-fetches metadata from Borealis; otherwise, it uses the cached data to reduce load time and avoid redundant API calls. This file serves as a lightweight control mechanism that ensures the app remains current while optimizing performance and bandwidth usage.",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "Update_info"
+    ]
+  },
+  {
+    "objectID": "Update_info_OCA_schema.html#language-independent-schema-details",
+    "href": "Update_info_OCA_schema.html#language-independent-schema-details",
+    "title": "Update_info",
+    "section": "",
+    "text": "Attribute\nSensitive\nUnit\nType\nCharacter encoding\nRequired entry\nFormat rule\n\n\n\n\nlast_update\nfalse\n\nDateTime\nutf-8\ntrue\n^(?:\\d{4})-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])T([01]\\d|2[0-3]):([0-5]\\d):([0-5]\\d)Z$",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "Update_info"
+    ]
+  },
+  {
+    "objectID": "Update_info_OCA_schema.html#language-specific-schema-details",
+    "href": "Update_info_OCA_schema.html#language-specific-schema-details",
+    "title": "Update_info",
+    "section": "",
+    "text": "Attribute\nLabel\nDescription\nList\n\n\n\n\nlast_update\nlast_update\nTimestamp of the last successful data caching operation in RED-X.\nNot a list",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "Update_info"
+    ]
+  },
+  {
+    "objectID": "Update_info_OCA_schema.html#schema-saids",
+    "href": "Update_info_OCA_schema.html#schema-saids",
+    "title": "Update_info",
+    "section": "",
+    "text": "Capture base: EMJTU2IzXFesKF4ktRmp3w_QX2tJ4s_Rk_eqccbPccKr\nBundle: EKIXxIe1MeesMYdh1V5YOsZLCyzGz2cg5L0gbo8NZOWB\nPackage: EOVVy8DwCTq91031EUmNqY-5QGSBbVAbfTu-9ajscaEg\n\n\n\n\n\n\n\n\nLayer\nSAID\nType\n\n\n\n\ncharacter_encoding\nEAdBmoSyflBvE4QBKbz8FR6OaB6y8RXTlS-0UgfS7SBN\nspec/overlays/character_encoding/1.1\n\n\nconformance\nEB9m1eX6i8xYblu68lYXN3_3FUyo_jazTL9eP4gXWfyS\nspec/overlays/conformance/1.1\n\n\nformat\nEPxsNRUnFa-vr85brCI9PpfuK2NdaNg44BNf2ZEywnSc\nspec/overlays/format/1.1\n\n\ninformation (eng)\nEEpRI4L5bDIeVAg9Cu-qF08V_o2y1X36GnAV-uPaZeai\nspec/overlays/information/1.1\n\n\nlabel (eng)\nEOpq63LB1OUJgR0VYc-vM_46kM2HcFYPG5ok_aRUtPvT\nspec/overlays/label/1.1\n\n\nmeta (eng)\nEK-1KGKUjqfJayB3u0TYxhQaZ605u1Z9BRO8eP3qIvAp\nspec/overlays/meta/1.1\n\n\nordering\nEMY7PavL5JKR7_uTBQhCiseq3CHlvViA1QPjUs8vj2vx\ncommunity/overlays/adc/ordering/1.1\n\n\n\nDate created: 2025-07-29 04:40:40",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "Update_info"
+    ]
+  },
+  {
+    "objectID": "Keyword_edge_OCA_schema.html",
+    "href": "Keyword_edge_OCA_schema.html",
+    "title": "Keyword edge",
+    "section": "",
+    "text": "{: .no_toc }\n\n\n{: .no_toc .text-delta }\n\nTOC {:toc}\n\nName: Keyword edge\nDescription: The keywords_edge.csv dataset is used in the RED-X application to define the connections (edges) between keyword nodes in the research network visualization. Each row in this dataset represents a pair of keywords that co-occurred in one or more studies. The strength of this connection—i.e., how frequently the two keywords appeared together—is recorded as the weight. This dataset, along with the keyword node data, helps the RED-X app render an interactive network plot that reveals relationships between concepts across historical research metadata. Users can explore how different keywords are interlinked, which can support discovery and thematic clustering.\nClassification: RDF212\nSchema package SAID: EJiCMhxrOZndvQQtBKbfE7FWfiZAaV_cJ8mX7k_jOYN0\n\n\n\n\n\n\n\n\n\n\n\nAttribute\nLabel\nDescription\n\n\n\n\nfrom\nfrom\nThe unique ID of the starting keyword node in the connection.\n\n\nto\nto\nThe unique ID of the target keyword node that is linked to the from node.\n\n\nweight\nweight\nThe number of studies where both keywords (from and to) co-occurred.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLanguage\nName\nDescription\n\n\n\n\nEnglish\nKeyword edge\nThe keywords_edge.csv dataset is used in the RED-X application to define the connections (edges) between keyword nodes in the research network visualization. Each row in this dataset represents a pair of keywords that co-occurred in one or more studies. The strength of this connection—i.e., how frequently the two keywords appeared together—is recorded as the weight. This dataset, along with the keyword node data, helps the RED-X app render an interactive network plot that reveals relationships between concepts across historical research metadata. Users can explore how different keywords are interlinked, which can support discovery and thematic clustering.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAttribute\nSensitive\nUnit\nType\nCharacter encoding\nRequired entry\nFormat rule\n\n\n\n\nfrom\nfalse\n\nNumeric\nutf-8\ntrue\n^\\d+$\n\n\nto\nfalse\n\nNumeric\nutf-8\ntrue\n^\\d+$\n\n\nweight\nfalse\n\nNumeric\nutf-8\ntrue\n^\\d+$\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAttribute\nLabel\nDescription\nList\n\n\n\n\nfrom\nfrom\nThe unique ID of the starting keyword node in the connection.\nNot a list\n\n\nto\nto\nThe unique ID of the target keyword node that is linked to the from node.\nNot a list\n\n\nweight\nweight\nThe number of studies where both keywords (from and to) co-occurred.\nNot a list\n\n\n\n\n\n\n\nCapture base: EIPGhhHuEV444bds9VWdD6H8BsU6SM3fAAJFPWr-XY7s\nBundle: EIdTdMBKfim9-Lif_88nYTuRc2mX5Jf4hug4OOvQW06E\nPackage: EJiCMhxrOZndvQQtBKbfE7FWfiZAaV_cJ8mX7k_jOYN0\n\n\n\n\n\n\n\n\nLayer\nSAID\nType\n\n\n\n\ncharacter_encoding\nEJHpKCuJTcrRQoWvFGLX3QY9NbHGGOqo3YyAA2K86zkI\nspec/overlays/character_encoding/1.1\n\n\nconformance\nEJgMOyRhP_WAz40Da8upRblgkdXQTCAK54yFTzY2-qZF\nspec/overlays/conformance/1.1\n\n\nformat\nEDCsAEyYYav_bn1XFLL5Me3nSHkumDMsOc089rphbT0I\nspec/overlays/format/1.1\n\n\ninformation (eng)\nELmI2xXv2KZ6Lc7bJJZLtn7bXrGG6CiSeR8FTNUIJFSD\nspec/overlays/information/1.1\n\n\nlabel (eng)\nEGOaKJo3VylvcbQC075gsGZS2Wyz588epNBTYAhifNgT\nspec/overlays/label/1.1\n\n\nmeta (eng)\nEFfO7x8Q_zJdfldwpZG6Bp96DceUR6zrjf8lgtPLxHoT\nspec/overlays/meta/1.1\n\n\nordering\nEANxLAE0-kuJcZMSb1NFa-UoH2PLQDJ4gstD4TeAlLYt\ncommunity/overlays/adc/ordering/1.1\n\n\n\nDate created: 2025-07-29 03:44:48",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "keywords_edge"
+    ]
+  },
+  {
+    "objectID": "Keyword_edge_OCA_schema.html#table-of-contents",
+    "href": "Keyword_edge_OCA_schema.html#table-of-contents",
+    "title": "Keyword edge",
+    "section": "",
+    "text": "{: .no_toc .text-delta }\n\nTOC {:toc}\n\nName: Keyword edge\nDescription: The keywords_edge.csv dataset is used in the RED-X application to define the connections (edges) between keyword nodes in the research network visualization. Each row in this dataset represents a pair of keywords that co-occurred in one or more studies. The strength of this connection—i.e., how frequently the two keywords appeared together—is recorded as the weight. This dataset, along with the keyword node data, helps the RED-X app render an interactive network plot that reveals relationships between concepts across historical research metadata. Users can explore how different keywords are interlinked, which can support discovery and thematic clustering.\nClassification: RDF212\nSchema package SAID: EJiCMhxrOZndvQQtBKbfE7FWfiZAaV_cJ8mX7k_jOYN0",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "keywords_edge"
+    ]
+  },
+  {
+    "objectID": "Keyword_edge_OCA_schema.html#schema-quick-view",
+    "href": "Keyword_edge_OCA_schema.html#schema-quick-view",
+    "title": "Keyword edge",
+    "section": "",
+    "text": "Attribute\nLabel\nDescription\n\n\n\n\nfrom\nfrom\nThe unique ID of the starting keyword node in the connection.\n\n\nto\nto\nThe unique ID of the target keyword node that is linked to the from node.\n\n\nweight\nweight\nThe number of studies where both keywords (from and to) co-occurred.",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "keywords_edge"
+    ]
+  },
+  {
+    "objectID": "Keyword_edge_OCA_schema.html#international-schema-information",
+    "href": "Keyword_edge_OCA_schema.html#international-schema-information",
+    "title": "Keyword edge",
+    "section": "",
+    "text": "Language\nName\nDescription\n\n\n\n\nEnglish\nKeyword edge\nThe keywords_edge.csv dataset is used in the RED-X application to define the connections (edges) between keyword nodes in the research network visualization. Each row in this dataset represents a pair of keywords that co-occurred in one or more studies. The strength of this connection—i.e., how frequently the two keywords appeared together—is recorded as the weight. This dataset, along with the keyword node data, helps the RED-X app render an interactive network plot that reveals relationships between concepts across historical research metadata. Users can explore how different keywords are interlinked, which can support discovery and thematic clustering.",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "keywords_edge"
+    ]
+  },
+  {
+    "objectID": "Keyword_edge_OCA_schema.html#language-independent-schema-details",
+    "href": "Keyword_edge_OCA_schema.html#language-independent-schema-details",
+    "title": "Keyword edge",
+    "section": "",
+    "text": "Attribute\nSensitive\nUnit\nType\nCharacter encoding\nRequired entry\nFormat rule\n\n\n\n\nfrom\nfalse\n\nNumeric\nutf-8\ntrue\n^\\d+$\n\n\nto\nfalse\n\nNumeric\nutf-8\ntrue\n^\\d+$\n\n\nweight\nfalse\n\nNumeric\nutf-8\ntrue\n^\\d+$",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "keywords_edge"
+    ]
+  },
+  {
+    "objectID": "Keyword_edge_OCA_schema.html#language-specific-schema-details",
+    "href": "Keyword_edge_OCA_schema.html#language-specific-schema-details",
+    "title": "Keyword edge",
+    "section": "",
+    "text": "Attribute\nLabel\nDescription\nList\n\n\n\n\nfrom\nfrom\nThe unique ID of the starting keyword node in the connection.\nNot a list\n\n\nto\nto\nThe unique ID of the target keyword node that is linked to the from node.\nNot a list\n\n\nweight\nweight\nThe number of studies where both keywords (from and to) co-occurred.\nNot a list",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "keywords_edge"
+    ]
+  },
+  {
+    "objectID": "Keyword_edge_OCA_schema.html#schema-saids",
+    "href": "Keyword_edge_OCA_schema.html#schema-saids",
+    "title": "Keyword edge",
+    "section": "",
+    "text": "Capture base: EIPGhhHuEV444bds9VWdD6H8BsU6SM3fAAJFPWr-XY7s\nBundle: EIdTdMBKfim9-Lif_88nYTuRc2mX5Jf4hug4OOvQW06E\nPackage: EJiCMhxrOZndvQQtBKbfE7FWfiZAaV_cJ8mX7k_jOYN0\n\n\n\n\n\n\n\n\nLayer\nSAID\nType\n\n\n\n\ncharacter_encoding\nEJHpKCuJTcrRQoWvFGLX3QY9NbHGGOqo3YyAA2K86zkI\nspec/overlays/character_encoding/1.1\n\n\nconformance\nEJgMOyRhP_WAz40Da8upRblgkdXQTCAK54yFTzY2-qZF\nspec/overlays/conformance/1.1\n\n\nformat\nEDCsAEyYYav_bn1XFLL5Me3nSHkumDMsOc089rphbT0I\nspec/overlays/format/1.1\n\n\ninformation (eng)\nELmI2xXv2KZ6Lc7bJJZLtn7bXrGG6CiSeR8FTNUIJFSD\nspec/overlays/information/1.1\n\n\nlabel (eng)\nEGOaKJo3VylvcbQC075gsGZS2Wyz588epNBTYAhifNgT\nspec/overlays/label/1.1\n\n\nmeta (eng)\nEFfO7x8Q_zJdfldwpZG6Bp96DceUR6zrjf8lgtPLxHoT\nspec/overlays/meta/1.1\n\n\nordering\nEANxLAE0-kuJcZMSb1NFa-UoH2PLQDJ4gstD4TeAlLYt\ncommunity/overlays/adc/ordering/1.1\n\n\n\nDate created: 2025-07-29 03:44:48",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "keywords_edge"
+    ]
+  },
+  {
+    "objectID": "college_colors_OCA_schema.html",
+    "href": "college_colors_OCA_schema.html",
+    "title": "college_colors",
+    "section": "",
+    "text": "{: .no_toc }\n\n\n{: .no_toc .text-delta }\n\nTOC {:toc}\n\nName: college_colors\nDescription: The college_colors file contains a color mapping for different college names. It plays a key role in the network visualization feature of the RED-X application, helping users distinguish between different colleges using color-coded nodes. Each keyword or author node inherits a color from this mapping based on its associated college. This improves visual clarity and makes it easier to spot patterns across institutions in the research network.\nClassification: RDF201\nSchema package SAID: EFgcNEN6OGUM1VEwnoRvT0XuwTp9QDf5HfkLr81Hllop\n\n\n\n\n\n\n\n\n\n\n\nAttribute\nLabel\nDescription\n\n\n\n\nCollegeName\nCollege Name\nThe name of the college (e.g., Ontario Agricultural College).\n\n\nColor\nColor\nHEX color code used for visualization of this college.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLanguage\nName\nDescription\n\n\n\n\nEnglish\ncollege_colors\nThe college_colors file contains a color mapping for different college names. It plays a key role in the network visualization feature of the RED-X application, helping users distinguish between different colleges using color-coded nodes. Each keyword or author node inherits a color from this mapping based on its associated college. This improves visual clarity and makes it easier to spot patterns across institutions in the research network.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAttribute\nSensitive\nUnit\nType\nCharacter encoding\nRequired entry\n\n\n\n\nCollegeName\nfalse\n\nText\nutf-8\ntrue\n\n\nColor\nfalse\n\nText\nutf-8\ntrue\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAttribute\nLabel\nDescription\nList\n\n\n\n\nCollegeName\nCollege Name\nThe name of the college (e.g., Ontario Agricultural College).\nNot a list\n\n\nColor\nColor\nHEX color code used for visualization of this college.\nNot a list\n\n\n\n\n\n\n\nCapture base: EMa2ct4dCV_G6LrXQHisPbN2-de25CHjytr8WQIN4oj7\nBundle: ENjtbudbc7TA2FFT8NA3m0fRAXpp7JDnoqnxuvCu04Ik\nPackage: EFgcNEN6OGUM1VEwnoRvT0XuwTp9QDf5HfkLr81Hllop\n\n\n\n\n\n\n\n\nLayer\nSAID\nType\n\n\n\n\ncharacter_encoding\nEPUCpvvg3-odQkesjm75Dr28X0Lg01M5hRjEumPHWzJL\nspec/overlays/character_encoding/1.1\n\n\nconformance\nELTOt2FgFbI9268evr2kquS606gBUyVOO_qjf68mRYeI\nspec/overlays/conformance/1.1\n\n\ninformation (eng)\nELu_taJNLDD5zaVdOTg25FzL-3euXJ2yK6UFKq1-tw7E\nspec/overlays/information/1.1\n\n\nlabel (eng)\nEKRHQvsqtL_Z-IzNeujEaJ47yD5MxpoMwpEf8OZGCCJ-\nspec/overlays/label/1.1\n\n\nmeta (eng)\nEGew_yFEuIpN_uJRNvwgYlYK1DlBYok6WfRB8jvzmT6j\nspec/overlays/meta/1.1\n\n\nordering\nEA7GEQtQqc1EQk4x4Rki9quuC4JgIIyngTsRp18g2w8Y\ncommunity/overlays/adc/ordering/1.1\n\n\n\nDate created: 2025-07-29 04:46:50",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "College_colors"
+    ]
+  },
+  {
+    "objectID": "college_colors_OCA_schema.html#table-of-contents",
+    "href": "college_colors_OCA_schema.html#table-of-contents",
+    "title": "college_colors",
+    "section": "",
+    "text": "{: .no_toc .text-delta }\n\nTOC {:toc}\n\nName: college_colors\nDescription: The college_colors file contains a color mapping for different college names. It plays a key role in the network visualization feature of the RED-X application, helping users distinguish between different colleges using color-coded nodes. Each keyword or author node inherits a color from this mapping based on its associated college. This improves visual clarity and makes it easier to spot patterns across institutions in the research network.\nClassification: RDF201\nSchema package SAID: EFgcNEN6OGUM1VEwnoRvT0XuwTp9QDf5HfkLr81Hllop",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "College_colors"
+    ]
+  },
+  {
+    "objectID": "college_colors_OCA_schema.html#schema-quick-view",
+    "href": "college_colors_OCA_schema.html#schema-quick-view",
+    "title": "college_colors",
+    "section": "",
+    "text": "Attribute\nLabel\nDescription\n\n\n\n\nCollegeName\nCollege Name\nThe name of the college (e.g., Ontario Agricultural College).\n\n\nColor\nColor\nHEX color code used for visualization of this college.",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "College_colors"
+    ]
+  },
+  {
+    "objectID": "college_colors_OCA_schema.html#international-schema-information",
+    "href": "college_colors_OCA_schema.html#international-schema-information",
+    "title": "college_colors",
+    "section": "",
+    "text": "Language\nName\nDescription\n\n\n\n\nEnglish\ncollege_colors\nThe college_colors file contains a color mapping for different college names. It plays a key role in the network visualization feature of the RED-X application, helping users distinguish between different colleges using color-coded nodes. Each keyword or author node inherits a color from this mapping based on its associated college. This improves visual clarity and makes it easier to spot patterns across institutions in the research network.",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "College_colors"
+    ]
+  },
+  {
+    "objectID": "college_colors_OCA_schema.html#language-independent-schema-details",
+    "href": "college_colors_OCA_schema.html#language-independent-schema-details",
+    "title": "college_colors",
+    "section": "",
+    "text": "Attribute\nSensitive\nUnit\nType\nCharacter encoding\nRequired entry\n\n\n\n\nCollegeName\nfalse\n\nText\nutf-8\ntrue\n\n\nColor\nfalse\n\nText\nutf-8\ntrue",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "College_colors"
+    ]
+  },
+  {
+    "objectID": "college_colors_OCA_schema.html#language-specific-schema-details",
+    "href": "college_colors_OCA_schema.html#language-specific-schema-details",
+    "title": "college_colors",
+    "section": "",
+    "text": "Attribute\nLabel\nDescription\nList\n\n\n\n\nCollegeName\nCollege Name\nThe name of the college (e.g., Ontario Agricultural College).\nNot a list\n\n\nColor\nColor\nHEX color code used for visualization of this college.\nNot a list",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "College_colors"
+    ]
+  },
+  {
+    "objectID": "college_colors_OCA_schema.html#schema-saids",
+    "href": "college_colors_OCA_schema.html#schema-saids",
+    "title": "college_colors",
+    "section": "",
+    "text": "Capture base: EMa2ct4dCV_G6LrXQHisPbN2-de25CHjytr8WQIN4oj7\nBundle: ENjtbudbc7TA2FFT8NA3m0fRAXpp7JDnoqnxuvCu04Ik\nPackage: EFgcNEN6OGUM1VEwnoRvT0XuwTp9QDf5HfkLr81Hllop\n\n\n\n\n\n\n\n\nLayer\nSAID\nType\n\n\n\n\ncharacter_encoding\nEPUCpvvg3-odQkesjm75Dr28X0Lg01M5hRjEumPHWzJL\nspec/overlays/character_encoding/1.1\n\n\nconformance\nELTOt2FgFbI9268evr2kquS606gBUyVOO_qjf68mRYeI\nspec/overlays/conformance/1.1\n\n\ninformation (eng)\nELu_taJNLDD5zaVdOTg25FzL-3euXJ2yK6UFKq1-tw7E\nspec/overlays/information/1.1\n\n\nlabel (eng)\nEKRHQvsqtL_Z-IzNeujEaJ47yD5MxpoMwpEf8OZGCCJ-\nspec/overlays/label/1.1\n\n\nmeta (eng)\nEGew_yFEuIpN_uJRNvwgYlYK1DlBYok6WfRB8jvzmT6j\nspec/overlays/meta/1.1\n\n\nordering\nEA7GEQtQqc1EQk4x4Rki9quuC4JgIIyngTsRp18g2w8Y\ncommunity/overlays/adc/ordering/1.1\n\n\n\nDate created: 2025-07-29 04:46:50",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "College_colors"
+    ]
+  },
+  {
+    "objectID": "Department_colors_OCA_schema.html",
+    "href": "Department_colors_OCA_schema.html",
+    "title": "Department_colors",
+    "section": "",
+    "text": "{: .no_toc }\n\n\n{: .no_toc .text-delta }\n\nTOC {:toc}\n\nName: Department_colors\nDescription: The department_colors file contains a color mapping for different department names. It plays a key role in the network visualization feature of the RED-X application, helping users distinguish between different departments using color-coded nodes. Each keyword or author node inherits a color from this mapping based on its associated department. This improves visual clarity and makes it easier to spot patterns across departments in the research network.\nClassification: RDF201\nSchema package SAID: EA-PZriRfXUA87NumbXCOPGDyL86sKDBVQDPgWykefu6\n\n\n\n\n\n\n\n\n\n\n\nAttribute\nLabel\nDescription\n\n\n\n\nDepartmentName\nDepartment Name\nThe name of the departments (e.g., OAC Historical Research Data and Reproducibility Project, Department of food science ).\n\n\nColor\nColor\nHEX color code used for visualization of this college.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLanguage\nName\nDescription\n\n\n\n\nEnglish\nDepartment_colors\nThe department_colors file contains a color mapping for different department names. It plays a key role in the network visualization feature of the RED-X application, helping users distinguish between different departments using color-coded nodes. Each keyword or author node inherits a color from this mapping based on its associated department. This improves visual clarity and makes it easier to spot patterns across departments in the research network.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAttribute\nSensitive\nUnit\nType\nCharacter encoding\nRequired entry\n\n\n\n\nDepartmentName\nfalse\n\nText\nutf-8\ntrue\n\n\nColor\nfalse\n\nText\nutf-8\ntrue\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAttribute\nLabel\nDescription\nList\n\n\n\n\nDepartmentName\nDepartment Name\nThe name of the departments (e.g., OAC Historical Research Data and Reproducibility Project, Department of food science ).\nNot a list\n\n\nColor\nColor\nHEX color code used for visualization of this college.\nNot a list\n\n\n\n\n\n\n\nCapture base: EKuqGpBsCk9gKdLVMNpMRhoezDD8UlhSMB6nK7XdPgcW\nBundle: EIRzwgoR_0ZZFYu4oNNLN6jtA8MxLbU8qV1FFyL8ozYp\nPackage: EA-PZriRfXUA87NumbXCOPGDyL86sKDBVQDPgWykefu6\n\n\n\n\n\n\n\n\nLayer\nSAID\nType\n\n\n\n\ncharacter_encoding\nEF_i_soMOBnEml7tk-GuSQqWlxY7etmO9w8aXjjmcc5y\nspec/overlays/character_encoding/1.1\n\n\nconformance\nEJZpHY7rmBKk9sIl_jP4nVWpVeB5XgpZyuXUT4A7onnt\nspec/overlays/conformance/1.1\n\n\ninformation (eng)\nEO1KBYSs9NFBNZuAn3wDchb5Le_DJMKw9zS1yTqrAOv1\nspec/overlays/information/1.1\n\n\nlabel (eng)\nELTb9qXp2M9bYOu0PKX63yxL4A04DSYtuJXuh9D3aaYS\nspec/overlays/label/1.1\n\n\nmeta (eng)\nEJS7ZqnYtdblaC1DT3l7LmRFc54RoXfmaSMmfr1G5dHq\nspec/overlays/meta/1.1\n\n\nordering\nECLJwOA3NY3C7fha9_2fEc6kZnMVV2LR-XjtjQzVPWJk\ncommunity/overlays/adc/ordering/1.1\n\n\n\nDate created: 2025-07-29 04:53:03",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "Department_colors"
+    ]
+  },
+  {
+    "objectID": "Department_colors_OCA_schema.html#table-of-contents",
+    "href": "Department_colors_OCA_schema.html#table-of-contents",
+    "title": "Department_colors",
+    "section": "",
+    "text": "{: .no_toc .text-delta }\n\nTOC {:toc}\n\nName: Department_colors\nDescription: The department_colors file contains a color mapping for different department names. It plays a key role in the network visualization feature of the RED-X application, helping users distinguish between different departments using color-coded nodes. Each keyword or author node inherits a color from this mapping based on its associated department. This improves visual clarity and makes it easier to spot patterns across departments in the research network.\nClassification: RDF201\nSchema package SAID: EA-PZriRfXUA87NumbXCOPGDyL86sKDBVQDPgWykefu6",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "Department_colors"
+    ]
+  },
+  {
+    "objectID": "Department_colors_OCA_schema.html#schema-quick-view",
+    "href": "Department_colors_OCA_schema.html#schema-quick-view",
+    "title": "Department_colors",
+    "section": "",
+    "text": "Attribute\nLabel\nDescription\n\n\n\n\nDepartmentName\nDepartment Name\nThe name of the departments (e.g., OAC Historical Research Data and Reproducibility Project, Department of food science ).\n\n\nColor\nColor\nHEX color code used for visualization of this college.",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "Department_colors"
+    ]
+  },
+  {
+    "objectID": "Department_colors_OCA_schema.html#international-schema-information",
+    "href": "Department_colors_OCA_schema.html#international-schema-information",
+    "title": "Department_colors",
+    "section": "",
+    "text": "Language\nName\nDescription\n\n\n\n\nEnglish\nDepartment_colors\nThe department_colors file contains a color mapping for different department names. It plays a key role in the network visualization feature of the RED-X application, helping users distinguish between different departments using color-coded nodes. Each keyword or author node inherits a color from this mapping based on its associated department. This improves visual clarity and makes it easier to spot patterns across departments in the research network.",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "Department_colors"
+    ]
+  },
+  {
+    "objectID": "Department_colors_OCA_schema.html#language-independent-schema-details",
+    "href": "Department_colors_OCA_schema.html#language-independent-schema-details",
+    "title": "Department_colors",
+    "section": "",
+    "text": "Attribute\nSensitive\nUnit\nType\nCharacter encoding\nRequired entry\n\n\n\n\nDepartmentName\nfalse\n\nText\nutf-8\ntrue\n\n\nColor\nfalse\n\nText\nutf-8\ntrue",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "Department_colors"
+    ]
+  },
+  {
+    "objectID": "Department_colors_OCA_schema.html#language-specific-schema-details",
+    "href": "Department_colors_OCA_schema.html#language-specific-schema-details",
+    "title": "Department_colors",
+    "section": "",
+    "text": "Attribute\nLabel\nDescription\nList\n\n\n\n\nDepartmentName\nDepartment Name\nThe name of the departments (e.g., OAC Historical Research Data and Reproducibility Project, Department of food science ).\nNot a list\n\n\nColor\nColor\nHEX color code used for visualization of this college.\nNot a list",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "Department_colors"
+    ]
+  },
+  {
+    "objectID": "Department_colors_OCA_schema.html#schema-saids",
+    "href": "Department_colors_OCA_schema.html#schema-saids",
+    "title": "Department_colors",
+    "section": "",
+    "text": "Capture base: EKuqGpBsCk9gKdLVMNpMRhoezDD8UlhSMB6nK7XdPgcW\nBundle: EIRzwgoR_0ZZFYu4oNNLN6jtA8MxLbU8qV1FFyL8ozYp\nPackage: EA-PZriRfXUA87NumbXCOPGDyL86sKDBVQDPgWykefu6\n\n\n\n\n\n\n\n\nLayer\nSAID\nType\n\n\n\n\ncharacter_encoding\nEF_i_soMOBnEml7tk-GuSQqWlxY7etmO9w8aXjjmcc5y\nspec/overlays/character_encoding/1.1\n\n\nconformance\nEJZpHY7rmBKk9sIl_jP4nVWpVeB5XgpZyuXUT4A7onnt\nspec/overlays/conformance/1.1\n\n\ninformation (eng)\nEO1KBYSs9NFBNZuAn3wDchb5Le_DJMKw9zS1yTqrAOv1\nspec/overlays/information/1.1\n\n\nlabel (eng)\nELTb9qXp2M9bYOu0PKX63yxL4A04DSYtuJXuh9D3aaYS\nspec/overlays/label/1.1\n\n\nmeta (eng)\nEJS7ZqnYtdblaC1DT3l7LmRFc54RoXfmaSMmfr1G5dHq\nspec/overlays/meta/1.1\n\n\nordering\nECLJwOA3NY3C7fha9_2fEc6kZnMVV2LR-XjtjQzVPWJk\ncommunity/overlays/adc/ordering/1.1\n\n\n\nDate created: 2025-07-29 04:53:03",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "Department_colors"
+    ]
+  },
+  {
+    "objectID": "dev.html",
+    "href": "dev.html",
+    "title": "Developer Guide",
+    "section": "",
+    "text": "1.0 Project Structure\nThe RED-X application is organized to promote clarity, modularity, and collaboration. Below is a detailed breakdown of the file structure along with explanations of what each directory and file is responsible for.\nRED-X/\n├── CODE_OF_CONDUCT.md     # Contributor behavior guidelines\n├── LICENSE                # Open source license info\n├── README.md              # Overview and instructions\n├── RED-X.Rproj            # RStudio project file\n├── renv/                  # Dependency management via renv\n├── renv.lock              # Locked dependency versions\n├── app/                   # Core application folder\n│   ├── global.R           # Global settings and shared variables\n│   ├── server.R           # Server logic\n│   ├── UI.R               # Main UI structure\n│   ├── appData/           # Local SQLite database\n│   │   └── Explorer_cache.db           \n│   ├── appFunction/       # Custom function scripts\n│   │   └── dataExplorer_functions.R\n│   ├── appTabs/           # Modular UI tab definitions\n│   │   ├── aboutTab.R\n│   │   ├── datareviewTab.R\n│   │   ├── datareviewsubTab.R\n│   │   ├── datareviewsubTab1.R\n│   │   ├── homeTab.R\n│   │   ├── metadataTab.R\n│   │   ├── navmenuTab.R\n│   │   └── networkTab.R\n│   └── www/               # Static assets (images, logos)\n│       ├── adc logo.jpg\n│       ├── Agri-food.png\n│       ├── ...\n│       └── workshop1.jpeg\n├── docs/                  # Quarto-based documentation source\n│   ├── api.qmd\n│   ├── architecture.qmd\n│   ├── contributing.qmd\n│   ├── dev.qmd\n│   ├── getting-started.qmd\n│   ├── index.qmd\n│   ├── user-guide.qmd\n│   ├── _quarto.yml\n│   ├── styles.css\n│   ├── images/            # Diagrams and screenshots used in documentation\n│   │   ├── API_flow.png\n│   │   ├── data_exploration.png\n│   │   └── ...\n│   └── _site/             # Rendered HTML site output\n│       ├── index.html\n│       ├── api.html\n│       ├── ...\n│       └── site_libs/     # Quarto JS/CSS dependencies\n\n1.1 Repository Layout\n\nThe appTabs/ folder follows a modular UI design for maintainability. Each tab (e.g., Network, Metadata, About) is written in a separate script, which is then sourced into the main UI.\nappFunction/ contains reusable logic like data cleaning or filtering functions.\nExplorer_cache.db is auto-generated from API responses and stores cleaned metadata, keyword/author nodes, and network edges.\nThe www/ folder contains image assets used in the homepage carousel and other tabs.\n\n\n\n1.2 Key Files and Scripts\n\nUI.R & server.R – Main application UI and server logic\nglobal.R – Global configuration, including shared resources\nappFunction/ – Helper functions (e.g., data fetching, transformation)\nappTabs/ – UI layout of individual tabs (e.g., Home, Network, Metadata)\n\n\n\n1.3 Modular Design\nTabs are modularized into separate scripts for readability and reuse. Example:\nsource(\"./app/appTabs/homeTab.R\")\n\n\n\n2.0 Getting Started\n\n2.1 Prerequisites\nEnsure the following software and system requirements are in place:\n\nR version ≥ 4.2.0\nRStudio (recommended IDE)\nGit (for cloning the repository)\nInternet access (required for API calls to Borealis)\nQuarto (optional, for building documentation locally)\nrenv package (used to manage project-specific R dependencies)\n\nThe RED‑X app uses the renv package to isolate and restore specific R package versions. This helps ensure that collaborators and users can consistently reproduce the development environment across different systems. To learn more, see Introduction to renv package.\n\n\n2.2 Clone and Set Up the Project\n# Clone the repository\ngit clone https://github.com/agrifooddatacanada/OAC_Historical_Research_Data_Explorer_App.git\n\n# Navigate into the project directory\ncd OAC_Historical_Research_Data_Explorer_App\nOpen the RED-X app as a project in the app directory in RStudio. Read more about using R studio project here.\n\n\n2.3 Restoring Project Dependencies in RStudio\nRun the following in the R console to restore dependencies:\n\n# install.packages(\"renv\") if not already installed\ninstall.packages(\"renv\")\n\n# Once installed, project dependencies will be restored automatically from renv.lock when you run:\nrenv::restore()\nLearn more about Why renv matters for reproducibility here.\n\n\n2.4 Running the App Locally\nTo launch the RED-X app from your R console:\n# Run the Shiny app\nshiny::runApp(\"./app\")\nThis will open the app in your default web browser. You may need to wait a few seconds for data to load from the local SQLite database (Explorer_cache.db).\n\n\n\n3.0 API Integration\nRED-X connects to the Borealis Dataverse API to fetch research datasets, metadata, and related files. All API calls are secured using a token stored in your environment variables.\nSys.getenv(\"API_TOKEN\")\n\nNever hardcode your API token in scripts or share it publicly. Access levels may vary depending on your Dataverse role (e.g., contributor, superuser).\n\nKey Functions fetch_all_datasets() – Recursively retrieves datasets and structures metadata layers fetch_study_details() – Fetches metadata using DOIs access_data() – Downloads files associated with each dataset\n\nView detailed API guide here\n\n\n\n4.0 Database and Data Handling\nRED-X uses a local SQLite database (Explorer_cache.db) to store processed research data for fast retrieval and offline access. This approach ensures efficient rendering of network visualizations, metadata tables, and search results, even with large datasets.\n\n4.1 Data Flow\n\n1. Initial Fetch\nOn first run (or every 48 hours), RED-X uses fetch_all_datasets() and fetch_study_details() to pull fresh data via the Dataverse API.\n\n\n2. Transformation & Cleaning\nThe raw metadata is cleaned (e.g., standardizing author/keyword formatting) and structured into consistent formats.\n\n\n3. Storage\nCleaned data is cached in Explorer_cache.db using the DBI and RSQLite packages. This includes:\n\nMain study metadata (research_data)\nNodes and edges for keywords and authors\nUpdate timestamp (update_info)\n\n\nSee the Database Schemas under the Developer Guide for table details and structure.\n\n\n\n4. Automatic Updates\nEvery 48 hours, the system checks for new or modified DOIs and appends only new records—preserving performance and avoiding duplication.\n# Check cache timestamp\nif (time_since_last_update &gt; 48 hours) {\n  fetch new DOIs\n  update SQLite cache\n}\n\n\n\n\n5.0 UI and UX Design\nThe RED-X Shiny application offers an intuitive and modular interface designed to support exploratory data analysis and metadata review workflows.\n\n5.1 Layout\nRED-X features a navbar layout, optimized for navigation and accessibility across different data views.\n\nNavbar provides quick access to key tabs\nUI elements are dynamically shown or hidden based on user actions and login status\n\nEach tab supports interactivity, such as dynamic filtering, visualizations, and drill-down views.\n\n\n5.2 Modules\nThe UI is modularized into separate R scripts housed in appTabs/. Each tab is structured as a self-contained Shiny UI component.\nAvailable Tabs:\n\nHome Introduces the app, offers key statistics, and links to explore data.\nNetwork Explorer Interactive visualization of co-occurrence networks for keywords or authors with filtering by college/department.\nData Explorer Displays study-level metadata and allows keyword/DOI search with optional download links for associated files.",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Developer Guide"
+    ]
+  },
+  {
+    "objectID": "Authors_edge_OCA_schema.html",
+    "href": "Authors_edge_OCA_schema.html",
+    "title": "Authors edges",
+    "section": "",
+    "text": "{: .no_toc }\n\n\n{: .no_toc .text-delta }\n\nTOC {:toc}\n\nName: Authors edges\nDescription: The authors_edge dataset is a critical component of the RED-X application's author network visualization. It represents the connections (edges) between different authors based on co-occurrence in the same research studies. Each row in this file denotes a link between two author nodes and the number of studies they share. This structure helps in mapping collaboration patterns and building the underlying graph for interactive visualization in the app.\nClassification: RDF212\nSchema package SAID: EBe-YU2ujVSMz2vprKOIu4KEiO8Vb8Yb8RqYYT_mpZUH\n\n\n\n\n\n\n\n\n\n\n\nAttribute\nLabel\nDescription\n\n\n\n\nfrom\nfrom\nUnique ID of the source author node (referencing the id in authors_node)\n\n\nto\nto\nUnique ID of the target author node (also referencing authors_node)\n\n\nweight\nweight\nNumber of studies both authors co-authored (edge strength)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLanguage\nName\nDescription\n\n\n\n\nEnglish\nAuthors edges\nThe authors_edge dataset is a critical component of the RED-X application's author network visualization. It represents the connections (edges) between different authors based on co-occurrence in the same research studies. Each row in this file denotes a link between two author nodes and the number of studies they share. This structure helps in mapping collaboration patterns and building the underlying graph for interactive visualization in the app.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAttribute\nSensitive\nUnit\nType\nCharacter encoding\nRequired entry\nFormat rule\n\n\n\n\nfrom\nfalse\n\nNumeric\nutf-8\ntrue\n^\\d+$\n\n\nto\nfalse\n\nNumeric\nutf-8\ntrue\n^\\d+$\n\n\nweight\nfalse\n\nNumeric\nutf-8\ntrue\n^\\d+$\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAttribute\nLabel\nDescription\nList\n\n\n\n\nfrom\nfrom\nUnique ID of the source author node (referencing the id in authors_node)\nNot a list\n\n\nto\nto\nUnique ID of the target author node (also referencing authors_node)\nNot a list\n\n\nweight\nweight\nNumber of studies both authors co-authored (edge strength)\nNot a list\n\n\n\n\n\n\n\nCapture base: EIPGhhHuEV444bds9VWdD6H8BsU6SM3fAAJFPWr-XY7s\nBundle: EOJmEuLmuKvSk_bRtfMfyiW-jLRdJ5T301QL0iKQovEP\nPackage: EBe-YU2ujVSMz2vprKOIu4KEiO8Vb8Yb8RqYYT_mpZUH\n\n\n\n\n\n\n\n\nLayer\nSAID\nType\n\n\n\n\ncharacter_encoding\nEJHpKCuJTcrRQoWvFGLX3QY9NbHGGOqo3YyAA2K86zkI\nspec/overlays/character_encoding/1.1\n\n\nconformance\nEJgMOyRhP_WAz40Da8upRblgkdXQTCAK54yFTzY2-qZF\nspec/overlays/conformance/1.1\n\n\nformat\nEDCsAEyYYav_bn1XFLL5Me3nSHkumDMsOc089rphbT0I\nspec/overlays/format/1.1\n\n\ninformation (eng)\nEBrC0x78fJurE6vd-oB6AOB-7aIMZkZQiNDWferB0FRY\nspec/overlays/information/1.1\n\n\nlabel (eng)\nEGOaKJo3VylvcbQC075gsGZS2Wyz588epNBTYAhifNgT\nspec/overlays/label/1.1\n\n\nmeta (eng)\nEEh1X5zhnXX8rHnuTDzJweeUV38H3cLds9G2ckiaDpc7\nspec/overlays/meta/1.1\n\n\nordering\nEANxLAE0-kuJcZMSb1NFa-UoH2PLQDJ4gstD4TeAlLYt\ncommunity/overlays/adc/ordering/1.1\n\n\n\nDate created: 2025-07-29 04:15:52",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "Authors_edge"
+    ]
+  },
+  {
+    "objectID": "Authors_edge_OCA_schema.html#table-of-contents",
+    "href": "Authors_edge_OCA_schema.html#table-of-contents",
+    "title": "Authors edges",
+    "section": "",
+    "text": "{: .no_toc .text-delta }\n\nTOC {:toc}\n\nName: Authors edges\nDescription: The authors_edge dataset is a critical component of the RED-X application's author network visualization. It represents the connections (edges) between different authors based on co-occurrence in the same research studies. Each row in this file denotes a link between two author nodes and the number of studies they share. This structure helps in mapping collaboration patterns and building the underlying graph for interactive visualization in the app.\nClassification: RDF212\nSchema package SAID: EBe-YU2ujVSMz2vprKOIu4KEiO8Vb8Yb8RqYYT_mpZUH",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "Authors_edge"
+    ]
+  },
+  {
+    "objectID": "Authors_edge_OCA_schema.html#schema-quick-view",
+    "href": "Authors_edge_OCA_schema.html#schema-quick-view",
+    "title": "Authors edges",
+    "section": "",
+    "text": "Attribute\nLabel\nDescription\n\n\n\n\nfrom\nfrom\nUnique ID of the source author node (referencing the id in authors_node)\n\n\nto\nto\nUnique ID of the target author node (also referencing authors_node)\n\n\nweight\nweight\nNumber of studies both authors co-authored (edge strength)",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "Authors_edge"
+    ]
+  },
+  {
+    "objectID": "Authors_edge_OCA_schema.html#international-schema-information",
+    "href": "Authors_edge_OCA_schema.html#international-schema-information",
+    "title": "Authors edges",
+    "section": "",
+    "text": "Language\nName\nDescription\n\n\n\n\nEnglish\nAuthors edges\nThe authors_edge dataset is a critical component of the RED-X application's author network visualization. It represents the connections (edges) between different authors based on co-occurrence in the same research studies. Each row in this file denotes a link between two author nodes and the number of studies they share. This structure helps in mapping collaboration patterns and building the underlying graph for interactive visualization in the app.",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "Authors_edge"
+    ]
+  },
+  {
+    "objectID": "Authors_edge_OCA_schema.html#language-independent-schema-details",
+    "href": "Authors_edge_OCA_schema.html#language-independent-schema-details",
+    "title": "Authors edges",
+    "section": "",
+    "text": "Attribute\nSensitive\nUnit\nType\nCharacter encoding\nRequired entry\nFormat rule\n\n\n\n\nfrom\nfalse\n\nNumeric\nutf-8\ntrue\n^\\d+$\n\n\nto\nfalse\n\nNumeric\nutf-8\ntrue\n^\\d+$\n\n\nweight\nfalse\n\nNumeric\nutf-8\ntrue\n^\\d+$",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "Authors_edge"
+    ]
+  },
+  {
+    "objectID": "Authors_edge_OCA_schema.html#language-specific-schema-details",
+    "href": "Authors_edge_OCA_schema.html#language-specific-schema-details",
+    "title": "Authors edges",
+    "section": "",
+    "text": "Attribute\nLabel\nDescription\nList\n\n\n\n\nfrom\nfrom\nUnique ID of the source author node (referencing the id in authors_node)\nNot a list\n\n\nto\nto\nUnique ID of the target author node (also referencing authors_node)\nNot a list\n\n\nweight\nweight\nNumber of studies both authors co-authored (edge strength)\nNot a list",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "Authors_edge"
+    ]
+  },
+  {
+    "objectID": "Authors_edge_OCA_schema.html#schema-saids",
+    "href": "Authors_edge_OCA_schema.html#schema-saids",
+    "title": "Authors edges",
+    "section": "",
+    "text": "Capture base: EIPGhhHuEV444bds9VWdD6H8BsU6SM3fAAJFPWr-XY7s\nBundle: EOJmEuLmuKvSk_bRtfMfyiW-jLRdJ5T301QL0iKQovEP\nPackage: EBe-YU2ujVSMz2vprKOIu4KEiO8Vb8Yb8RqYYT_mpZUH\n\n\n\n\n\n\n\n\nLayer\nSAID\nType\n\n\n\n\ncharacter_encoding\nEJHpKCuJTcrRQoWvFGLX3QY9NbHGGOqo3YyAA2K86zkI\nspec/overlays/character_encoding/1.1\n\n\nconformance\nEJgMOyRhP_WAz40Da8upRblgkdXQTCAK54yFTzY2-qZF\nspec/overlays/conformance/1.1\n\n\nformat\nEDCsAEyYYav_bn1XFLL5Me3nSHkumDMsOc089rphbT0I\nspec/overlays/format/1.1\n\n\ninformation (eng)\nEBrC0x78fJurE6vd-oB6AOB-7aIMZkZQiNDWferB0FRY\nspec/overlays/information/1.1\n\n\nlabel (eng)\nEGOaKJo3VylvcbQC075gsGZS2Wyz588epNBTYAhifNgT\nspec/overlays/label/1.1\n\n\nmeta (eng)\nEEh1X5zhnXX8rHnuTDzJweeUV38H3cLds9G2ckiaDpc7\nspec/overlays/meta/1.1\n\n\nordering\nEANxLAE0-kuJcZMSb1NFa-UoH2PLQDJ4gstD4TeAlLYt\ncommunity/overlays/adc/ordering/1.1\n\n\n\nDate created: 2025-07-29 04:15:52",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "Authors_edge"
+    ]
+  },
+  {
+    "objectID": "getting-started.html",
+    "href": "getting-started.html",
+    "title": "Getting Started",
+    "section": "",
+    "text": "1.0 Background\nRED-X is a web-based application built with R Shiny and hosted on shinyapps.io. It is designed to help researchers explore historical research data. RED-X connects to the Borealis Dataverse via Application Programming Interface (API). The retrieved data/information is stored in an embedded relational database to store and retrieve data efficiently. It updates automatically every 48 hours to provide an up-to-date metadata and research data.\n\n\n\n2.0 Accessing RED-X\nYou can access the app directly through the following link: 🔗 Launch RED-X\n\nNote : No installation or login is required. RED-X is optimized for desktop browsers. Mobile functionality is limited.\n\n\n\n\n3.0 System Requirements\n\nA modern web browser (Chrome, Firefox, Edge).\nStable internet connection.\nRecommended screen resolution: 1280×720 or higher.\n\n\n\n\n4.0 Overview of the Interface\nWhen you launch RED-X, you’ll land on the Home tab, which provides an at-a-glance overview of the database contents. The layout includes a carousel-style summary displaying summary statistics like:\n\nConnected dataverses\nTotal number of studies\nNumber of authors\nAvailable keywords\nNumber of downloadable files\n\n\nIt also introduces users to the two primary interactive tools like:\n\n4.1 Network Explorer\nThis tab allows you to explore relationships between keywords, authors, departments, and colleges using an interactive network graph. It’s designed to support discovery, literature and data review, and collaboration tracking.\n\n\n\n4.2 Data Explorer\nThis section allows users to browse and filter studies, view their metadata, raw data, summary statistic and visualize data. Filters are available by college, campus and institution.\n\n\n\n\n\n5.0 Data Refresh Cycle\nRED-X connects to the Borealis Dataverse using an API calls. Metadata and datasets are updated every 48 hours to ensure access to the most recent content available from contributing institutions.\n\n\n\n\n6.0 Next Steps\n\nRead the User Guide for more detailed walkthroughs.\nView the System Architecture to understand the backend and data flow.\nContact adc@uoguelph.ca for questions or support.\n\n\n\n\n7.0 Want to Contribute?\nIf you’re interested in the development process or contributing to the project, see the Developer Guide.",
+    "crumbs": [
+      "Getting Started"
+    ]
+  },
+  {
+    "objectID": "Authors_node_OCA_schema.html",
+    "href": "Authors_node_OCA_schema.html",
+    "title": "Authors Nodes",
+    "section": "",
+    "text": "{: .no_toc }\n\n\n{: .no_toc .text-delta }\n\nTOC {:toc}\n\nName: Authors Nodes\nDescription: The authors_node dataset is part of the RED-X application's network visualization layer. It represents author nodes in the research network, where each row corresponds to an individual author or research group identified in the study metadata. The dataset includes details such as the author name, the number of studies they contributed to, associated departments and colleges, color assignments for visualization, and the range of years during which their work was published. This dataset enables users to interactively explore the relationships and collaboration patterns among authors across different departments and institutions.\nSchema package SAID: EKO783UxISz24bqUFtZkmPYh3JpSIfriG2CeY75XKCq9\n\n\n\n\n\n\n\n\n\n\n\nAttribute\nLabel\nDescription\n\n\n\n\nlabel\nlabel\nName of the author or research group. Used as the node label in the network.\n\n\nnode_group\nNode group\nConstant value \"Authors\" identifying this as an author node type.\n\n\ntitle\nTitle\nTooltip showing study count and year range for hover info in the network plot.\n\n\nCollegeColor\nCollege Color\nHex color code used to color nodes based on college affiliation.\n\n\nDepartmentColor\nDepartment Color\nHex color code for department-level node coloring.\n\n\nCollegeName\nCollege Name\nName of the college affiliated with the author.\n\n\nDepartmentName\nDepartment Name\nName of the department or research unit.\n\n\nstudy_count\nStudy count\nNumber of datasets (studies) the author is associated with.\n\n\nyear_range\nYear range\nRange of publication dates (earliest to latest) across all studies linked to the author.\n\n\nDOI\nDOI\nOne or more DOIs of the datasets contributed to by the author, separated by semicolons.\n\n\nid\nid\nUnique identifier for the node (used to construct graph edges).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLanguage\nName\nDescription\n\n\n\n\nEnglish\nAuthors Nodes\nThe authors_node dataset is part of the RED-X application's network visualization layer. It represents author nodes in the research network, where each row corresponds to an individual author or research group identified in the study metadata. The dataset includes details such as the author name, the number of studies they contributed to, associated departments and colleges, color assignments for visualization, and the range of years during which their work was published. This dataset enables users to interactively explore the relationships and collaboration patterns among authors across different departments and institutions.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAttribute\nSensitive\nUnit\nType\nCharacter encoding\nRequired entry\nFormat rule\n\n\n\n\nlabel\nfalse\n\nText\nutf-8\ntrue\n\n\n\nnode_group\nfalse\n\nText\nutf-8\ntrue\n\n\n\ntitle\nfalse\n\nText\nutf-8\ntrue\n\n\n\nCollegeColor\nfalse\n\nText\nutf-8\ntrue\n^#[A-Fa-f0-9]{6}$\n\n\nDepartmentColor\nfalse\n\nText\nutf-8\ntrue\n^#[A-Fa-f0-9]{6}$\n\n\nCollegeName\nfalse\n\nText\nutf-8\ntrue\n\n\n\nDepartmentName\nfalse\n\nText\nutf-8\ntrue\n\n\n\nstudy_count\nfalse\n\nNumeric\nutf-8\ntrue\n^\\d+$\n\n\nyear_range\nfalse\n\nText\nutf-8\ntrue\n\n\n\nDOI\nfalse\n\nText\nutf-8\ntrue\n^doi:10\\.\\d{4,9}/[-._;()/:Aa-Zz0-9]+$\n\n\nid\nfalse\n\nNumeric\nutf-8\ntrue\n^\\d+$\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAttribute\nLabel\nDescription\nList\n\n\n\n\nlabel\nlabel\nName of the author or research group. Used as the node label in the network.\nNot a list\n\n\nnode_group\nNode group\nConstant value \"Authors\" identifying this as an author node type.\nNot a list\n\n\ntitle\nTitle\nTooltip showing study count and year range for hover info in the network plot.\nNot a list\n\n\nCollegeColor\nCollege Color\nHex color code used to color nodes based on college affiliation.\nNot a list\n\n\nDepartmentColor\nDepartment Color\nHex color code for department-level node coloring.\nNot a list\n\n\nCollegeName\nCollege Name\nName of the college affiliated with the author.\nNot a list\n\n\nDepartmentName\nDepartment Name\nName of the department or research unit.\nNot a list\n\n\nstudy_count\nStudy count\nNumber of datasets (studies) the author is associated with.\nNot a list\n\n\nyear_range\nYear range\nRange of publication dates (earliest to latest) across all studies linked to the author.\nNot a list\n\n\nDOI\nDOI\nOne or more DOIs of the datasets contributed to by the author, separated by semicolons.\nNot a list\n\n\nid\nid\nUnique identifier for the node (used to construct graph edges).\nNot a list\n\n\n\n\n\n\n\nCapture base: EO57nBzzNO8FR1UjLfUtcUJDuFDG8dBUFWPsS5g0Cuqq\nBundle: EMmbDVCzAnMK3wKRjDH0gNAzQDJFOdo6DuROPPWU_uLf\nPackage: EKO783UxISz24bqUFtZkmPYh3JpSIfriG2CeY75XKCq9\n\n\n\n\n\n\n\n\nLayer\nSAID\nType\n\n\n\n\ncharacter_encoding\nEG08VG7YfTMwbTecEK3SDG2OFkW6N-Bclc-6YCgs9yxs\nspec/overlays/character_encoding/1.1\n\n\nconformance\nENPQNvHh1qFYXLI1hSCyhONY63P7zBIZo3cuAw1I_wVr\nspec/overlays/conformance/1.1\n\n\nformat\nEN6Yx-pu1_UFyLofdxe_zycsaTC9d-7gSHj-AcK2U9s1\nspec/overlays/format/1.1\n\n\ninformation (eng)\nEGqUI-5DmsOsc-McM2uhOE0EO3vgqaFybNTWhjC1LlB3\nspec/overlays/information/1.1\n\n\nlabel (eng)\nEJ91_kBiFTO95ACwDikOvEG6QjB6EFDMOMhbdTrYUptH\nspec/overlays/label/1.1\n\n\nmeta (eng)\nEHehpb0tr8qWbNr63WWlE-hbJ8Dyx5P-ecyOB50ZOS-x\nspec/overlays/meta/1.1\n\n\nordering\nEP6PBzIq0meI-CrbjYiJ0zqO6cb5rvDBo0DrEP_4mzEY\ncommunity/overlays/adc/ordering/1.1\n\n\n\nDate created: 2025-07-31 05:26:04",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "Authors_node"
+    ]
+  },
+  {
+    "objectID": "Authors_node_OCA_schema.html#table-of-contents",
+    "href": "Authors_node_OCA_schema.html#table-of-contents",
+    "title": "Authors Nodes",
+    "section": "",
+    "text": "{: .no_toc .text-delta }\n\nTOC {:toc}\n\nName: Authors Nodes\nDescription: The authors_node dataset is part of the RED-X application's network visualization layer. It represents author nodes in the research network, where each row corresponds to an individual author or research group identified in the study metadata. The dataset includes details such as the author name, the number of studies they contributed to, associated departments and colleges, color assignments for visualization, and the range of years during which their work was published. This dataset enables users to interactively explore the relationships and collaboration patterns among authors across different departments and institutions.\nSchema package SAID: EKO783UxISz24bqUFtZkmPYh3JpSIfriG2CeY75XKCq9",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "Authors_node"
+    ]
+  },
+  {
+    "objectID": "Authors_node_OCA_schema.html#schema-quick-view",
+    "href": "Authors_node_OCA_schema.html#schema-quick-view",
+    "title": "Authors Nodes",
+    "section": "",
+    "text": "Attribute\nLabel\nDescription\n\n\n\n\nlabel\nlabel\nName of the author or research group. Used as the node label in the network.\n\n\nnode_group\nNode group\nConstant value \"Authors\" identifying this as an author node type.\n\n\ntitle\nTitle\nTooltip showing study count and year range for hover info in the network plot.\n\n\nCollegeColor\nCollege Color\nHex color code used to color nodes based on college affiliation.\n\n\nDepartmentColor\nDepartment Color\nHex color code for department-level node coloring.\n\n\nCollegeName\nCollege Name\nName of the college affiliated with the author.\n\n\nDepartmentName\nDepartment Name\nName of the department or research unit.\n\n\nstudy_count\nStudy count\nNumber of datasets (studies) the author is associated with.\n\n\nyear_range\nYear range\nRange of publication dates (earliest to latest) across all studies linked to the author.\n\n\nDOI\nDOI\nOne or more DOIs of the datasets contributed to by the author, separated by semicolons.\n\n\nid\nid\nUnique identifier for the node (used to construct graph edges).",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "Authors_node"
+    ]
+  },
+  {
+    "objectID": "Authors_node_OCA_schema.html#international-schema-information",
+    "href": "Authors_node_OCA_schema.html#international-schema-information",
+    "title": "Authors Nodes",
+    "section": "",
+    "text": "Language\nName\nDescription\n\n\n\n\nEnglish\nAuthors Nodes\nThe authors_node dataset is part of the RED-X application's network visualization layer. It represents author nodes in the research network, where each row corresponds to an individual author or research group identified in the study metadata. The dataset includes details such as the author name, the number of studies they contributed to, associated departments and colleges, color assignments for visualization, and the range of years during which their work was published. This dataset enables users to interactively explore the relationships and collaboration patterns among authors across different departments and institutions.",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "Authors_node"
+    ]
+  },
+  {
+    "objectID": "Authors_node_OCA_schema.html#language-independent-schema-details",
+    "href": "Authors_node_OCA_schema.html#language-independent-schema-details",
+    "title": "Authors Nodes",
+    "section": "",
+    "text": "Attribute\nSensitive\nUnit\nType\nCharacter encoding\nRequired entry\nFormat rule\n\n\n\n\nlabel\nfalse\n\nText\nutf-8\ntrue\n\n\n\nnode_group\nfalse\n\nText\nutf-8\ntrue\n\n\n\ntitle\nfalse\n\nText\nutf-8\ntrue\n\n\n\nCollegeColor\nfalse\n\nText\nutf-8\ntrue\n^#[A-Fa-f0-9]{6}$\n\n\nDepartmentColor\nfalse\n\nText\nutf-8\ntrue\n^#[A-Fa-f0-9]{6}$\n\n\nCollegeName\nfalse\n\nText\nutf-8\ntrue\n\n\n\nDepartmentName\nfalse\n\nText\nutf-8\ntrue\n\n\n\nstudy_count\nfalse\n\nNumeric\nutf-8\ntrue\n^\\d+$\n\n\nyear_range\nfalse\n\nText\nutf-8\ntrue\n\n\n\nDOI\nfalse\n\nText\nutf-8\ntrue\n^doi:10\\.\\d{4,9}/[-._;()/:Aa-Zz0-9]+$\n\n\nid\nfalse\n\nNumeric\nutf-8\ntrue\n^\\d+$",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "Authors_node"
+    ]
+  },
+  {
+    "objectID": "Authors_node_OCA_schema.html#language-specific-schema-details",
+    "href": "Authors_node_OCA_schema.html#language-specific-schema-details",
+    "title": "Authors Nodes",
+    "section": "",
+    "text": "Attribute\nLabel\nDescription\nList\n\n\n\n\nlabel\nlabel\nName of the author or research group. Used as the node label in the network.\nNot a list\n\n\nnode_group\nNode group\nConstant value \"Authors\" identifying this as an author node type.\nNot a list\n\n\ntitle\nTitle\nTooltip showing study count and year range for hover info in the network plot.\nNot a list\n\n\nCollegeColor\nCollege Color\nHex color code used to color nodes based on college affiliation.\nNot a list\n\n\nDepartmentColor\nDepartment Color\nHex color code for department-level node coloring.\nNot a list\n\n\nCollegeName\nCollege Name\nName of the college affiliated with the author.\nNot a list\n\n\nDepartmentName\nDepartment Name\nName of the department or research unit.\nNot a list\n\n\nstudy_count\nStudy count\nNumber of datasets (studies) the author is associated with.\nNot a list\n\n\nyear_range\nYear range\nRange of publication dates (earliest to latest) across all studies linked to the author.\nNot a list\n\n\nDOI\nDOI\nOne or more DOIs of the datasets contributed to by the author, separated by semicolons.\nNot a list\n\n\nid\nid\nUnique identifier for the node (used to construct graph edges).\nNot a list",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "Authors_node"
+    ]
+  },
+  {
+    "objectID": "Authors_node_OCA_schema.html#schema-saids",
+    "href": "Authors_node_OCA_schema.html#schema-saids",
+    "title": "Authors Nodes",
+    "section": "",
+    "text": "Capture base: EO57nBzzNO8FR1UjLfUtcUJDuFDG8dBUFWPsS5g0Cuqq\nBundle: EMmbDVCzAnMK3wKRjDH0gNAzQDJFOdo6DuROPPWU_uLf\nPackage: EKO783UxISz24bqUFtZkmPYh3JpSIfriG2CeY75XKCq9\n\n\n\n\n\n\n\n\nLayer\nSAID\nType\n\n\n\n\ncharacter_encoding\nEG08VG7YfTMwbTecEK3SDG2OFkW6N-Bclc-6YCgs9yxs\nspec/overlays/character_encoding/1.1\n\n\nconformance\nENPQNvHh1qFYXLI1hSCyhONY63P7zBIZo3cuAw1I_wVr\nspec/overlays/conformance/1.1\n\n\nformat\nEN6Yx-pu1_UFyLofdxe_zycsaTC9d-7gSHj-AcK2U9s1\nspec/overlays/format/1.1\n\n\ninformation (eng)\nEGqUI-5DmsOsc-McM2uhOE0EO3vgqaFybNTWhjC1LlB3\nspec/overlays/information/1.1\n\n\nlabel (eng)\nEJ91_kBiFTO95ACwDikOvEG6QjB6EFDMOMhbdTrYUptH\nspec/overlays/label/1.1\n\n\nmeta (eng)\nEHehpb0tr8qWbNr63WWlE-hbJ8Dyx5P-ecyOB50ZOS-x\nspec/overlays/meta/1.1\n\n\nordering\nEP6PBzIq0meI-CrbjYiJ0zqO6cb5rvDBo0DrEP_4mzEY\ncommunity/overlays/adc/ordering/1.1\n\n\n\nDate created: 2025-07-31 05:26:04",
+    "crumbs": [
+      "System Design",
+      "Developer",
+      "Database Schema",
+      "Authors_node"
+    ]
+  },
+  {
+    "objectID": "api.html",
+    "href": "api.html",
+    "title": "API Guide",
+    "section": "",
+    "text": "Below is a summary of the key API endpoints used in RED-X, the type of data each provides, and how it contributes to the app’s functionality.\n\n\n\n\n\n\n\n\n\nAPI Call Purpose\nEndpoint\nDescription\nInformation Returned\n\n\n\n\nFetch Dataverse Contents\nhttps://borealisdata.ca/api/dataverses/{id}/contents\nRetrieves contents of a given dataverse (datasets and sub-dataverses). Used recursively to explore all levels of the dataverse hierarchy.\nDataset IDs, types (dataset, dataverse), titles, metadata fields\n\n\nFetch Dataverse Metadata\nhttps://borealisdata.ca/api/dataverses/{id}\nRetrieves the name of the dataverse and basic metadata. Used for labeling and organizing datasets by layers (e.g., College, Department).\nDataverse title, alias, description, creation date, and more\n\n\nFetch Dataset Metadata (Study Info)\nhttps://borealisdata.ca/api/datasets/export?exporter=schema.org&persistentId={DOI}\nRetrieves detailed metadata for each dataset using its persistent ID (DOI).\nStudy title, publication date, authors, affiliations, keywords, objectives, data license, spatial and temporal info\n\n\nFetch Dataset Files\nhttps://borealisdata.ca/api/access/dataset/:persistentId/?persistentId={DOI}\nDownloads the zipped data archive for a dataset.\n.tab, .csv, .txt, and other file types packaged in a ZIP archive\n\n\n\n\n1.0 API Token\nTo access the Borealis Dataverse API, RED-X uses a secure API token that is user-specific. This token is stored safely using R’s system environment variables and never hard coded in the script. This helps protect the token from unauthorized access.\nApi_token &lt;- Sys.getenv(\"API_TOKEN\") # Retrieve the API token from environment variables\n\nThe API token is expected to be stored in your system environment (e.g., .Renviron file). This ensures sensitive credentials are encrypted and hidden from the codebase.\n\nAccess Levels\n\nPublic users (without an API token) can only access openly available datasets.\nAuthenticated users with an API token may access restricted datasets depending on their permissions.\nSuper users (e.g., developers or internal collaborators) may edit the .Renviron file or project settings to include a higher-level API token to unlock more datasets.\n\nIf you are a developer or contributor with elevated access, you can add your token to your environment like so:\n# In .Renviron (do not share publicly!)\nAPI_TOKEN=your-personal-token-here\n\nNever share your API token publicly or hardcode it into your project files.\n\n\n\n2.0 API Calls\nThe RED-X app uses several structured API calls to collect and manage data from the Borealis Dataverse repository. These API integrations enable RED-X to dynamically update its internal SQLite database and render updated network graphs, metadata summaries, and data tables. Below, we outline the core API functions used in the app, the purpose they serve, and the full R implementation.\n\n2.1 Fetch Dataverse Contents\nThis function recursively queries all the nested dataverses and extracts metadata including the title, identifier, and persistent DOI. It builds a tree structure mapping each dataset to its college and department.\nIt returns a tidy tibble with fields such as College_Campus_Institution, Departments_ResearchCentres, and persistent_id, which are later used to fetch detailed metadata and files. See the R code snippet below;\nfetch_all_datasets &lt;- function(id, layer_titles = character()) {\n  base_url &lt;- \"https://borealisdata.ca/api/dataverses/\"\n  results &lt;- tibble()\n\n  if (id == \"147125\") return(results)\n  url &lt;- paste0(base_url, id, \"/contents\")\n  response &lt;- tryCatch({\n    request(url) %&gt;%\n      req_headers(`X-Dataverse-key` = Api_token) %&gt;%\n      req_perform()\n  }, error = function(e) {\n    message(\"Request failed for Dataverse \", id, \": \", e$message)\n    return(NULL)\n  })\n\n  if (!is.null(response) && response$status == 200) {\n    dataverse_raw_data &lt;- fromJSON(rawToChar(response$body), flatten = TRUE) %&gt;%\n      as_tibble()\n    ... \n  }\n}\n\n\n2.2 Fetch Dataverse Metadata\nThis step uses the Borealis endpoint https://borealisdata.ca/api/dataverses/{id} to retrieve basic metadata for a specific dataverse. The goal is to extract the title of each dataverse, which is used in RED-X to label hierarchical layers like College or Department when traversing nested dataverses.\nThe fetch_all_datasets() function calls this endpoint internally while building the dataset tree. If the API returns successfully, the title is appended to a list that represents the current layer of hierarchy.\ntitle &lt;- tryCatch({\n  meta_url &lt;- paste0(base_url, id)\n  meta_response &lt;- request(meta_url) %&gt;%\n    req_headers(`X-Dataverse-key` = Api_token) %&gt;%\n    req_perform()\n\n  meta_data &lt;- fromJSON(rawToChar(meta_response$body), flatten = TRUE)\n  meta_data$data$name\n}, error = function(e) {\n  message(\"Failed to retrieve title for Dataverse \", id, \": \", e$message)\n  return(NA_character_)\n})\nThis snippet is embedded inside the recursive dataset fetching function and helps categorize each dataset by its parent structure. It ensures that the metadata returned from .../dataverses/{id} is used to construct meaningful labels for later use in filtering and network visualization.\n\n\n2.3 Fetch Datasets Metadata\nThis endpoint retrieves rich metadata for a dataset using its persistent identifier (DOI). RED-X uses the Borealis API: https://borealisdata.ca/api/datasets/export?exporter=schema.org&persistentId={DOI} to extract machine-readable metadata structured using schema.org standards.\nFor each DOI collected during the recursive dataverse fetch, this API call returns detailed information such as:\n\nStudy title\nPublication date\nAuthors and affiliations\nKeywords\nObjectives/abstract\nSpatial and temporal coverage\nFunders and license\nList of associated files\n\nThis metadata is compiled into a tidy tibble and cached in the local SQLite database to support search, filtering, visualization, and data exploration across RED-X. The R code for the function can be found below;\n\nfetch_study_details &lt;- function(data) {\n  if (!is.data.frame(data) || !\"persistent_id\" %in% names(data) || nrow(data) == 0) {\n    warning(\"Invalid input: Ensure 'data' is a dataframe and contains 'persistent_id' column.\")\n    return(tibble())\n  }\n\n  BaseURL_details2 &lt;- \"https://borealisdata.ca/api/datasets/export?exporter=schema.org&persistentId=\"\n  detailed_data_list &lt;- vector(\"list\", nrow(data))\n\n  for (i in seq_len(nrow(data))) {\n    persistent_id &lt;- data$persistent_id[i]\n    Full_url_details &lt;- paste0(BaseURL_details2, persistent_id)\n\n    tryCatch({\n      response_details &lt;- request(Full_url_details) %&gt;%\n        req_headers(`X-Dataverse-key` = Api_token) %&gt;%\n        req_perform()\n\n      if (response_details$status == 200) {\n        detail_oac2 &lt;- jsonlite::fromJSON(rawToChar(response_details$body), flatten = TRUE)\n        detailed_data_list[[i]] &lt;- tibble(\n          Title = detail_oac2[[\"name\"]],\n          PublicationDate = detail_oac2[[\"datePublished\"]],\n          Authors = if (!is.null(detail_oac2[[\"author\"]])) paste(detail_oac2[[\"author\"]][[\"name\"]], collapse = \"; \") else NA,\n          Affiliations = if (!is.null(detail_oac2[[\"author\"]][[\"affiliation.name\"]])) paste(detail_oac2[[\"author\"]][[\"affiliation.name\"]], collapse = \"; \") else NA,\n          Keywords = if (!is.null(detail_oac2[[\"keywords\"]])) paste(detail_oac2[[\"keywords\"]], collapse = \"; \") else NA,\n          Objectives = detail_oac2[[\"description\"]],\n          Citation = if (!is.null(detail_oac2[[\"citation\"]])) paste(detail_oac2[[\"citation\"]][[\"name\"]], collapse = \", \") else NA,\n          PeriodCovered = if (!is.null(detail_oac2[[\"temporalCoverage\"]])) paste(detail_oac2[[\"temporalCoverage\"]], collapse = \"; \") else NA,\n          StudyLocation = if (!is.null(detail_oac2[[\"spatialCoverage\"]])) paste(detail_oac2[[\"spatialCoverage\"]], collapse = \", \") else NA,\n          Funder = if (!is.null(detail_oac2[[\"funder\"]])) paste(detail_oac2[[\"funder\"]][[\"name\"]], collapse = \"; \") else NA,\n          FileList = if (!is.null(detail_oac2[[\"distribution\"]])) paste(detail_oac2[[\"distribution\"]][[\"name\"]], collapse = \"; \") else NA,\n          DataLicense = if (!is.null(detail_oac2[[\"license\"]])) paste(detail_oac2[[\"license\"]], collapse = \"; \") else NA,\n          DOI = persistent_id,\n          CollegeName = data$College_Campus_Institution[i],\n          DepartmentName = data$Departments_ResearchCentres[i]\n        )\n      } else {\n        warning(paste(\"Failed to fetch data for DOI:\", persistent_id, \"Status code:\", response_details$status))\n      }\n    }, error = function(e) {\n      message(\"Error fetching details for DOI \", persistent_id, \": \", e$message)\n      detailed_data_list[[i]] &lt;- tibble()\n    })\n  }\n\n  detailed_data &lt;- bind_rows(detailed_data_list) %&gt;% unique()\n  return(detailed_data)\n}\nThis function is essential for enriching the RED-X app with the metadata that powers the keyword/author network, study listings, and search filters.\n\n\n2.4 Fetch Datasets Files\nTo access the raw data files associated with each dataset, RED‑X uses the following endpoint:\nhttps://borealisdata.ca/api/access/dataset/:persistentId/?persistentId={DOI}\nThis API call downloads a ZIP archive containing all public files linked to a dataset identified by its DOI. These files typically include:\n\n.tab or .csv files (data tables)\n.txt or README files (documentation or metadata)\n\nOther file types (.xls, .zip, images) depending on the study\nThe access_data() function handles the API request, downloads the ZIP content into a temporary directory, extracts the files, and returns a list of file paths. This enables the RED‑X app to programmatically retrieve and process datasets for filtering, previewing, and metadata display. See the r code below;\naccess_data &lt;- function(doi) {\n  Acess_data_url &lt;- \"https://borealisdata.ca/api/access/dataset/\"\n\n  full_url3 &lt;- paste0(Acess_data_url, \":persistentId/?persistentId=\", doi)\n\n  tryCatch({\n    response &lt;- request(full_url3) %&gt;%\n      req_headers(`X-Dataverse-key`= Api_token) %&gt;%\n      req_perform()\n\n    if (response$status_code == 200) {\n\n      # Get the content of the response as a raw vector\n      zip_content &lt;- resp_body_raw(response)\n\n      # Use tempfile to create a temporary file for the zip content\n      temp_zip &lt;- tempfile(fileext = \".zip\")\n\n      # Write the raw vector to the temporary file\n      writeBin(zip_content, temp_zip)\n\n      # Use a temporary directory to extract the files\n      temp_unzip_dir &lt;- tempfile()\n\n      # Extract the files to the temporary directory\n      unzip(temp_zip, exdir = temp_unzip_dir)\n\n      # List files in the temporary directory\n      file_list &lt;- list.files(temp_unzip_dir, full.names = TRUE)\n\n      # Clean up the temporary zip file\n      unlink(temp_zip)\n\n      return(file_list)\n    }\n    else {\n      return(NULL)\n    }\n\n  }, error = function(e) {\n    print(\"Restricted data not accessible.\")\n  })\n}\nOnly supported file formats are used in the app and are filtered using the function below;\nfilter_filelist(file_list, is_txt = TRUE)  # Get README.txt files\nfilter_filelist(file_list, is_txt = FALSE) # Get .csv/.tab files\n\nSee the Developer Guide to contribute to RED-X.",
+    "crumbs": [
+      "System Design",
+      "API Guide"
+    ]
+  },
+  {
+    "objectID": "architecture.html",
+    "href": "architecture.html",
+    "title": "System Architecture",
+    "section": "",
+    "text": "1.0 Overview\nThe system architecture section provides a high-level overview of how RED-X is built and how its components interact to deliver a seamless user experience. It outlines the core technologies used, the data flow from external sources to the app interface, and how the system stays up-to-date through automated processes.\nRED-X is a browser-based web application developed using R Shiny and hosted on shinyapps.io. It connects to a local relational database (SQLite) that is updated every 48 hours via an API integration with the Borealis Dataverse. The system is optimized for metadata visualization, interactive filtering, and reusability analysis.\nThis section is intended for developers, technical reviewers, and advanced users who want to understand how RED-X integrates data from the Borealis Dataverse, processes it for analysis, and presents it through an interactive Shiny interface. By the end of this section, you’ll have a clear picture of how RED-X integrates with external data sources, organizes content in a local database, and serves dynamic outputs through its Shiny-based front end.\n\n\n2.0 Key components\nRED-X is composed of several key components that work together to deliver a smooth and responsive data exploration experience. Each part plays a specific role in fetching, preparing, and displaying data to users.\n\n\n\nComponent\nDescription\n\n\n\n\nFrontend (User Interface)\nBuilt with R Shiny, the frontend is modular and reactive. It includes:- Carousel-style home summary- Keyword/author network visualization- Data Explorer with filtering- Tooltip and sidebar interactivity- Dynamic filters, value boxes, tables, and visualizations- Hosted on shinyapps.io\n\n\nBackend (Data Engine)\n- Uses a lightweight SQLite database stored locally- Stores cleaned and structured metadata from the Borealis Dataverse- Includes tables for metadata, files, keywords, authors, and network edges- Optimized for fast queries and minimal setup\n\n\nAPI Integration\n- Connects to the Borealis Dataverse API- Retrieves metadata, file listings, DOIs, and keyword-author tags- Data is fetched as JSON and processed into tidy tabular format\n\n\nScheduled Update Process\n- Runs every 48 hours to refresh the database- Uses an automated R script to:   • Pull updated metadata and files   • Clean and transform the data   • Merge into the SQLite database- Keeps the app in sync with Borealis\n\n\n\n\nNote: Some of these key features are explained in more detail in the sections that follow.\n\n\n\n3.0 Data Flow Pipeline\nThe data flow in RED-X follows a streamlined, automated process that ensures users always have access to the most up-to-date study metadata and data files.\nData originates from the Borealis Dataverse, where it is retrieved using API calls. Once fetched, the data is cleaned, transformed, and stored in a local SQLite database, which the app uses to deliver fast and filtered responses to users in real time.The diagram below summarizes the process. Each component plays a specific role in moving data through the system.\n\n\n3.1 Fetching Data from Borealis using API calls\n\n1. API Integration for data fetching\nRED-X connects to the Borealis Dataverse API to fetch metadata, datasets, and file information from public and restricted research repositories. This guide provides a high-level overview of how the API is integrated into the app.\nThe RED-X app integrates with the Borealis Dataverse API to automatically retrieve and update metadata, authorship information, keywords, DOIs, and associated research files. This integration allows RED-X to stay synchronized with the most recent dataset updates on Borealis, without requiring manual downloads or uploads. It streamlines the process of discovering and exploring historical research data.\nAPI calls are made using custom R functions that fetch and process the data into a clean, structured format. Access to the API is secured using a user-specific token stored in environment variables, ensuring both security and flexibility. Depending on user permissions (e.g., general user vs. superuser), access levels to certain data may vary.\n\nNote: Detailed information about the API integrations and functions can be found at the API Guide section.\n\n\n\n2. Data cleaning, transformation\nAfter data is fetched from the Borealis Dataverse via API calls, it undergoes a structured pipeline that cleans, transforms, and stores the information in a lightweight SQLite database for fast retrieval and application use.\nThe raw metadata and file listings are parsed and cleaned using a combination of R packages like dplyr, tidyr, and stringr. Below are the main steps:\n\n\n\n\n\n\n\nStep\nDescription\n\n\n\n\nFlatten JSON Responses\nNested JSON responses from the API are converted into tabular format using jsonlite::fromJSON(..., flatten = TRUE).\n\n\nFilter Valid Datasets\nEntries are filtered to ensure they have a valid persistent_id (DOI) and required metadata.\n\n\nExtract and Normalize\nMetadata such as authors, keywords, temporal coverage, and spatial coverage are parsed and stored in a tidy format.\n\n\nString Cleanup\nFields like keywords and authors are cleaned to remove extraneous punctuation, whitespace, or formatting artifacts.\n\n\nDeduplication\nIdentical entries are removed to avoid redundancy using dplyr::distinct().\n\n\nFile Filtering\nOnly .tab, .csv, and metadata .txt files are retained. A helper function filter_filelist() ensures correct file extensions are selected.\n\n\n\n# Example: Clean a raw keyword string\ncleaned_keywords &lt;- str_split(raw_keywords, \";\\\\s*\") %&gt;%\n  unlist() %&gt;%\n  str_replace_all(\"[^a-zA-Z0-9\\\\s-]\", \"\") %&gt;%\n  str_squish() %&gt;%\n  str_to_title() %&gt;%\n  unique()\n\n\n3. Storage in SQLite Database\nOnce cleaned, the data is stored in an SQLite database bundled with the Shiny app. This makes querying and updating lightweight, portable, and fast.\n\n\n\n\n\n\n\nTable\nPurpose\n\n\n\n\nresearch_data\nStores the core metadata of all studies (DOI, title, authors, publication date, etc.)\n\n\nupdate_info\nKeeps a timestamp of the last update to prevent redundant API calls (refresh every 48 hours)\n\n\nkeywords_node/edge\nStores the network data for keyword co-occurrence\n\n\nauthors_node/edge\nStores the network data for author collaboration\n\n\ncollege_colors\nColor mapping for each college used in the network visualization\n\n\ndepartment_colors\nColor mapping for each department used in the network visualization\n\n\n\n# Example: Save cleaned study metadata to SQLite\ndbWriteTable(conn, \"research_data\", cleaned_metadata, append = TRUE)\n\nThe SQLite database is accessed by the Shiny app at runtime to populate the user interface with up-to-date and searchable content.\n\n\n\n4. Scheduled Updates\nA background R script checks if an update is needed (based on a 48-hour interval) and refreshes the database only when new datasets are detected. This ensures a responsive app while minimizing API load.\n # Check if update_info table exists and when it was last updated\n  if (\"update_info\" %in% dbListTables(conn)) {\n    update_info &lt;- dbReadTable(conn, \"update_info\")\n    if (nrow(update_info) &gt; 0) {\n      last_update &lt;- as.POSIXct(update_info$last_update[1])\n      time_diff &lt;- difftime(Sys.time(), last_update, units = \"hours\")\n      if (time_diff &lt; 48) {\n        update_needed &lt;- FALSE\n        message(\"Less than 48 hours since last update (\", round(time_diff, 2), \" hours). Using cached data.\")\n      }\n    }\n  }\n  \n  if (!update_needed && (\"research_data\" %in% dbListTables(conn))) {\n    # Return cached data if no update is needed\n    return(dbReadTable(conn, \"research_data\"))\n  }\n  \n  message(\"Updating cache with new data...\")\n\nThis automated pipeline ensures that users always see the most recent research metadata available in the Borealis repository.\n\n\n\n\n\n4.0 Deployment\nThe RED‑X application is currently deployed using shinyapps.io, a cloud-based hosting service for Shiny applications by RStudio (Posit). This enables the app to be publicly accessible from any browser without requiring local installation of R or its dependencies.\nThe RED-X App is publicly accessible via the following link: Launch RED-X on shinyapps.io\nThis app is actively version-controlled and maintained through GitHub. You can view the full source code, contribute, or report issues using the repository link below: View RED-X on GitHub\nThe GitHub repository contains: - All the source code (UI and server components) - Scripts for API integration and data processing - Deployment and update scripts - Project documentation and development history\n\nTip: For details on local development or contributing, see the Developer Guide section.",
+    "crumbs": [
+      "System Design",
+      "System Architecture"
+    ]
+  }
+]

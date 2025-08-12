@@ -1,0 +1,48 @@
+/* css styles */
+/* Stronger blue for headings */
+h1, h2, h3 {
+  color: #0056b3; /* Professional deep blue */
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+/* Body font styling for readability */
+body {
+  font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Link colors */
+a {
+  color: #004080;
+}
+
+a:hover {
+  color: #002b5c;
+}
+
+/* Section spacing */
+section {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Optional: table styling */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+
+.medium-zoom-overlay {
+  z-index: 9999 !important;  /* Ensure it's on top of sidebar */
+}
+
+.medium-zoom-image--opened {
+  z-index: 10000 !important; /* Image itself even higher */
+}
