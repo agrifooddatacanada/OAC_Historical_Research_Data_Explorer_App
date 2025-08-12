@@ -1,0 +1,69 @@
+project:
+  type: website
+  git-repo-url: https://github.com/agrifooddatacanada/OAC_Historical_Research_Data_Explorer_App
+
+website:
+  title: "RED-X Documentation"
+  navbar:
+    title: "RED-X Documentation"
+    pinned: false
+    right:
+      - icon: github
+        href: https://github.com/agrifooddatacanada/OAC_Historical_Research_Data_Explorer_App
+
+  sidebar:
+    style: docked
+    contents: 
+      - text: Home
+        file: index.qmd
+      - getting-started.qmd
+      - user-guide.qmd
+      - section: "System Design"
+        contents:
+          - file: architecture.qmd
+          - text: "API Guide"
+            file: api.qmd
+          - section: "Developer"
+            contents:
+              - file: dev.qmd
+              - section: "Database Schema"
+                contents: 
+                  - text: "Research_data"
+                    file: Research_data_OCA_schema.md
+                  - text: "Keywords_node"
+                    file: Keyword_node_OCA_schema.md
+                  - text: "Keywords_edge"
+                    file: Keyword_edge_OCA_schema.md
+                  - text: "Authors_node"
+                    file: Authors_node_OCA_schema.md
+                  - text: "Authors_edge"
+                    file: Authors_edge_OCA_schema.md 
+                  - text: "Processed_studies"
+                    file: Processed_OCA_schema.md
+                  - text: "Update_info"
+                    file: Update_info_OCA_schema.md
+                  - text: "College_colors"
+                    file: college_colors_OCA_schema.md
+                  - text: "Department_colors"
+                    file: Department_colors_OCA_schema.md
+
+format:
+  html:
+    link-external-newwindow: true
+    include-after-body: 
+      - zoom.js
+    number-sections: false
+    theme:
+      light: flatly
+      dark: darkly
+    css: styles.css
+    toc: true
+    toc-depth: 5
+    toc-title: "On this page"
+
+
+
+
+
+
+

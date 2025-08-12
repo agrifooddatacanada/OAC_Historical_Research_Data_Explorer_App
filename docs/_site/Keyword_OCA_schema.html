@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>RED-X Documentation - Keyword Node</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">RED-X Documentation</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/agrifooddatacanada/OAC_Historical_Research_Data_Explorer_App"><i class="bi bi-github" role="img">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div class="quarto-toggle-container">
+                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+              </div>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Keyword Node</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Home</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./getting-started.html" class="sidebar-item-text sidebar-link">Getting Started</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./user-guide.html" class="sidebar-item-text sidebar-link">User Guide</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">System Design</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./architecture.html" class="sidebar-item-text sidebar-link">System Architecture</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./api.html" class="sidebar-item-text sidebar-link">API Guide</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dev.html" class="sidebar-item-text sidebar-link">Developer Guide</a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Database Schema</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./RED-X_Research_data_OCA_schema.html" class="sidebar-item-text sidebar-link">Research_data</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Keyword_OCA_schema.html" class="sidebar-item-text sidebar-link active">Keywords_node</a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#schema-information" id="toc-schema-information" class="nav-link active" data-scroll-target="#schema-information">Schema information</a>
+  <ul class="collapse">
+  <li><a href="#table-of-contents" id="toc-table-of-contents" class="nav-link" data-scroll-target="#table-of-contents">Table of Contents</a></li>
+  <li><a href="#schema-quick-view" id="toc-schema-quick-view" class="nav-link" data-scroll-target="#schema-quick-view">Schema quick view</a></li>
+  <li><a href="#international-schema-information" id="toc-international-schema-information" class="nav-link" data-scroll-target="#international-schema-information">International schema information</a></li>
+  <li><a href="#language-independent-schema-details" id="toc-language-independent-schema-details" class="nav-link" data-scroll-target="#language-independent-schema-details">Language-independent schema details</a></li>
+  <li><a href="#language-specific-schema-details" id="toc-language-specific-schema-details" class="nav-link" data-scroll-target="#language-specific-schema-details">Language-specific schema details</a>
+  <ul class="collapse">
+  <li><a href="#english" id="toc-english" class="nav-link" data-scroll-target="#english">English</a></li>
+  </ul></li>
+  <li><a href="#schema-saids" id="toc-schema-saids" class="nav-link" data-scroll-target="#schema-saids">Schema SAIDs</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Keyword Node</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<section id="schema-information" class="level1">
+<h1>Schema information</h1>
+<p>{: .no_toc }</p>
+<section id="table-of-contents" class="level2">
+<h2 class="anchored" data-anchor-id="table-of-contents">Table of Contents</h2>
+<p>{: .no_toc .text-delta }</p>
+<ol type="1">
+<li>TOC {:toc}</li>
+</ol>
+<p><strong>Name</strong>: Keyword Node<br>
+<strong>Description</strong>: The keywords_node dataset is used in the RED-X application to represent keyword nodes within the research network visualization. Each row corresponds to a unique keyword found in the research metadata, along with attributes that help categorize, color-code, and display connections in the app’s interactive network plot. The network allows users to explore how specific keywords are distributed across departments, colleges, and over time, offering a visual overview of research trends and thematic overlaps. In the app, each keyword node is connected to others through shared appearances in the same studies (captured in a separate keywords_edge.csv file). When a user clicks on a node, the app highlights related keywords and reveals metadata for associated studies. The node color represents its affiliated college or department, making it easier to see institutional patterns. This dataset underpins the keyword filtering functionality in RED-X and supports discovery of related research themes through visual exploration.<br>
+<strong>Classification</strong>: RDF212<br>
+<strong>Schema package SAID</strong>: EDxrdnt5wTthT326SLIDY9tcbbwtX8YnAZ1owZPBcTZ6</p>
+</section>
+<section id="schema-quick-view" class="level2">
+<h2 class="anchored" data-anchor-id="schema-quick-view">Schema quick view</h2>
+<table class="table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Attribute</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>label</td>
+<td>label</td>
+<td>The keyword term (e.g., “Soil Health”) used as the unique node label</td>
+</tr>
+<tr class="even">
+<td>node_group</td>
+<td>Node group</td>
+<td>Classification of the node group (e.g., “Keywords”)</td>
+</tr>
+<tr class="odd">
+<td>title</td>
+<td>title</td>
+<td>Tooltip-style summary (e.g., "Study Count: 3 Year Range: 2017 to 2021")</td>
+</tr>
+<tr class="even">
+<td>CollegeColor</td>
+<td>College Color</td>
+<td>Name of the college associated with the keyword's studies</td>
+</tr>
+<tr class="odd">
+<td>DepartmentColor</td>
+<td>Department Color</td>
+<td>Name of the department tied to the keyword’s usage</td>
+</tr>
+<tr class="even">
+<td>CollegeName</td>
+<td>College Name</td>
+<td>Hex color code used for visualizing college-affiliation in the network</td>
+</tr>
+<tr class="odd">
+<td>DepartmentName</td>
+<td>Department Name</td>
+<td>Hex color code used for department-affiliation in the network</td>
+</tr>
+<tr class="even">
+<td>study_count</td>
+<td>Study count</td>
+<td>Number of studies in which the keyword appears</td>
+</tr>
+<tr class="odd">
+<td>year_range</td>
+<td>Year range</td>
+<td>Representation of publication years for the studies</td>
+</tr>
+<tr class="even">
+<td>DOI</td>
+<td>DOI</td>
+<td>Unique identifier for each studies in which the keywords appear</td>
+</tr>
+<tr class="odd">
+<td>id</td>
+<td>id</td>
+<td>Unique identifier assigned to each node</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="international-schema-information" class="level2">
+<h2 class="anchored" data-anchor-id="international-schema-information">International schema information</h2>
+<table class="table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Language</th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>English</td>
+<td>Keyword Node</td>
+<td>The keywords_node dataset is used in the RED-X application to represent keyword nodes within the research network visualization. Each row corresponds to a unique keyword found in the research metadata, along with attributes that help categorize, color-code, and display connections in the app’s interactive network plot. The network allows users to explore how specific keywords are distributed across departments, colleges, and over time, offering a visual overview of research trends and thematic overlaps. In the app, each keyword node is connected to others through shared appearances in the same studies (captured in a separate keywords_edge.csv file). When a user clicks on a node, the app highlights related keywords and reveals metadata for associated studies. The node color represents its affiliated college or department, making it easier to see institutional patterns. This dataset underpins the keyword filtering functionality in RED-X and supports discovery of related research themes through visual exploration.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="language-independent-schema-details" class="level2">
+<h2 class="anchored" data-anchor-id="language-independent-schema-details">Language-independent schema details</h2>
+<table class="table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Attribute</th>
+<th>Sensitive</th>
+<th>Unit</th>
+<th>Type</th>
+<th>Character encoding</th>
+<th>Required entry</th>
+<th>Format rule</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>label</td>
+<td>false</td>
+<td></td>
+<td>Text</td>
+<td>utf-8</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>node_group</td>
+<td>false</td>
+<td></td>
+<td>Text</td>
+<td>utf-8</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>title</td>
+<td>false</td>
+<td></td>
+<td>Text</td>
+<td>utf-8</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>CollegeColor</td>
+<td>false</td>
+<td></td>
+<td>Text</td>
+<td>utf-8</td>
+<td>true</td>
+<td>^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$</td>
+</tr>
+<tr class="odd">
+<td>DepartmentColor</td>
+<td>false</td>
+<td></td>
+<td>Text</td>
+<td>utf-8</td>
+<td>true</td>
+<td>^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$</td>
+</tr>
+<tr class="even">
+<td>CollegeName</td>
+<td>false</td>
+<td></td>
+<td>Text</td>
+<td>utf-8</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>DepartmentName</td>
+<td>false</td>
+<td></td>
+<td>Text</td>
+<td>utf-8</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>study_count</td>
+<td>false</td>
+<td></td>
+<td>Numeric</td>
+<td></td>
+<td>true</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>year_range</td>
+<td>false</td>
+<td></td>
+<td>Text</td>
+<td>utf-8</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>DOI</td>
+<td>false</td>
+<td></td>
+<td>Text</td>
+<td>utf-8</td>
+<td>true</td>
+<td>^10\.\d{4,9}/[-._;()/:A-Z0-9]+$</td>
+</tr>
+<tr class="odd">
+<td>id</td>
+<td>false</td>
+<td></td>
+<td>Numeric</td>
+<td></td>
+<td>true</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="language-specific-schema-details" class="level2">
+<h2 class="anchored" data-anchor-id="language-specific-schema-details">Language-specific schema details</h2>
+<section id="english" class="level3">
+<h3 class="anchored" data-anchor-id="english">English</h3>
+<table class="table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Attribute</th>
+<th>Label</th>
+<th>Description</th>
+<th>List</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>label</td>
+<td>label</td>
+<td>The keyword term (e.g., “Soil Health”) used as the unique node label</td>
+<td>Not a list</td>
+</tr>
+<tr class="even">
+<td>node_group</td>
+<td>Node group</td>
+<td>Classification of the node group (e.g., “Keywords”)</td>
+<td>Not a list</td>
+</tr>
+<tr class="odd">
+<td>title</td>
+<td>title</td>
+<td>Tooltip-style summary (e.g., "Study Count: 3 Year Range: 2017 to 2021")</td>
+<td>Not a list</td>
+</tr>
+<tr class="even">
+<td>CollegeColor</td>
+<td>College Color</td>
+<td>Name of the college associated with the keyword's studies</td>
+<td>Not a list</td>
+</tr>
+<tr class="odd">
+<td>DepartmentColor</td>
+<td>Department Color</td>
+<td>Name of the department tied to the keyword’s usage</td>
+<td>Not a list</td>
+</tr>
+<tr class="even">
+<td>CollegeName</td>
+<td>College Name</td>
+<td>Hex color code used for visualizing college-affiliation in the network</td>
+<td>Not a list</td>
+</tr>
+<tr class="odd">
+<td>DepartmentName</td>
+<td>Department Name</td>
+<td>Hex color code used for department-affiliation in the network</td>
+<td>Not a list</td>
+</tr>
+<tr class="even">
+<td>study_count</td>
+<td>Study count</td>
+<td>Number of studies in which the keyword appears</td>
+<td>Not a list</td>
+</tr>
+<tr class="odd">
+<td>year_range</td>
+<td>Year range</td>
+<td>Representation of publication years for the studies</td>
+<td>Not a list</td>
+</tr>
+<tr class="even">
+<td>DOI</td>
+<td>DOI</td>
+<td>Unique identifier for each studies in which the keywords appear</td>
+<td>Not a list</td>
+</tr>
+<tr class="odd">
+<td>id</td>
+<td>id</td>
+<td>Unique identifier assigned to each node</td>
+<td>Not a list</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="schema-saids" class="level2">
+<h2 class="anchored" data-anchor-id="schema-saids">Schema SAIDs</h2>
+<p><strong>Capture base</strong>: EErvygNKDSiSJlIyI1Xr5ptemkmRGXViH2nPYmU9TuYM</p>
+<p><strong>Bundle</strong>: ENC8apowSVwiYISlCLR85-PkNYZfni-cf-EvqYjWHWHv</p>
+<p><strong>Package</strong>: EDxrdnt5wTthT326SLIDY9tcbbwtX8YnAZ1owZPBcTZ6</p>
+<table class="table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Layer</th>
+<th>SAID</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>character_encoding</td>
+<td>EId4qK9jG2jiI_gDciiBUKVv4vd26tevKxMo2v1te5oy</td>
+<td>spec/overlays/character_encoding/1.1</td>
+</tr>
+<tr class="even">
+<td>conformance</td>
+<td>ECQzJ3PfDLsCtqaFHm3uVPs9uQIGzuRkLYR2YHRiTtuP</td>
+<td>spec/overlays/conformance/1.1</td>
+</tr>
+<tr class="odd">
+<td>format</td>
+<td>EFwz0qDmjbDN3lAgLHcayJ22A5Q61q0uKbBuCifF-4Nv</td>
+<td>spec/overlays/format/1.1</td>
+</tr>
+<tr class="even">
+<td>information (eng)</td>
+<td>EGTltT9R6zYsr1N17beLBCrMZ9ffJuKKSIf9HaRBRnDV</td>
+<td>spec/overlays/information/1.1</td>
+</tr>
+<tr class="odd">
+<td>label (eng)</td>
+<td>EIlTOVOjITxYQWmtTQIuwQ4ZEA9WNWF9vQBthYtrRP00</td>
+<td>spec/overlays/label/1.1</td>
+</tr>
+<tr class="even">
+<td>meta (eng)</td>
+<td>EFu1lA89ounWzPVa6XRyPwhOle06-XzyNSoyrlgp7Y5_</td>
+<td>spec/overlays/meta/1.1</td>
+</tr>
+<tr class="odd">
+<td>ordering</td>
+<td>EP6PBzIq0meI-CrbjYiJ0zqO6cb5rvDBo0DrEP_4mzEY</td>
+<td>community/overlays/adc/ordering/1.1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Date created</strong>: 2025-07-29 03:34:45</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js"></script>
+<script>
+  mediumZoom('img', {
+    margin: 24,
+    background: '#000',
+    scrollOffset: 0,
+  })
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } 
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Technical documentation for developers contributing to the RED-X Shiny application.">
+
+<title>RED-X Documentation - Developer Guide</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">RED-X Documentation</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/agrifooddatacanada/OAC_Historical_Research_Data_Explorer_App"><i class="bi bi-github" role="img">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div class="quarto-toggle-container">
+                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+              </div>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Developer Guide</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Home</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./getting-started.html" class="sidebar-item-text sidebar-link">Getting Started</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./user-guide.html" class="sidebar-item-text sidebar-link">User Guide</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">System Design</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./architecture.html" class="sidebar-item-text sidebar-link">System Architecture</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./api.html" class="sidebar-item-text sidebar-link">API Guide</a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Developer</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dev.html" class="sidebar-item-text sidebar-link active">Developer Guide</a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">Database Schema</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Research_data_OCA_schema.html" class="sidebar-item-text sidebar-link">Research_data</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Keyword_node_OCA_schema.html" class="sidebar-item-text sidebar-link">Keywords_node</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Keyword_edge_OCA_schema.html" class="sidebar-item-text sidebar-link">Keywords_edge</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Authors_node_OCA_schema.html" class="sidebar-item-text sidebar-link">Authors_node</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Authors_edge_OCA_schema.html" class="sidebar-item-text sidebar-link">Authors_edge</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Processed_OCA_schema.html" class="sidebar-item-text sidebar-link">Processed_studies</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Update_info_OCA_schema.html" class="sidebar-item-text sidebar-link">Update_info</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./college_colors_OCA_schema.html" class="sidebar-item-text sidebar-link">College_colors</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Department_colors_OCA_schema.html" class="sidebar-item-text sidebar-link">Department_colors</a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#project-structure" id="toc-project-structure" class="nav-link active" data-scroll-target="#project-structure">1.0 Project Structure</a>
+  <ul class="collapse">
+  <li><a href="#repository-layout" id="toc-repository-layout" class="nav-link" data-scroll-target="#repository-layout">1.1 Repository Layout</a></li>
+  <li><a href="#key-files-and-scripts" id="toc-key-files-and-scripts" class="nav-link" data-scroll-target="#key-files-and-scripts">1.2 Key Files and Scripts</a></li>
+  <li><a href="#modular-design" id="toc-modular-design" class="nav-link" data-scroll-target="#modular-design">1.3 Modular Design</a></li>
+  </ul></li>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">2.0 Getting Started</a>
+  <ul class="collapse">
+  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">2.1 Prerequisites</a></li>
+  <li><a href="#clone-and-set-up-the-project" id="toc-clone-and-set-up-the-project" class="nav-link" data-scroll-target="#clone-and-set-up-the-project">2.2 Clone and Set Up the Project</a></li>
+  <li><a href="#restoring-project-dependencies-in-rstudio" id="toc-restoring-project-dependencies-in-rstudio" class="nav-link" data-scroll-target="#restoring-project-dependencies-in-rstudio">2.3 Restoring Project Dependencies in RStudio</a></li>
+  <li><a href="#running-the-app-locally" id="toc-running-the-app-locally" class="nav-link" data-scroll-target="#running-the-app-locally">2.4 Running the App Locally</a></li>
+  </ul></li>
+  <li><a href="#api-integration" id="toc-api-integration" class="nav-link" data-scroll-target="#api-integration">3.0 API Integration</a></li>
+  <li><a href="#database-and-data-handling" id="toc-database-and-data-handling" class="nav-link" data-scroll-target="#database-and-data-handling">4.0 Database and Data Handling</a>
+  <ul class="collapse">
+  <li><a href="#data-flow" id="toc-data-flow" class="nav-link" data-scroll-target="#data-flow">4.1 Data Flow</a>
+  <ul class="collapse">
+  <li><a href="#initial-fetch" id="toc-initial-fetch" class="nav-link" data-scroll-target="#initial-fetch">1. Initial Fetch</a></li>
+  <li><a href="#transformation-cleaning" id="toc-transformation-cleaning" class="nav-link" data-scroll-target="#transformation-cleaning">2. Transformation &amp; Cleaning</a></li>
+  <li><a href="#storage" id="toc-storage" class="nav-link" data-scroll-target="#storage">3. Storage</a></li>
+  <li><a href="#automatic-updates" id="toc-automatic-updates" class="nav-link" data-scroll-target="#automatic-updates">4. Automatic Updates</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#ui-and-ux-design" id="toc-ui-and-ux-design" class="nav-link" data-scroll-target="#ui-and-ux-design">5.0 UI and UX Design</a>
+  <ul class="collapse">
+  <li><a href="#layout" id="toc-layout" class="nav-link" data-scroll-target="#layout">5.1 Layout</a></li>
+  <li><a href="#modules" id="toc-modules" class="nav-link" data-scroll-target="#modules">5.2 Modules</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Developer Guide</h1>
+</div>
+
+<div>
+  <div class="description">
+    Technical documentation for developers contributing to the RED-X Shiny application.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<section id="project-structure" class="level3">
+<h3 class="anchored" data-anchor-id="project-structure">1.0 Project Structure</h3>
+<p>The RED-X application is organized to promote clarity, modularity, and collaboration. Below is a detailed breakdown of the file structure along with explanations of what each directory and file is responsible for.</p>
+<pre class="text"><code>RED-X/
+├── CODE_OF_CONDUCT.md     # Contributor behavior guidelines
+├── LICENSE                # Open source license info
+├── README.md              # Overview and instructions
+├── RED-X.Rproj            # RStudio project file
+├── renv/                  # Dependency management via renv
+├── renv.lock              # Locked dependency versions
+├── app/                   # Core application folder
+│   ├── global.R           # Global settings and shared variables
+│   ├── server.R           # Server logic
+│   ├── UI.R               # Main UI structure
+│   ├── appData/           # Local SQLite database
+│   │   └── Explorer_cache.db           
+│   ├── appFunction/       # Custom function scripts
+│   │   └── dataExplorer_functions.R
+│   ├── appTabs/           # Modular UI tab definitions
+│   │   ├── aboutTab.R
+│   │   ├── datareviewTab.R
+│   │   ├── datareviewsubTab.R
+│   │   ├── datareviewsubTab1.R
+│   │   ├── homeTab.R
+│   │   ├── metadataTab.R
+│   │   ├── navmenuTab.R
+│   │   └── networkTab.R
+│   └── www/               # Static assets (images, logos)
+│       ├── adc logo.jpg
+│       ├── Agri-food.png
+│       ├── ...
+│       └── workshop1.jpeg
+├── docs/                  # Quarto-based documentation source
+│   ├── api.qmd
+│   ├── architecture.qmd
+│   ├── contributing.qmd
+│   ├── dev.qmd
+│   ├── getting-started.qmd
+│   ├── index.qmd
+│   ├── user-guide.qmd
+│   ├── _quarto.yml
+│   ├── styles.css
+│   ├── images/            # Diagrams and screenshots used in documentation
+│   │   ├── API_flow.png
+│   │   ├── data_exploration.png
+│   │   └── ...
+│   └── _site/             # Rendered HTML site output
+│       ├── index.html
+│       ├── api.html
+│       ├── ...
+│       └── site_libs/     # Quarto JS/CSS dependencies</code></pre>
+<section id="repository-layout" class="level4">
+<h4 class="anchored" data-anchor-id="repository-layout">1.1 Repository Layout</h4>
+<ul>
+<li>The appTabs/ folder follows a modular UI design for maintainability. Each tab (e.g., Network, Metadata, About) is written in a separate script, which is then sourced into the main UI.</li>
+<li>appFunction/ contains reusable logic like data cleaning or filtering functions.</li>
+<li>Explorer_cache.db is auto-generated from API responses and stores cleaned metadata, keyword/author nodes, and network edges.</li>
+<li>The www/ folder contains image assets used in the homepage carousel and other tabs.</li>
+</ul>
+</section>
+<section id="key-files-and-scripts" class="level4">
+<h4 class="anchored" data-anchor-id="key-files-and-scripts">1.2 Key Files and Scripts</h4>
+<ul>
+<li>UI.R &amp; server.R – Main application UI and server logic</li>
+<li>global.R – Global configuration, including shared resources</li>
+<li>appFunction/ – Helper functions (e.g., data fetching, transformation)</li>
+<li>appTabs/ – UI layout of individual tabs (e.g., Home, Network, Metadata)</li>
+</ul>
+</section>
+<section id="modular-design" class="level4">
+<h4 class="anchored" data-anchor-id="modular-design">1.3 Modular Design</h4>
+<p>Tabs are modularized into separate scripts for readability and reuse. Example:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"./app/appTabs/homeTab.R"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="getting-started" class="level3">
+<h3 class="anchored" data-anchor-id="getting-started">2.0 Getting Started</h3>
+<section id="prerequisites" class="level4">
+<h4 class="anchored" data-anchor-id="prerequisites">2.1 Prerequisites</h4>
+<p>Ensure the following software and system requirements are in place:</p>
+<ul>
+<li>R version ≥ 4.2.0</li>
+<li>RStudio (recommended IDE)</li>
+<li>Git (for cloning the repository)</li>
+<li>Internet access (required for API calls to Borealis)</li>
+<li>Quarto (optional, for building documentation locally)</li>
+<li>renv package (used to manage project-specific R dependencies)</li>
+</ul>
+<p>The RED‑X app uses the renv package to isolate and restore specific R package versions. This helps ensure that collaborators and users can consistently reproduce the development environment across different systems. To learn more, see <a href="https://rstudio.github.io/renv/articles/renv.html">Introduction to renv package</a>.</p>
+</section>
+<section id="clone-and-set-up-the-project" class="level4">
+<h4 class="anchored" data-anchor-id="clone-and-set-up-the-project">2.2 Clone and Set Up the Project</h4>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Clone the repository</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/agrifooddatacanada/OAC_Historical_Research_Data_Explorer_App.git</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Navigate into the project directory</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> OAC_Historical_Research_Data_Explorer_App</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Open the RED-X app as a project in the app directory in RStudio. Read more about <a href="https://support.posit.co/hc/en-us/articles/200526207-Using-RStudio-Projects">using R studio project here</a>.</p>
+</section>
+<section id="restoring-project-dependencies-in-rstudio" class="level4">
+<h4 class="anchored" data-anchor-id="restoring-project-dependencies-in-rstudio">2.3 Restoring Project Dependencies in RStudio</h4>
+<p>Run the following in the R console to restore dependencies:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("renv") if not already installed</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"renv"</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Once installed, project dependencies will be restored automatically from renv.lock when you run:</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">restore</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Learn more about <a href="https://agrifooddatacanada.ca/ensuring-code-consistency-and-reproducibility-with-r-projects-and-renv/">Why renv matters for reproducibility here</a>.</p>
+</section>
+<section id="running-the-app-locally" class="level4">
+<h4 class="anchored" data-anchor-id="running-the-app-locally">2.4 Running the App Locally</h4>
+<p>To launch the RED-X app from your R console:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the Shiny app</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>shiny<span class="sc">::</span><span class="fu">runApp</span>(<span class="st">"./app"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This will open the app in your default web browser. You may need to wait a few seconds for data to load from the local SQLite database (Explorer_cache.db).</p>
+</section>
+</section>
+<section id="api-integration" class="level3">
+<h3 class="anchored" data-anchor-id="api-integration">3.0 API Integration</h3>
+<p>RED-X connects to the Borealis Dataverse API to fetch research datasets, metadata, and related files. All API calls are secured using a token stored in your environment variables.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.getenv</span>(<span class="st">"API_TOKEN"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<blockquote class="blockquote">
+<p>Never hardcode your API token in scripts or share it publicly. Access levels may vary depending on your Dataverse role (e.g., contributor, superuser).</p>
+</blockquote>
+<p><strong>Key Functions</strong> fetch_all_datasets() – Recursively retrieves datasets and structures metadata layers fetch_study_details() – Fetches metadata using DOIs access_data() – Downloads files associated with each dataset</p>
+<blockquote class="blockquote">
+<p>View detailed <a href="./api.html">API guide here</a></p>
+</blockquote>
+</section>
+<section id="database-and-data-handling" class="level3">
+<h3 class="anchored" data-anchor-id="database-and-data-handling">4.0 Database and Data Handling</h3>
+<p>RED-X uses a local SQLite database (Explorer_cache.db) to store processed research data for fast retrieval and offline access. This approach ensures efficient rendering of network visualizations, metadata tables, and search results, even with large datasets.</p>
+<section id="data-flow" class="level4">
+<h4 class="anchored" data-anchor-id="data-flow">4.1 Data Flow</h4>
+<section id="initial-fetch" class="level5">
+<h5 class="anchored" data-anchor-id="initial-fetch">1. Initial Fetch</h5>
+<p>On first run (or every 48 hours), RED-X uses fetch_all_datasets() and fetch_study_details() to pull fresh data via the Dataverse API.</p>
+</section>
+<section id="transformation-cleaning" class="level5">
+<h5 class="anchored" data-anchor-id="transformation-cleaning">2. Transformation &amp; Cleaning</h5>
+<p>The raw metadata is cleaned (e.g., standardizing author/keyword formatting) and structured into consistent formats.</p>
+</section>
+<section id="storage" class="level5">
+<h5 class="anchored" data-anchor-id="storage">3. Storage</h5>
+<p>Cleaned data is cached in Explorer_cache.db using the DBI and RSQLite packages. This includes:</p>
+<ul>
+<li>Main study metadata (research_data)</li>
+<li>Nodes and edges for keywords and authors</li>
+<li>Update timestamp (update_info)</li>
+</ul>
+<blockquote class="blockquote">
+<p>See the <a href="RED-X_Research_data_OCA_schema.md">Database Schemas</a> under the Developer Guide for table details and structure.</p>
+</blockquote>
+</section>
+<section id="automatic-updates" class="level5">
+<h5 class="anchored" data-anchor-id="automatic-updates">4. Automatic Updates</h5>
+<p>Every 48 hours, the system checks for new or modified DOIs and appends only new records—preserving performance and avoiding duplication.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check cache timestamp</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (time_since_last_update <span class="sc">&gt;</span> <span class="dv">48</span> hours) {</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  fetch new DOIs</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  update SQLite cache</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+</section>
+<section id="ui-and-ux-design" class="level3">
+<h3 class="anchored" data-anchor-id="ui-and-ux-design">5.0 UI and UX Design</h3>
+<p>The RED-X Shiny application offers an intuitive and modular interface designed to support exploratory data analysis and metadata review workflows.</p>
+<section id="layout" class="level4">
+<h4 class="anchored" data-anchor-id="layout">5.1 Layout</h4>
+<p>RED-X features a navbar layout, optimized for navigation and accessibility across different data views.</p>
+<ul>
+<li>Navbar provides quick access to key tabs</li>
+<li>UI elements are dynamically shown or hidden based on user actions and login status</li>
+</ul>
+<p>Each tab supports interactivity, such as dynamic filtering, visualizations, and drill-down views.</p>
+</section>
+<section id="modules" class="level4">
+<h4 class="anchored" data-anchor-id="modules">5.2 Modules</h4>
+<p>The UI is modularized into separate R scripts housed in appTabs/. Each tab is structured as a self-contained Shiny UI component.</p>
+<p><strong>Available Tabs:</strong></p>
+<ul>
+<li>Home Introduces the app, offers key statistics, and links to explore data.</li>
+<li>Network Explorer Interactive visualization of co-occurrence networks for keywords or authors with filtering by college/department.</li>
+<li>Data Explorer Displays study-level metadata and allows keyword/DOI search with optional download links for associated files.</li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js"></script>
+<script>
+  mediumZoom('img', {
+    margin: 24,
+    background: '#000',
+    scrollOffset: 0,
+  })
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } 
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

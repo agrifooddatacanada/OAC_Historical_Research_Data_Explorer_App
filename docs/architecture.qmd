@@ -1,0 +1,142 @@
+---
+title: "System Architecture"
+description: "A technical overview of RED-X system components, data sources, and workflows."
+---
+
+
+### 1.0 Overview
+
+The system architecture section provides a high-level overview of how RED-X is built and how its components interact to deliver a seamless user experience. It outlines the core technologies used, the data flow from external sources to the app interface, and how the system stays up-to-date through automated processes.
+
+RED-X is a browser-based web application developed using **R Shiny** and hosted on **shinyapps.io**. It connects to a **local relational database** (SQLite) that is updated every 48 hours via an API integration with the **Borealis Dataverse**. The system is optimized for metadata visualization, interactive filtering, and reusability analysis.
+
+This section is intended for developers, technical reviewers, and advanced users who want to understand how RED-X integrates data from the Borealis Dataverse, processes it for analysis, and presents it through an interactive Shiny interface. By the end of this section, you'll have a clear picture of how RED-X integrates with external data sources, organizes content in a local database, and serves dynamic outputs through its Shiny-based front end.
+
+
+
+### 2.0 Key components
+
+RED-X is composed of several key components that work together to deliver a smooth and responsive data exploration experience. Each part plays a specific role in fetching, preparing, and displaying data to users.
+
+| Component | Description |
+|----------|-------------|
+| **Frontend (User Interface)** | Built with **R Shiny**, the frontend is modular and reactive. It includes:<br>- Carousel-style home summary<br>- Keyword/author network visualization<br>- Data Explorer with filtering<br>- Tooltip and sidebar interactivity<br>- Dynamic filters, value boxes, tables, and visualizations<br>- Hosted on [shinyapps.io](https://www.shinyapps.io) |
+| **Backend (Data Engine)** | - Uses a lightweight **SQLite database** stored locally<br>- Stores cleaned and structured metadata from the Borealis Dataverse<br>- Includes tables for metadata, files, keywords, authors, and network edges<br>- Optimized for fast queries and minimal setup |
+| **API Integration** | - Connects to the **Borealis Dataverse API**<br>- Retrieves metadata, file listings, DOIs, and keyword-author tags<br>- Data is fetched as JSON and processed into tidy tabular format |
+| **Scheduled Update Process** | - Runs every **48 hours** to refresh the database<br>- Uses an automated R script to:<br>&nbsp;&nbsp;&nbsp;• Pull updated metadata and files<br>&nbsp;&nbsp;&nbsp;• Clean and transform the data<br>&nbsp;&nbsp;&nbsp;• Merge into the SQLite database<br>- Keeps the app in sync with Borealis |
+
+> **Note:** Some of these key features are explained in more detail in the sections that follow.
+
+
+
+### 3.0 Data Flow Pipeline
+
+The data flow in RED-X follows a streamlined, automated process that ensures users always have access to the most up-to-date study metadata and data files.
+
+Data originates from the [**Borealis Dataverse**](https://borealisdata.ca/dataverse/ugardr), where it is retrieved using API calls. Once fetched, the data is cleaned, transformed, and stored in a local SQLite database, which the app uses to deliver fast and filtered responses to users in real time.The diagram below summarizes the process. Each component plays a specific role in moving data through the system.
+
+![](images/data_flow.png){width=85%}
+
+#### 3.1 Fetching Data from Borealis using API calls
+
+##### 1. API Integration for data fetching
+
+RED-X connects to the [Borealis Dataverse API](https://guides.dataverse.org/en/latest/api/) to fetch metadata, datasets, and file information from public and restricted research repositories. This guide provides a high-level overview of how the API is integrated into the app.
+
+The RED-X app integrates with the Borealis Dataverse API to automatically retrieve and update metadata, authorship information, keywords, DOIs, and associated research files. This integration allows RED-X to stay synchronized with the most recent dataset updates on Borealis, without requiring manual downloads or uploads. It streamlines the process of discovering and exploring historical research data.
+
+API calls are made using custom R functions that fetch and process the data into a clean, structured format. Access to the API is secured using a user-specific token stored in environment variables, ensuring both security and flexibility. Depending on user permissions (e.g., general user vs. superuser), access levels to certain data may vary.
+
+
+> **Note:** Detailed information about the API integrations and functions can be found at the [API Guide](api.qmd) section.
+
+
+##### 2. **Data cleaning, transformation**
+
+After data is fetched from the [**Borealis Dataverse**](https://borealisdata.ca/dataverse/ugardr) via API calls, it undergoes a structured pipeline that cleans, transforms, and stores the information in a **lightweight SQLite database** for fast retrieval and application use.
+
+The raw metadata and file listings are parsed and cleaned using a combination of R packages like `dplyr`, `tidyr`, and `stringr`. Below are the main steps:
+
+| **Step**                     | **Description**                                                                                                                                      |
+|-----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Flatten JSON Responses**  | Nested JSON responses from the API are converted into tabular format using `jsonlite::fromJSON(..., flatten = TRUE)`.                              |
+| **Filter Valid Datasets**   | Entries are filtered to ensure they have a valid `persistent_id` (DOI) and required metadata.                                                       |
+| **Extract and Normalize**   | Metadata such as authors, keywords, temporal coverage, and spatial coverage are parsed and stored in a tidy format.                                 |
+| **String Cleanup**          | Fields like keywords and authors are cleaned to remove extraneous punctuation, whitespace, or formatting artifacts.                                 |
+| **Deduplication**           | Identical entries are removed to avoid redundancy using `dplyr::distinct()`.                                                                       |
+| **File Filtering**          | Only `.tab`, `.csv`, and metadata `.txt` files are retained. A helper function `filter_filelist()` ensures correct file extensions are selected.    |
+
+```r
+# Example: Clean a raw keyword string
+cleaned_keywords <- str_split(raw_keywords, ";\\s*") %>%
+  unlist() %>%
+  str_replace_all("[^a-zA-Z0-9\\s-]", "") %>%
+  str_squish() %>%
+  str_to_title() %>%
+  unique()
+```
+
+##### 3. **Storage in SQLite Database**
+
+Once cleaned, the data is stored in an SQLite database bundled with the Shiny app. This makes querying and updating lightweight, portable, and fast.
+
+| **Table**              | **Purpose**                                                                                                      |
+|------------------------|------------------------------------------------------------------------------------------------------------------|
+| `research_data`        | Stores the core metadata of all studies (DOI, title, authors, publication date, etc.)                           |
+| `update_info`          | Keeps a timestamp of the last update to prevent redundant API calls (refresh every 48 hours)                    |
+| `keywords_node/edge`   | Stores the network data for keyword co-occurrence                                                               |
+| `authors_node/edge`    | Stores the network data for author collaboration                                                                |
+| `college_colors`       | Color mapping for each college used in the network visualization                                                |
+| `department_colors`    | Color mapping for each department used in the network visualization                                             |
+
+```r
+# Example: Save cleaned study metadata to SQLite
+dbWriteTable(conn, "research_data", cleaned_metadata, append = TRUE)
+```
+
+> The SQLite database is accessed by the Shiny app at runtime to populate the user interface with up-to-date and searchable content.
+
+##### 4. **Scheduled Updates**
+
+A background R script checks if an update is needed (based on a 48-hour interval) and refreshes the database only when new datasets are detected. This ensures a responsive app while minimizing API load.
+
+```r
+ # Check if update_info table exists and when it was last updated
+  if ("update_info" %in% dbListTables(conn)) {
+    update_info <- dbReadTable(conn, "update_info")
+    if (nrow(update_info) > 0) {
+      last_update <- as.POSIXct(update_info$last_update[1])
+      time_diff <- difftime(Sys.time(), last_update, units = "hours")
+      if (time_diff < 48) {
+        update_needed <- FALSE
+        message("Less than 48 hours since last update (", round(time_diff, 2), " hours). Using cached data.")
+      }
+    }
+  }
+  
+  if (!update_needed && ("research_data" %in% dbListTables(conn))) {
+    # Return cached data if no update is needed
+    return(dbReadTable(conn, "research_data"))
+  }
+  
+  message("Updating cache with new data...")
+```
+
+> This automated pipeline ensures that users always see the most recent research metadata available in the Borealis repository.
+
+### 4.0 Deployment
+
+The RED‑X application is currently deployed using shinyapps.io, a cloud-based hosting service for Shiny applications by RStudio (Posit). This enables the app to be publicly accessible from any browser without requiring local installation of R or its dependencies. 
+
+The **RED-X App** is publicly accessible via the following link: [Launch RED-X on shinyapps.io](https://agrifooddatacanada.shinyapps.io/RED-X/)
+
+This app is actively version-controlled and maintained through GitHub. You can view the full source code, contribute, or report issues using the repository link below: [View RED-X on GitHub](https://github.com/agrifooddatacanada/OAC_Historical_Research_Data_Explorer_App)
+
+The GitHub repository contains:
+- All the source code (UI and server components)
+- Scripts for API integration and data processing
+- Deployment and update scripts
+- Project documentation and development history
+
+
+> Tip: For details on local development or contributing, see the [Developer Guide](dev.qmd) section.

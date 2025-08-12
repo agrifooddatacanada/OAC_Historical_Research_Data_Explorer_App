@@ -1,0 +1,207 @@
+---
+title: "Developer Guide"
+description: "Technical documentation for developers contributing to the RED-X Shiny application."
+---
+
+### 1.0 Project Structure
+
+The RED-X application is organized to promote clarity, modularity, and collaboration. Below is a detailed breakdown of the file structure along with explanations of what each directory and file is responsible for.
+
+```text
+RED-X/
+├── CODE_OF_CONDUCT.md     # Contributor behavior guidelines
+├── LICENSE                # Open source license info
+├── README.md              # Overview and instructions
+├── RED-X.Rproj            # RStudio project file
+├── renv/                  # Dependency management via renv
+├── renv.lock              # Locked dependency versions
+├── app/                   # Core application folder
+│   ├── global.R           # Global settings and shared variables
+│   ├── server.R           # Server logic
+│   ├── UI.R               # Main UI structure
+│   ├── appData/           # Local SQLite database
+│   │   └── Explorer_cache.db           
+│   ├── appFunction/       # Custom function scripts
+│   │   └── dataExplorer_functions.R
+│   ├── appTabs/           # Modular UI tab definitions
+│   │   ├── aboutTab.R
+│   │   ├── datareviewTab.R
+│   │   ├── datareviewsubTab.R
+│   │   ├── datareviewsubTab1.R
+│   │   ├── homeTab.R
+│   │   ├── metadataTab.R
+│   │   ├── navmenuTab.R
+│   │   └── networkTab.R
+│   └── www/               # Static assets (images, logos)
+│       ├── adc logo.jpg
+│       ├── Agri-food.png
+│       ├── ...
+│       └── workshop1.jpeg
+├── docs/                  # Quarto-based documentation source
+│   ├── api.qmd
+│   ├── architecture.qmd
+│   ├── contributing.qmd
+│   ├── dev.qmd
+│   ├── getting-started.qmd
+│   ├── index.qmd
+│   ├── user-guide.qmd
+│   ├── _quarto.yml
+│   ├── styles.css
+│   ├── images/            # Diagrams and screenshots used in documentation
+│   │   ├── API_flow.png
+│   │   ├── data_exploration.png
+│   │   └── ...
+│   └── _site/             # Rendered HTML site output
+│       ├── index.html
+│       ├── api.html
+│       ├── ...
+│       └── site_libs/     # Quarto JS/CSS dependencies
+```
+
+
+#### 1.1 Repository Layout
+
+- The appTabs/ folder follows a modular UI design for maintainability. Each tab (e.g., Network, Metadata, About) is written in a separate script, which is then sourced into the main UI.
+- appFunction/ contains reusable logic like data cleaning or filtering functions.
+- Explorer_cache.db is auto-generated from API responses and stores cleaned metadata, keyword/author nodes, and network edges.
+- The www/ folder contains image assets used in the homepage carousel and other tabs.
+
+#### 1.2 Key Files and Scripts
+
+- UI.R & server.R – Main application UI and server logic
+- global.R – Global configuration, including shared resources
+- appFunction/ – Helper functions (e.g., data fetching, transformation)
+- appTabs/ – UI layout of individual tabs (e.g., Home, Network, Metadata)
+
+#### 1.3 Modular Design
+
+Tabs are modularized into separate scripts for readability and reuse. Example:
+
+``` r
+source("./app/appTabs/homeTab.R")
+```
+
+### 2.0 Getting Started
+
+#### 2.1 Prerequisites
+
+Ensure the following software and system requirements are in place:
+
+- R version ≥ 4.2.0
+- RStudio (recommended IDE)
+- Git (for cloning the repository)
+- Internet access (required for API calls to Borealis)
+- Quarto (optional, for building documentation locally)
+- renv package (used to manage project-specific R dependencies)
+
+The RED‑X app uses the renv package to isolate and restore specific R package versions. This helps ensure that collaborators and users can consistently reproduce the development environment across different systems. To learn more, see [Introduction to renv package](https://rstudio.github.io/renv/articles/renv.html).
+
+#### 2.2 Clone and Set Up the Project
+
+``` bash
+# Clone the repository
+git clone https://github.com/agrifooddatacanada/OAC_Historical_Research_Data_Explorer_App.git
+
+# Navigate into the project directory
+cd OAC_Historical_Research_Data_Explorer_App
+```
+Open the RED-X app as a project in the app directory in RStudio. Read more about [using R studio project here](https://support.posit.co/hc/en-us/articles/200526207-Using-RStudio-Projects).
+
+#### 2.3 Restoring Project Dependencies in RStudio
+
+Run the following in the R console to restore dependencies:
+
+```r
+
+# install.packages("renv") if not already installed
+install.packages("renv")
+
+# Once installed, project dependencies will be restored automatically from renv.lock when you run:
+renv::restore()
+
+```
+Learn more about [Why renv matters for reproducibility here](https://agrifooddatacanada.ca/ensuring-code-consistency-and-reproducibility-with-r-projects-and-renv/).
+
+#### 2.4 Running the App Locally
+
+To launch the RED-X app from your R console:
+
+```r
+# Run the Shiny app
+shiny::runApp("./app")
+```
+This will open the app in your default web browser. You may need to wait a few seconds for data to load from the local SQLite database (Explorer_cache.db).
+
+### 3.0 API Integration
+
+RED-X connects to the Borealis Dataverse API to fetch research datasets, metadata, and related files. All API calls are secured using a token stored in your environment variables.
+
+```r
+Sys.getenv("API_TOKEN")
+```
+> Never hardcode your API token in scripts or share it publicly. Access levels may vary depending on your Dataverse role (e.g., contributor, superuser).
+
+**Key Functions**
+fetch_all_datasets() – Recursively retrieves datasets and structures metadata layers
+fetch_study_details() – Fetches metadata using DOIs
+access_data() – Downloads files associated with each dataset
+
+> View detailed [API guide here](api.qmd)
+
+### 4.0 Database and Data Handling
+
+RED-X uses a local SQLite database (Explorer_cache.db) to store processed research data for fast retrieval and offline access. This approach ensures efficient rendering of network visualizations, metadata tables, and search results, even with large datasets.
+
+#### 4.1 Data Flow
+
+##### 1. Initial Fetch
+On first run (or every 48 hours), RED-X uses fetch_all_datasets() and fetch_study_details() to pull fresh data via the Dataverse API.
+
+##### 2. Transformation & Cleaning
+The raw metadata is cleaned (e.g., standardizing author/keyword formatting) and structured into consistent formats.
+
+##### 3. Storage
+Cleaned data is cached in Explorer_cache.db using the DBI and RSQLite packages. This includes:
+
+- Main study metadata (research_data)
+- Nodes and edges for keywords and authors
+- Update timestamp (update_info)
+
+> See the [Database Schemas](RED-X_Research_data_OCA_schema.md) under the Developer Guide for table details and structure.
+
+##### 4. Automatic Updates
+Every 48 hours, the system checks for new or modified DOIs and appends only new records—preserving performance and avoiding duplication.
+
+```r
+# Check cache timestamp
+if (time_since_last_update > 48 hours) {
+  fetch new DOIs
+  update SQLite cache
+}
+```
+
+### 5.0 UI and UX Design
+
+The RED-X Shiny application offers an intuitive and modular interface designed to support exploratory data analysis and metadata review workflows.
+
+#### 5.1 Layout
+
+RED-X features a navbar layout, optimized for navigation and accessibility across different data views.
+
+- Navbar provides quick access to key tabs
+- UI elements are dynamically shown or hidden based on user actions and login status
+
+Each tab supports interactivity, such as dynamic filtering, visualizations, and drill-down views.
+
+#### 5.2 Modules
+
+The UI is modularized into separate R scripts housed in appTabs/. Each tab is structured as a self-contained Shiny UI component.
+
+**Available Tabs:**
+
+- Home Introduces the app, offers key statistics, and links to explore data.
+- Network Explorer Interactive visualization of co-occurrence networks for keywords or authors with filtering by college/department.
+- Data Explorer Displays study-level metadata and allows keyword/DOI search with optional download links for associated files.
+
+
+
