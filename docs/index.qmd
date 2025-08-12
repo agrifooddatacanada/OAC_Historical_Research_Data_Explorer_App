@@ -1,0 +1,79 @@
+---
+title: "Welcome to RED‑X"
+description: "Explore historical agri-food research data with enhanced speed, coverage, and visualization."
+---
+
+### 1.0 RED‑X (Re‑usable Data Explorer)
+
+RED-X is a reusable data exploration app that helps users discover historical research data hosted on the Borealis Dataverse.It is a modern web application developed by Agri‑Food Data Canada (ADC) to provide researchers and data managers streamlined access to historical research data. It simplifies access to metadata, visualizes keyword/author relationships, and supports informed reuse of datasets. With version 2.0, RED‑X delivers faster performance, a broader institutional scope, and intuitive visual tools.
+
+---
+
+### 2.0 Background and Motivation
+
+RED-X was developed in response to a growing need for **efficient access to historical research datasets**—particularly in the agricultural and environmental sciences. 
+
+Over the years, large volumes of valuable data have been collected by researchers at the **University of Guelph**, especially through the **Ontario Agricultural College (OAC)**. However, much of this data remained siloed, inconsistently described, or difficult to navigate, making reuse a significant challenge.
+
+The motivation behind RED-X came from a **workshop hosted by the University of Guelph in collaboration with Compute Ontario**, which focused on enhancing the **FAIRness** (Findability, Accessibility, Interoperability, and Reusability) of research data. Researchers, librarians, and data specialists at the event emphasized the need for a user-friendly tool that could help bridge the gap between stored data and actionable insight.
+
+RED-X was thus envisioned as a **web-based metadata and dataset discovery platform**, built using **RShiny**, that connects directly to **Borealis**, a Dataverse-based data repository platform. The app provides both technical and non-technical users with intuitive tools for exploring, visualizing, and filtering datasets, enabling better use of existing research outputs and supporting data-driven collaboration across departments and institutions.
+
+---
+
+### 3.0 Purpose & Goals
+
+- **Unlock historical research insights** — aggregates metadata and datasets from multiple colleges and departments within the Agri-environmental Research Data dataverse in Borealis (Canadian Dataverse Repository).
+- **Promote FAIR principles** — ensures data is Findable, Accessible, Interoperable, and Reusable, elevating the value of Agri-Food data.
+- **Enhance discoverability** — presents keyword-author network visualizations and smart filters to reveal connections and trends.
+
+---
+
+### 4.0 Who Should Use RED‑X
+
+- **Academic researchers/Scientist** investigating historical trends.  
+- **Data librarians and stewards** aiming to manage and share historical datasets.  
+- **Graduate students** conducting meta-analyses or literature reviews/data review.
+
+---
+
+### 5.0 Key Features in Version 2.0
+
+- **Optimized loading** through direct database access and 48‑hour auto-refresh.  
+- **Network Explorer** — visualize relationships among keywords, authors, institutions, and colleges.
+- **Explore datasets and metadata**- Navigate historical datasets collected across various colleges and departments, with metadata drawn directly from Borealis.
+- **Smart Filters** — quickly navigate by college, department, or campus.  
+- **Home Tab Summary** — at-a-glance metrics for available studies and datasets.
+- **View study-level summaries** - Gain insight into each dataset through high-level summary statistics, research objectives, study location, and associated keywords.
+- **Seamless navigation** — one-click access to Network or Data Explorer interfaces. 
+
+---
+
+### 6.0 Getting Started
+
+Visit the [**Getting Started**](getting-started.qmd) to launch the RED‑X app, explore its structure, understand system requirements, and get a quick overview of how to navigate and begin using its core features.
+
+---
+
+### 7.0 Browse the Documentation
+
+Use the sidebar to navigate in sequence:
+
+1. [Getting Started](getting-started.qmd)  
+2. [User Guide](user-guide.qmd)  
+3. [System Architecture](architecture.qmd)  
+4. [API Guide](api.qmd) 
+5. [Developer Guide](dev.qmd) 
+6. [Developer Guide](dev.qmd)
+
+---
+
+### 8.0 Support & Credits
+
+RED‑X was developed by **Agri‑Food Data Canada** at the University of Guelph with support from the Canada First Research Excellence Fund.
+Special thanks to **Dr. Busayo Kodaolu** for contributions to the design, development, and documentation of RED‑X Version 2.0.
+For inquiries or technical support, contact: [adc@uoguelph.ca](mailto:adc@uoguelph.ca).
+
+
+
+
